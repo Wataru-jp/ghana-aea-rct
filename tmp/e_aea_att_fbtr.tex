@@ -1,0 +1,24 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{5}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+                    &\multicolumn{1}{c}{Intrinsic}&\multicolumn{1}{c}{Extrinsic}&\multicolumn{1}{c}{Prosocial}&\multicolumn{1}{c}{Locus: gen}&\multicolumn{1}{c}{Locus: agri}\\
+\midrule
+FB: Feedback (T1 or T2)&      -0.578         &       0.249         &       0.510         &       2.133\sym{***}&       2.709         \\
+                    &     (1.087)         &     (0.269)         &     (1.090)         &     (0.412)         &     (1.576)         \\
+TR: Training increment (T2 vs T1)&       0.010         &      -0.566         &      -0.782         &      -2.367\sym{***}&       0.420         \\
+                    &     (0.978)         &     (0.338)         &     (0.819)         &     (0.649)         &     (1.444)         \\
+Stamp (GPS)         &      -0.131         &       0.124         &       0.134         &       1.746         &      -0.613         \\
+                    &     (0.423)         &     (0.702)         &     (0.632)         &     (1.175)         &     (1.618)         \\
+\midrule
+Ctrl mean (base)    &       6.500         &       5.000         &      26.900         &      18.300         &      17.300         \\
+Ctrl mean (end)     &       7.000         &       5.000         &      25.900         &      18.800         &      13.900         \\
+Wild-boot p (FB)    &       0.678         &       0.493         &       0.770         &       0.025         &       0.130         \\
+Wild-boot p (TR)    &       0.985         &       0.093         &       0.440         &       0.044         &       0.724         \\
+RI p (FB)           &       0.636         &       0.369         &       0.656         &       0.000         &       0.145         \\
+RI p (TR)           &       0.993         &       0.138         &       0.408         &       0.005         &       0.809         \\
+Obs                 &          41         &          41         &          41         &          41         &          41         \\
+\bottomrule
+\end{tabular}
+}

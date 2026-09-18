@@ -1,0 +1,153 @@
+% !TEX program = lualatex
+\documentclass[paper=a4, fontsize=10.5pt]{jlreq}
+
+% 数式・記号
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+
+% 画像・図表
+\usepackage{graphicx} % [dvipdfmx] は不要
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage{lscape}
+\usepackage[flushleft]{threeparttable}
+
+% レイアウト・書式
+\usepackage{times}
+\usepackage[top=30truemm,bottom=30truemm,left=25truemm,right=25truemm]{geometry}
+\usepackage{authblk}
+\usepackage{comment}
+\usepackage{url}
+\usepackage{natbib}
+
+
+\title{Results of Baseline and Bi-weekly Surveys }
+\author{Kazushi Takahashi, Wataru Kodama, Yukichi Mano}
+\date{
+	\today
+}
+
+\begin{document}
+	\maketitle
+	%\newpage
+\section{Descriptive statistics}  
+天水地域
+
+各郡のディレクターに全ての稲作コミュニティをリストしてもらう（Achiase 11; Bebiani-Anhwiaso-Bekwai 38; Biakoye 19; Lower Manya Krobo 4; Pru West 11; Sefwi Wiawso 27; Sene West 14; Krachi West 20）。
+全ての稲作コミュニティについて、担当AEAに各コミュニティと連絡をとってもらい（幹部などに偏らないよう、なるべくランダムに）8名の稲作農家をリストしてもらう。
+各AEAにつき２つの稲作コミュニティをランダムに抽出する。各サンプルコミュニティの農家リストからランダムに5名をサンプル農家を抽出し、残り3名をリザーブ農家とする。ただし、担当の稲作コミュニティがひとつしかないAEAについては8名全てをサンプル農家として抽出。
+
+
+灌漑地域
+
+各郡のディレクターからGRIPを通じてKpongとWetaの全稲作農家のリストを入手。
+Kpong（約2800農家）は15のbranch canalのうちの１つのSLLCA（約390農家）をランダムに選び、農家リストからランダムに10名をサンプル農家、5名をリザーブとして抽出。(当初、別の2つのbranch canal、SLLCとNLLCAも抽出し、それぞれ6名と8名の農家を選んでいたが、Dr. Adakuから各農家の村があまりに分散しているとのことで、SLLCAに絞ることになった)
+Weta（約1200農家）は農家リストからランダムに10名をサンプル農家、10名をリザーブとして抽出。
+
+\begin{table}[hbtp]
+	\centering
+	\begin{threeparttable}
+		\caption{Number of Observations by District}
+		
+		% ここで列の定義を自分で行う
+		\begin{tabular}{llccc}
+			\hline
+			\input{tmp/obs_data.tex} % Stataが出力した中身だけを読み込む
+			
+		\end{tabular}
+		
+	\end{threeparttable}
+\end{table}
+
+	\begin{table}[hbtp]
+		\centering
+		\scriptsize
+		\begin{threeparttable}
+			\caption{Demographic Characteristics}
+			
+			\input{tmp/f_balance1.tex}
+			
+		\end{threeparttable}
+	\end{table}
+
+	\begin{table}[hbtp]
+	\centering
+	\scriptsize
+	\begin{threeparttable}
+		\caption{Farm Characteristics}
+		
+		\input{tmp/f_balance2.tex}
+		
+	\end{threeparttable}
+\end{table}
+
+ \begin{landscape} 
+\begin{table}[hbtp]
+	\centering
+	\scriptsize
+	\begin{threeparttable}
+		\caption{Overall characteristics of AEAs}
+		
+		\input{tmp/a_basic_balance.tex}
+		
+	\end{threeparttable}
+\end{table}
+\end{landscape}
+
+ \begin{landscape} 
+	\begin{table}[hbtp]
+		\centering
+		\scriptsize
+		\begin{threeparttable}
+			\caption{Prosocialness}
+			
+			\input{tmp/a_int_balance.tex}
+			
+		\end{threeparttable}
+	\end{table}
+
+\end{landscape}
+
+\begin{landscape} 
+\begin{figure}
+	
+	\hspace{3cm}
+	\includegraphics[scale=1,clip]{tmp/prosocial.eps}
+	\caption{Prosocialness}
+\end{figure}
+\end{landscape}
+
+
+ \begin{landscape} 
+	\begin{table}[hbtp]
+		\centering
+		\scriptsize
+		\begin{threeparttable}
+			\caption{Locus of control}
+			
+			\input{tmp/a_loc_balance.tex}
+			
+		\end{threeparttable}
+	\end{table}
+\end{landscape}
+
+\begin{landscape} 
+	\begin{figure}
+		
+		\hspace{3cm}
+		\includegraphics[scale=1,clip]{tmp/locus1.eps}
+		\caption{Locus of control (agriculture)}
+	\end{figure}
+\end{landscape}
+
+\begin{landscape} 
+	\begin{figure}
+		
+		\hspace{3cm}
+		\includegraphics[scale=1,clip]{tmp/locus2.eps}
+		\caption{Locus of control (general)}
+	\end{figure}
+\end{landscape}
+
+	
+\end{document}

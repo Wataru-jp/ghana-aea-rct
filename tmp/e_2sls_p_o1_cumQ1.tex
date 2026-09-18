@@ -1,0 +1,16 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{10}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}\\
+                    &\multicolumn{1}{c}{Profit/ha}&\multicolumn{1}{c}{Log profit}&\multicolumn{1}{c}{Yield}&\multicolumn{1}{c}{Log yield}&\multicolumn{1}{c}{Crop fail}&\multicolumn{1}{c}{Fert use}&\multicolumn{1}{c}{Herb use}&\multicolumn{1}{c}{Machine}&\multicolumn{1}{c}{Hired lab}&\multicolumn{1}{c}{Family lab}\\
+\midrule
+Cumulative visits (Apr--Sep)&    3730.210\sym{***}&       3.417\sym{*}  &      -0.362         &      -0.083         &      -0.036         &       0.005         &      -0.107\sym{***}&       0.086\sym{**} &      22.594\sym{***}&     -33.241\sym{***}\\
+                    &   (271.758)         &     (1.817)         &     (0.239)         &     (0.102)         &     (0.024)         &     (0.050)         &     (0.015)         &     (0.043)         &     (5.954)         &    (11.498)         \\
+\midrule
+Ctrl mean (end)     &   -4926.736         &      -4.659         &       1.438         &       0.732         &       0.067         &       0.633         &       0.833         &       0.600         &      33.470         &     101.672         \\
+KP weak-ID F        &       12.84         &       16.43         &       20.01         &       23.52         &       20.10         &       35.83         &       12.50         &       16.09         &       15.36         &       15.44         \\
+Obs                 &         372         &         372         &         372         &         372         &         372         &         372         &         372         &         372         &         372         &         372         \\
+\bottomrule
+\end{tabular}
+}

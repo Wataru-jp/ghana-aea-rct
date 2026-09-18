@@ -1,0 +1,26 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
+                    &Satisfy=1         &Satisfy=1         &Satisfy=1 (full sample)         &Satisfy=1 (full sample)         &Satisfy (additional control)         &Satisfy (additional control, full)         \\
+\hline
+T1                  &0.185\sym{***}&0.185\sym{**} &0.085\sym{***}&0.085\sym{***}&0.192\sym{***}&0.098\sym{***}\\
+                    &(0.025)         &(0.059)         &(0.023)         &(0.020)         &(0.055)         &(0.012)         \\
+T2                  &0.111\sym{***}&0.111\sym{***}&0.052\sym{**} &0.052\sym{***}&0.097\sym{**} &0.004         \\
+                    &(0.023)         &(0.033)         &(0.023)         &(0.015)         &(0.031)         &(0.013)         \\
+GPS=1               &0.035\sym{**} &0.035         &0.059\sym{***}&0.059         &0.033         &0.019         \\
+                    &(0.015)         &(0.028)         &(0.015)         &(0.040)         &(0.025)         &(0.022)         \\
+Irrigation=1        &0.209         &0.209\sym{**} &-0.173\sym{**} &-0.173\sym{***}&0.269\sym{**} &0.061         \\
+                    &(0.216)         &(0.085)         &(0.075)         &(0.047)         &(0.084)         &(0.055)         \\
+Number visits (2 weeks)&              &              &              &              &0.046\sym{***}&0.333\sym{***}\\
+                    &              &              &              &              &(0.014)         &(0.036)         \\
+Number contacts (2 weeks)&              &              &              &              &0.011\sym{**} &-0.024         \\
+                    &              &              &              &              &(0.004)         &(0.017)         \\
+\hline
+Control mean        & .774         &              &  .24         &              &              &              \\
+Clustered SE        &              &  Yes         &              &  Yes         &  Yes         &  Yes         \\
+Obs                 & 1982         & 1982         & 4252         & 4252         & 1982         & 4252         \\
+\hline\hline
+\end{tabular}
+}

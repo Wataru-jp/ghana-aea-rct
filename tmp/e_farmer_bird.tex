@@ -1,0 +1,25 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{Profit excl. bird}&\multicolumn{1}{c}{Log profit excl. bird}&\multicolumn{1}{c}{Bird days/ha}\\
+\midrule
+T1: Feedback        &     746.224         &       3.310\sym{*}  &     -18.007         \\
+                    &   (997.086)         &     (1.439)         &    (11.487)         \\
+T2: Feedback+Training&    2014.714\sym{**} &       3.130\sym{**} &     -30.717\sym{**} \\
+                    &   (749.093)         &     (1.318)         &    (10.755)         \\
+Stamp (GPS)         &    2444.711         &      -0.164         &     -11.311         \\
+                    &  (1335.265)         &     (1.202)         &    (15.989)         \\
+\midrule
+T1=T2 [p]           &       0.358         &       0.879         &       0.243         \\
+Ctrl mean (base)    &    -495.675         &      -1.968         &      12.867         \\
+Ctrl mean (end)     &   -1191.023         &      -3.750         &      50.261         \\
+Wild-boot p (T1)    &       0.675         &       0.350         &       0.591         \\
+Wild-boot p (T2)    &       0.169         &       0.200         &       0.398         \\
+RI p (T1)           &       0.519         &       0.069         &       0.172         \\
+RI p (T2)           &       0.020         &       0.059         &       0.011         \\
+Obs                 &         373         &         373         &         373         \\
+\bottomrule
+\end{tabular}
+}

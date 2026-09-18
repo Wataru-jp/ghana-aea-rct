@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+                    &\multicolumn{1}{c}{Knowledge (0--5)}&\multicolumn{1}{c}{Knowledge (0--8)}&\multicolumn{1}{c}{Training attend.}&\multicolumn{1}{c}{Knowl. (0--5) direct}&\multicolumn{1}{c}{Self-rep. visits}&\multicolumn{1}{c}{Job satisf.}\\
+\midrule
+T1: Feedback        &       0.472\sym{**} &       0.919\sym{**} &      -0.020         &       0.487\sym{**} &      -4.327         &      -0.053         \\
+                    &     (0.196)         &     (0.306)         &     (0.076)         &     (0.159)         &     (2.687)         &     (0.718)         \\
+T2: Feedback+Training&       0.923\sym{**} &       1.498\sym{*}  &       0.074\sym{*}  &       0.875\sym{**} &      -1.668\sym{**} &       0.143         \\
+                    &     (0.292)         &     (0.718)         &     (0.036)         &     (0.292)         &     (0.631)         &     (0.589)         \\
+Attended training (=1)&                     &                     &                     &       0.497\sym{**} &                     &                     \\
+                    &                     &                     &                     &     (0.171)         &                     &                     \\
+Stamp (GPS)         &      -0.686         &      -1.297\sym{**} &       0.042         &      -0.705         &      -1.805         &      -0.218         \\
+                    &     (0.416)         &     (0.486)         &     (0.039)         &     (0.416)         &     (5.428)         &     (0.243)         \\
+\midrule
+T1=T2 [p]           &       0.159         &       0.316         &       0.148         &       0.206         &       0.336         &       0.714         \\
+Ctrl mean (base)    &       2.300         &       3.100         &       0.500         &       2.300         &       6.500         &       3.500         \\
+Ctrl mean (end)     &       2.300         &       3.800         &       0.900         &       2.300         &      14.700         &       3.900         \\
+Wild-boot p (T1)    &       0.053         &       0.064         &       0.831         &       0.037         &       0.276         &       0.957         \\
+Wild-boot p (T2)    &       0.066         &       0.145         &       0.115         &       0.092         &       0.121         &       0.740         \\
+RI p (T1)           &       0.066         &       0.022         &       0.818         &       0.022         &       0.191         &       0.952         \\
+RI p (T2)           &       0.024         &       0.111         &       0.065         &       0.023         &       0.034         &       0.818         \\
+Obs                 &          41         &          41         &          41         &          41         &          41         &          41         \\
+\bottomrule
+\end{tabular}
+}

@@ -1,0 +1,22 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Yield}&\multicolumn{1}{c}{Log yield}&\multicolumn{1}{c}{Income/ha}&\multicolumn{1}{c}{Log income}\\
+\midrule
+T1: Feedback        &      -0.350         &      -0.050         &   -2676.221         &       0.973         \\
+                    &     (0.265)         &     (0.072)         &  (2244.359)         &     (0.814)         \\
+T2: Feedback+Training&      -0.169         &      -0.001         &   -2515.900         &       1.446\sym{*}  \\
+                    &     (0.235)         &     (0.065)         &  (2014.489)         &     (0.717)         \\
+Stamp (GPS)         &       0.042         &       0.008         &   -2463.424         &       0.245         \\
+                    &     (0.088)         &     (0.024)         &  (1565.989)         &     (0.223)         \\
+\midrule
+T1=T2 [p]           &       0.432         &       0.400         &       0.920         &       0.529         \\
+Ctrl mean |resid|   &       0.888         &       0.302         &    7552.770         &       6.462         \\
+Wild-boot p (T1)    &       0.517         &       0.739         &       0.595         &       0.651         \\
+Wild-boot p (T2)    &       0.816         &       0.996         &       0.724         &       0.175         \\
+Obs                 &         373         &         373         &         373         &         373         \\
+\bottomrule
+\end{tabular}
+}

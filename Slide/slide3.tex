@@ -1,0 +1,827 @@
+\documentclass[aspectratio=169]{beamer}
+
+% ===== 基本パッケージ =====
+\usepackage{adjustbox}
+\usepackage{appendixnumberbeamer}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amssymb,booktabs,amsfonts,mathtools}
+\usepackage[babel]{csquotes}
+\usepackage{subfiles}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage[round]{natbib}
+\usepackage{tabularray}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{comment}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+% ===== フォント =====
+\usefonttheme{professionalfonts}
+\renewcommand{\familydefault}{\sfdefault}
+
+% ===== カラー定義 =====
+\definecolor{myOrange}{RGB}{230,120,0}
+\definecolor{myGreen}{RGB}{0,130,60}   % new (endline) slides
+\definecolor{myDarkGray}{RGB}{50,50,50}
+
+% ===== カラーテーマ設定 =====
+\setbeamercolor{structure}{fg=myOrange}
+\setbeamercolor{title}{fg=myOrange}
+\setbeamercolor{frametitle}{fg=white, bg=myOrange}
+\setbeamercolor{normal text}{fg=myDarkGray, bg=white}
+
+% ===== フレームタイトル =====
+\setbeamertemplate{frametitle}{
+	\vspace{0.2em}
+	\begin{beamercolorbox}[wd=\paperwidth,ht=2.8ex,dp=1.2ex,leftskip=1em]{frametitle}
+		\insertframetitle
+	\end{beamercolorbox}
+}
+
+% ===== フッター（左：著者 / 中：スライドタイトル / 右：ページ）=====
+\setbeamertemplate{footline}{
+	\leavevmode
+	\hbox{
+		% 左
+		\begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1.2ex,left]{author in head/foot}
+			\hspace{1em}\insertshortauthor
+		\end{beamercolorbox}
+		% 中
+ 		 \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1.2ex,center]{title in head/foot}% \hspace{1em}
+			\usebeamerfont{title in head/foot}
+		\end{beamercolorbox}%
+		% 右
+		\begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1.2ex,right]{date in head/foot}
+			\insertframenumber{} / \inserttotalframenumber\hspace{1em}
+		\end{beamercolorbox}
+	}
+}
+
+\setbeamercolor{author in head/foot}{fg=white,bg=myOrange}
+\setbeamercolor{title in head/foot}{fg=white,bg=myOrange}
+\setbeamercolor{date in head/foot}{fg=white,bg=myOrange}
+
+% ===== ナビゲーション消去 =====
+\setbeamertemplate{navigation symbols}{}
+
+% ===== 情報 =====
+\makeatletter
+\newcommand*\exInput[1]{\@@input#1 }
+\makeatother
+
+\title[Short Title]{Results of Baseline, Bi-weekly, and Endline Surveys}
+\author[Takahashi et al.]{Kazushi Takahashi, Wataru Kodama, Yukichi Mano}
+\date{\today}
+\begin{document}
+	
+	% --- 1枚目のスライド（タイトルページ） ---
+	\begin{frame}{Title}
+		\titlepage
+	\end{frame}
+	
+	% --- 2枚目のスライド ---
+	\begin{frame}{Contents} % 
+		\begin{itemize}
+			\item Motivation % 
+			\item Research Questions and What We Do
+			\item Study Areas and Research Design
+			\item Descriptive statistics
+			\item Preliminary results
+			\item Endline impact results
+		\end{itemize}
+	\end{frame}
+% --- Motivation ---
+\begin{frame}{Motivation}
+	
+	\begin{itemize}
+		\item Improving agricultural productivity requires the adoption of new technologies,
+		such as improved seeds, chemical fertilizers, and appropriate crop management practices.
+		
+		\vspace{0.3cm}
+		
+		\item Since technology development, adoption, and diffusion involve externality,
+		public institutions play a central role.
+		Public agricultural extension workers are key actors in disseminating technologies
+		developed at research stations.
+		
+		\vspace{0.3cm}
+		
+		\item However, in many developing countries, particularly in Sub-Saharan Africa,
+		public extension systems often function poorly.
+		
+		\vspace{0.3cm}
+		
+		\item One explanation is weak incentives:
+		\begin{itemize}
+			\item Limited monitoring and weak linkage between performance and rewards
+			(lack of extrinsic motivation)
+			\item Extension workers may not perceive extension activities as meaningful
+			(lack of intrinsic motivation)
+		\end{itemize}
+		
+		\vspace{0.3cm}
+		
+		
+	\end{itemize}
+	
+\end{frame}
+
+% --- Research gap \& Aim of the paper ---
+\begin{frame}{Research Questions} % 
+	\begin{itemize}
+		\item This study focuses on intrinsic motivation and evaluates interventions
+		that can improve the effectiveness of extension activities.
+		
+		\vspace{0.3cm}
+		
+		\begin{itemize}
+			
+			\item \textbf{Is low extension effort driven by a lack of locus of control?}
+			\begin{itemize}
+				\item Extension workers do not believe that their efforts can improve farmers' lives.
+			\end{itemize}
+			
+			\vspace{0.3cm}
+			
+			\item \textbf{Is low effort driven by weak social recognition?}
+			\begin{itemize}
+				\item No matter how hard AEAs try, their efforts are not particularly recognized or appreciated by their superiors or the farmers. 
+			\end{itemize}
+			
+			\vspace{0.3cm}
+			
+			
+		\end{itemize}
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{What We Do}
+	
+	\begin{itemize}
+		\item This study focuses on intrinsic motivation and evaluates interventions
+		that can improve the effectiveness of extension activities.
+		
+		\vspace{0.3cm}
+		\begin{itemize}
+			\item \textbf{Is low extension effort driven by a lack of locus of control?}
+			\begin{itemize}
+				\item Extension workers do not believe that their efforts can improve farmers' lives.
+				\item $\Rightarrow$ Provide training emphasizing the social significance of extension activities
+			\end{itemize}
+			
+			\vspace{0.3cm}
+			
+			\item \textbf{Is low effort driven by weak social recognition?}
+			\begin{itemize}
+				\item  No matter how hard AEAs try, their efforts are not particularly recognized or appreciated by their superiors or the farmers. 
+				\item $\Rightarrow$ Introduce a feedback system communicating farmers' satisfaction
+				\item $\Rightarrow$ Ask AEAs to stamp their location information when visit farmer fields (somewhat related to extrinsic motivation?)
+			\end{itemize}
+			
+			\vspace{0.3cm}
+			
+			
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Study Areas}
+	\begin{itemize}
+		\item Rainfed areas covered by GRIP:
+		\begin{itemize}
+			\item Oti (Biakoye and Krachi West)
+			\item Bono East (Pru West and Sene West)
+			\item Western North (Bibiani and Sefwi Wiaoso)
+			\item Eastern Regions (Achiase and Lower Manya) 
+			\vspace{0.3cm}
+		\end{itemize}
+		\item Irrigation schemes:
+		\begin{itemize}
+			\item Weta (Volta)
+			\item Kpong (Eastern)
+		\end{itemize}
+		\vspace{0.3cm}
+		\item Total: 
+		\begin{itemize}
+			\item 10 study sites across major rice-producing environments in Ghana
+			\item 44 agricultural extension agents (AEAs)
+			\item 390 rice-growing farmers
+			
+		\end{itemize}
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Random Assignment}
+	\textbf{Sample}
+	\begin{itemize}
+		\item 44 AEAs who participated in the baseline survey
+		\item Random assignment conducted at the district level
+	\end{itemize}
+	
+	
+	\textbf{Treatment Arms}
+	\begin{itemize}
+		\item \textbf{Group 1: Feedback Treatment}
+		\begin{itemize}
+			\item Extension agents and their supervisors receive feedback from farmers regarding their extension activities: biweekly
+			\item \textcolor{blue}{Sene West, Achiase, Bibiani}
+		\end{itemize}
+		
+		\item \textbf{Group 2: Feedback + Training}
+		\begin{itemize}
+			\item Farmer feedback provided
+			\item Additional training emphasizing the social importance and impact of extension services
+			\item \textcolor{blue}{Lower Manya, Krachi West, Sefwi Wiaoso}
+		\end{itemize}
+		
+		\item \textbf{Group 3: Control Group}
+		\begin{itemize}
+			\item No intervention (Collect the satisfaction level, but do not inform the result to AEAs) 
+			\item \textcolor{blue}{Pru West, Biakoye, and 2 irrigation schemes}
+		\end{itemize}
+		
+		\item \textbf{Half of AEAs are subject to stamp treatment}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Main outcomes of interest}
+	\begin{itemize}
+		\item Rice Production (Farmer data at baseline and endline)
+		\begin{itemize}
+			\item Yield
+			\item Income 
+			\item Profits
+			\item Rice management practices
+			\vspace{0.3cm}
+		\end{itemize}
+		\item Extension Activities (Biweekly data) 
+		\begin{itemize}
+			\item Number of visits
+			\item Number of successful communication
+			\item Satisfaction level 
+		\end{itemize}
+		
+		
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Project Timeline}
+	
+	\begin{itemize}
+		\item \textbf{January 2025:} Baseline Survey
+		\vspace{0.3cm}
+		
+		\item \textbf{April -- September 2025:} Intervention
+		\begin{itemize}
+			\item Satisfaction Survey
+			\item Training
+		\end{itemize}
+		\vspace{0.3cm}
+		
+		\item \textbf{January 2026:} Endline Survey
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Number of Obs by District}
+\begin{table}[hbtp]
+	\centering
+	\begin{threeparttable}
+		
+		% ここで列の定義を自分で行う
+		\begin{tabular}{llccc}
+			\hline
+			\input{tmp/obs_data.tex} % Stataが出力した中身だけを読み込む
+			
+		\end{tabular}
+		
+	\end{threeparttable}
+\end{table}
+\end{frame}	
+
+
+
+
+\begin{frame}{Demographic Characteristics (Farmer)}
+	\centering
+	\scalebox{0.55}{\input{tmp/f_balance1.tex}}
+	
+\end{frame}
+
+\begin{frame}{Basic Farming Characteristics (Farmer)}
+	\centering
+	\scalebox{0.5}{\input{tmp/f_balance2.tex}}
+	
+\end{frame}
+
+
+\begin{frame}{Basic Farming Characteristics (Farmer) w/o Irrg}
+\centering
+\scalebox{0.5}{\input{tmp/f_balance2b.tex}}
+
+\end{frame}
+
+\begin{frame}{Technology Adoption (Farmer)}
+	\centering
+	\scalebox{0.6}{\input{tmp/f_balance3.tex}}
+	
+\end{frame}
+
+\begin{frame}{Basic Characteristics (AEA)}
+	\centering
+	\scalebox{0.55}{\input{tmp/a_balance1.tex}}
+	
+\end{frame}
+
+\begin{frame}{Prosocialness (AEA)}
+	\centering
+	\scalebox{0.6}{\input{tmp/a_balance2.tex}}
+	
+\end{frame}
+
+\begin{frame}{Intrinsic and Extrinsic Motivation}
+	\begin{itemize}
+		\item Intrinsic motivation
+		\begin{itemize}
+			\item Because this activity is fun 
+			\item Because I feel good when doing this activity
+			\vspace{0.3cm}
+		\end{itemize}
+		\item Extrinsic Motivation (External regulation and identified regulation)
+		\begin{itemize}
+			\item Because I am supposed to do it
+			\item Because I don't have any choice
+			\item Because I am doing it for my own good 
+			\item Because I think that this activity is good for me. 
+		\end{itemize}
+		
+		
+		
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Distribution of Prosocialness Answer}
+	\begin{figure}
+		\includegraphics[width=12cm]{tmp/prosocial.eps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Locus of Control (AEA)}
+	\centering
+	\scalebox{0.5}{\input{tmp/a_balance3.tex}}
+	
+\end{frame}
+
+\begin{frame}{Distribution of Locus of Control Answer (A-E)}
+	\begin{figure}
+		\includegraphics[width=12cm]{tmp/locus1.eps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Distribution of Locus of Control Answer (F-J)}
+	\begin{figure}
+		\includegraphics[width=12cm]{tmp/locus2.eps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Descriptive Results of Biweekly Survey}
+	\centering
+\scalebox{0.6}{\input{tmp/b_balance1.tex}}
+\end{frame}
+
+
+
+
+\begin{frame}{Descriptive Results of Biweekly Survey}
+	\begin{figure}
+		\includegraphics[width=12cm]{tmp/b_basic.eps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Satisfaction Level by District and Time}
+	\begin{figure}
+		\includegraphics[width=10cm]{tmp/b_satisfy.eps}
+	\end{figure}
+\end{frame}
+
+
+\begin{frame}{Preliminary results (AEA)}
+	\centering
+	\scalebox{0.55}{\input{tmp/result_table1.tex}}
+		\begin{tablenotes}
+			\scriptsize
+		\item Note: Provincial and Round fixed effects are controlled. ***, **, and * indicate significance at the 1, 5, and 10 percent critical level.  \\.  
+	\end{tablenotes}
+	
+\end{frame}
+
+\begin{frame}{Preliminary results (AEA)}
+	\centering
+	\scalebox{0.55}{\input{tmp/result_table2.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: Provincial and Round fixed effects are controlled. ***, **, and * indicate significance at the 1, 5, and 10 percent critical level.  \\.  
+	\end{tablenotes}
+	
+\end{frame}
+
+\begin{frame}{Preliminary results of Correlation (Farming)}
+	\centering
+	\scalebox{0.34}{\input{tmp/f_result_table2.tex}}
+	
+\end{frame}
+
+\begin{frame}{Preliminary results of Correlation (AEA)}
+	\centering
+	\scalebox{0.5}{\input{tmp/a_result_table3.tex}}
+	
+\end{frame}
+
+% ======================= ENDLINE IMPACT RESULTS =======================
+% New slides (Feb 2026 endline): theme switches to GREEN from here so
+% co-authors can see at a glance which slides were added.
+\setbeamercolor{structure}{fg=myGreen}
+\setbeamercolor{frametitle}{fg=white, bg=myGreen}
+\setbeamercolor{author in head/foot}{fg=white,bg=myGreen}
+\setbeamercolor{title in head/foot}{fg=white,bg=myGreen}
+\setbeamercolor{date in head/foot}{fg=white,bg=myGreen}
+
+\begin{frame}{Endline: Sample and Attrition}
+\begin{itemize}
+	\item Endline survey conducted January--February 2026 (one wet season after the intervention)
+	\item Baseline: 390 farmers, 44 AEAs \; $\rightarrow$ \; Endline: 394 farmers, 43 AEAs
+	\begin{itemize}
+		\item \textbf{385 matched panel households} ($\approx$99\% of baseline)
+		\item 1 AEA retired (Worawora); response rates $\approx$98\%
+	\end{itemize}
+	\item Attrition concentrated in Kpong irrigation and Achiase, largely non-random
+	      (plots leased out; farmers exited rice)
+	\item Survey-firm data revisions (Jul 2026) incorporated: labor in-kind values,
+	      variety/seed-type coding, AEA visit frequencies
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (AEA)}
+	\centering
+	\scalebox{0.6}{\input{tmp/desc_arm_aea.tex}}
+	\begin{itemize}\footnotesize
+		\item Note: baseline and endline means by assigned arm; SD in parentheses. Stars on T1/T2:
+		difference vs Control \emph{within the wave} (district-clustered); ***, **, * : 1, 5, 10\%.
+		Self-reported visits winsorized at 1/99 in the analysis (raw here).
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (Farmer)}
+	\centering
+	\scalebox{0.42}{\input{tmp/desc_arm_farmer.tex}}
+	\begin{itemize}\scriptsize
+		\item Note: baseline and endline means by assigned arm (baseline cells: matched panel;
+		endline cells: endline sample, N=394); SD in parentheses. Stars on T1/T2: difference vs
+		Control \emph{within the wave} (district-clustered); ***, **, * : 1, 5, 10\%.
+		Income can be negative (crop failure $=0$ output $-$ costs).
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (Farmer, excl.\ Irrigation Schemes in C)}
+	\centering
+	\scalebox{0.42}{\input{tmp/desc_arm_farmer_noirr.tex}}
+	\begin{itemize}\scriptsize
+		\item Note: as the previous slide, but the Control group \emph{excludes the two
+		irrigation-scheme sites} (Kpong and Weta; 12 endline households). T1/T2 unchanged.
+		***, **, * : 1, 5, 10\%.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Prosocialness Answers: Baseline vs Endline (AEA)}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.78\textheight,keepaspectratio]{tmp/prosocial_be.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Locus of Control Answers (A--E): Baseline vs Endline (AEA)}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.78\textheight,keepaspectratio]{tmp/locus1_be.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Locus of Control Answers (F--J): Baseline vs Endline (AEA)}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.78\textheight,keepaspectratio]{tmp/locus2_be.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Descriptives: AEA Outcomes, Baseline vs Endline}
+	\centering
+	\scalebox{0.75}{\input{tmp/desc_be_aea.tex}}
+	\begin{itemize}\footnotesize
+		\item Note: matched panel AEAs (N=43). SD in parentheses. Diff = endline $-$ baseline;
+		stars from a paired test with district-clustered SEs. ***, **, * : 1, 5, 10\%.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives: Farmer Outcomes, Baseline vs Endline}
+	\centering
+	\scalebox{0.52}{\input{tmp/desc_be_farmer.tex}}
+	\begin{itemize}\scriptsize
+		\item Note: matched panel households (N=385). SD in parentheses. Diff = endline $-$ baseline;
+		stars from a paired test with district-clustered SEs.
+		``Any improved variety'' pools all improved codes (CSIR-AGRA, Exbaika, Jasmin85,
+		Aromatic, Thai Jasmine, Amankwatia). Endline variety/seed-type coding errors were
+		corrected by the survey firm (revised data, Jul 2026). ***, **, * : 1, 5, 10\%.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Empirical Strategy}
+\begin{itemize}
+	\item \textbf{ANCOVA}: regress endline outcome on treatment status, controlling for
+	      the baseline value of the outcome
+	\item Arms: T1 (Feedback), T2 (Feedback + Training); plus the cross-cutting Stamp (GPS)
+	\item Farmer models add region (province) fixed effects; SEs clustered at district ($\approx$10 clusters)
+	\item Few clusters $\Rightarrow$ we report \textbf{wild cluster bootstrap} (Webb, 9{,}999) and
+	      \textbf{randomization-inference} $p$-values alongside clustered SEs
+	\item Crop failure = realized \textbf{zero} output (kept in sample); logs use $\ln(1+x)$;
+	      continuous outcomes winsorized at 1/99
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Bi-weekly (AEA): Effort Level Reported by Farmers}
+	\centering
+	\scalebox{0.5}{\input{tmp/bw_effort_v2.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: farmer$\times$round panel; farmers report AEA visits and contacts. Columns (1)--(4):
+		all 11 bi-weekly rounds (Apr--Sep 2025); columns (5)--(8): planting/establishment window only
+		(rounds 05-1--06-2). Round and province FE; SE clustered at district. Control mean measured in
+		the first round (all-rounds columns) or within the window. Wild-boot (Webb, 9{,}999) and RI
+		(1{,}000) $p$-values reported. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Bi-weekly (farmer): Satisfaction to Extension Service}
+	\centering
+	\scalebox{0.46}{\input{tmp/bw_satisfy_v2.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: farmer$\times$round panel. ``Satisfied'' = satisfied/very satisfied, defined for
+		rounds with any visit; ``full'' recodes no-visit rounds to 0; ``add.\ ctrl'' adds visit and
+		contact counts. Columns (1)--(4): all 11 rounds (Apr--Sep 2025); columns (5)--(8):
+		planting/establishment window only (05-1--06-2), with the control mean measured within the
+		window. Round and province FE; SE clustered at district. Wild-boot (Webb, 9{,}999) and RI
+		(1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Endline (AEA): Motivation and Locus of Control}
+	\centering
+	\scalebox{0.55}{\input{tmp/e_aea_attitude.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=43$ AEAs).
+		Wild-boot = Webb wild cluster bootstrap (9{,}999); RI = randomization inference (1{,}000).
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Endline (AEA): Knowledge, Effort, Satisfaction}
+	\centering
+	\scalebox{0.58}{\input{tmp/e_aea_effort.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=43$).
+		Self-reported visits winsorized at 1/99; three AEAs' reporting-period errors corrected in the
+		revised data (Jul 2026), but the measure remains noisy --- the bi-weekly farmer reports are
+		the preferred effort measure.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Endline (Farmer): Production and Income}
+	\centering
+	\scalebox{0.46}{\input{tmp/e_farmer_prod.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: ANCOVA with region FE and baseline-outcome control; SE clustered at district.
+		Income = value of output at district-median prices $-$ cash costs (incl.\ hired labor);
+		crop failure $=0$ output, so income can be negative. Log income uses the inverse
+		hyperbolic sine. Wild-boot (Webb, 9{,}999) and RI (1{,}000) $p$-values reported. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Endline (Farmer): Sampling-Weighted Robustness}
+	\centering
+	\scalebox{0.46}{\input{tmp/e_farmer_weighted.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: Population-representative estimates using inverse-probability sampling weights
+		(rice-farmer population $/$ baseline sample size). Region FE and baseline-outcome control;
+		SE clustered at district. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Endline (Farmer): Management-Practice Adoption}
+	\centering
+	\scalebox{0.5}{\input{tmp/e_farmer_practice.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: ANCOVA with region FE and baseline-outcome control; SE clustered at district.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Endline (Farmer): Sampling-Weighted Robustness (Practices)}
+	\centering
+	\scalebox{0.5}{\input{tmp/e_farmer_prac_w.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: Population-representative estimates using inverse-probability sampling weights
+		(rice-farmer population $/$ baseline sample size). Region FE and baseline-outcome control;
+		SE clustered at district. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Endline: Key Takeaways}
+\begin{itemize}\small
+	\item \textbf{T1 (Feedback)} --- moved \emph{beliefs and service quality}:
+	\begin{itemize}\small
+		\item AEA: agricultural locus of control $+2.1$ (RI $p=0.001$); other attitudes unchanged
+		\item Farmer: satisfaction $+9$--$18$pp (RI $p\approx0.02$); herbicide use and
+		      crop failure fall; \emph{no} yield/income effect; \emph{no} effect on visit numbers
+	\end{itemize}
+	\item \textbf{T2 (Feedback + Training)} --- moved \emph{effort and knowledge}:
+	\begin{itemize}\small
+		\item AEA: general locus of control $+3.1$ (RI $p=0.01$); rice knowledge $+0.65$ (RI $p=0.05$)
+		\item Farmer: visits $+0.15$/round ($\approx+31\%$ of control, RI $p=0.02$); satisfaction
+		      $+6$--$11$pp (RI $p=0.02$); herbicide use falls; machine use up;
+		      \emph{no} yield/income effect
+	\end{itemize}
+	\item \textbf{Stamp (GPS)} --- \emph{no systematic impact}: null on visits, satisfaction,
+	      AEA attitudes/knowledge, and yield/income; no systematic practice effects
+\end{itemize}
+\end{frame}
+
+% ======================= APPENDIX =======================
+\appendix
+\begin{frame}[plain]
+	\vfill
+	\centering
+	{\Huge\bfseries\textcolor{myGreen}{Appendix}}
+	\vfill
+\end{frame}
+
+% ---- A1. FB/TR reparameterization ----
+\begin{frame}{Appendix: FB/TR --- Bi-weekly Effort}
+	\centering
+	\scalebox{0.5}{\input{tmp/bw_effort_fbtr.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: same regression as the main table, reparameterized: FB $=1$\{T1 or T2\}
+		(feedback effect $=$ T1 vs Control); TR $=1$\{T2\} (incremental effect of training on top
+		of feedback $=$ T2 $-$ T1). Columns (1)--(4): all rounds; (5)--(8): planting window
+		(05-1--06-2). Round and province FE; SE clustered at district; wild-boot (Webb, 9{,}999)
+		and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- Bi-weekly Satisfaction}
+	\centering
+	\scalebox{0.46}{\input{tmp/bw_satisfy_fbtr.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). Definitions as in the main
+		satisfaction table. Columns (1)--(4): all rounds; (5)--(8): planting window (05-1--06-2).
+		Round and province FE; SE clustered at district; wild-boot and RI $p$-values.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- AEA Attitudes (ANCOVA)}
+	\centering
+	\scalebox{0.62}{\input{tmp/e_aea_att_fbtr.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). ANCOVA with baseline-outcome
+		control; SE clustered at district ($N=43$); wild-boot and RI $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- AEA Knowledge, Effort, Satisfaction}
+	\centering
+	\scalebox{0.65}{\input{tmp/e_aea_eff_fbtr.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). ANCOVA; SE clustered at
+		district; wild-boot and RI $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- Farmer Production and Income}
+	\centering
+	\scalebox{0.46}{\input{tmp/e_farmer_prod_fbtr.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). ANCOVA with region FE and
+		baseline-outcome control; SE clustered at district; wild-boot and RI $p$-values.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- Farmer Management Practices}
+	\centering
+	\scalebox{0.5}{\input{tmp/e_farmer_prac_fbtr.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). ANCOVA with region FE and
+		baseline-outcome control; SE clustered at district; wild-boot and RI $p$-values.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+% ---- A2. Irrigation robustness (plot-level dummy) ----
+\begin{frame}{Appendix: Plot-Level Irrigation Control (Farmer)}
+	\centering
+	\scalebox{0.46}{\input{tmp/e_farmer_prod_irrg.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: replaces the scheme-level design dummy with the \emph{plot-level} irrigation
+		indicator (QY1.1\_9). The plot-level indicator is a farmer choice and potentially
+		post-treatment (``bad control''): read descriptively. ANCOVA with region FE and
+		baseline-outcome control; SE clustered at district; wild-boot and RI $p$-values.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+% ---- A3. 2SLS (4 endogenous x production/adoption, two panels per slide) ----
+\begin{frame}{Appendix: 2SLS --- Extension Intensity and Production}
+	\centering
+	{\footnotesize\textbf{Endogenous: cumulative visits (Apr--Sep)}}\\[1pt]
+	\scalebox{0.46}{\input{tmp/e_2sls_o1_cumQ1.tex}}\\[4pt]
+	{\footnotesize\textbf{Endogenous: cumulative contacts (Apr--Sep)}}\\[1pt]
+	\scalebox{0.46}{\input{tmp/e_2sls_o1_cumQ2.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: 2SLS; endogenous regressor $=$ cumulative farmer-reported visits (top) or
+		contacts (bottom) over the 11 bi-weekly rounds, instrumented by T1/T2 assignment.
+		ANCOVA controls as in the main tables; SE clustered at district. KP $F$ = Kleibergen--Paap
+		weak-instrument $F$ ($\approx$10 clusters: weak-IV caution); Hansen $J$ from the
+		het.-robust VCE. ***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Appendix: 2SLS --- Satisfaction and Production}
+	\centering
+	{\footnotesize\textbf{Endogenous: mean satisfaction level (Apr--Sep), visited rounds}}\\[1pt]
+	\scalebox{0.46}{\input{tmp/e_2sls_o1_msatall.tex}}\\[4pt]
+	{\footnotesize\textbf{Endogenous: mean satisfaction level (05-1--06-2), visited rounds}}\\[1pt]
+	\scalebox{0.46}{\input{tmp/e_2sls_o1_msat.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: endogenous regressor $=$ mean 1--5 satisfaction level over visited rounds,
+		full period (top) or May--June only (bottom); the May--June measure \emph{predates
+		harvest}, limiting reverse causality from realized outcomes. Farmers with $\geq$1 contact
+		in the respective period. Instruments, controls, and statistics as on the previous slide.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Appendix: 2SLS --- Extension Intensity and Technology Adoption}
+	\centering
+	{\footnotesize\textbf{Endogenous: cumulative visits (Apr--Sep)}}\\[1pt]
+	\scalebox{0.48}{\input{tmp/e_2sls_o2_cumQ1.tex}}\\[4pt]
+	{\footnotesize\textbf{Endogenous: cumulative contacts (Apr--Sep)}}\\[1pt]
+	\scalebox{0.48}{\input{tmp/e_2sls_o2_cumQ2.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: as the first 2SLS slide, for the technology-adoption outcomes.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\begin{frame}{Appendix: 2SLS --- Satisfaction and Technology Adoption}
+	\centering
+	{\footnotesize\textbf{Endogenous: mean satisfaction level (Apr--Sep), visited rounds}}\\[1pt]
+	\scalebox{0.48}{\input{tmp/e_2sls_o2_msatall.tex}}\\[4pt]
+	{\footnotesize\textbf{Endogenous: mean satisfaction level (05-1--06-2), visited rounds}}\\[1pt]
+	\scalebox{0.48}{\input{tmp/e_2sls_o2_msat.tex}}
+	\begin{tablenotes}
+		\scriptsize
+		\item Note: as the second 2SLS slide, for the technology-adoption outcomes.
+		***, **, * : 1, 5, 10\%.
+	\end{tablenotes}
+\end{frame}
+
+\end{document}

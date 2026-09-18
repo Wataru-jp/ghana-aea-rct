@@ -1,0 +1,1055 @@
+\documentclass[aspectratio=169]{beamer}
+
+% ===== 基本パッケージ =====
+\usepackage{adjustbox}
+\usepackage{appendixnumberbeamer}
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage{amssymb,booktabs,amsfonts,mathtools}
+\usepackage[babel]{csquotes}
+\usepackage{subfiles}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage[round]{natbib}
+\usepackage{tabularray}
+\usepackage{float}
+\usepackage[normalem]{ulem}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{comment}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\emergencystretch}{3em}
+\newcommand{\notefont}{\fontsize{5pt}{6pt}\selectfont}
+
+% NOTE: threeparttable's \tablenotes is only width-aware inside a threeparttable.
+% Used bare, it ignores \linewidth and runs off the right edge of the slide without
+% any Overfull warning, so the note frames below use an explicit minipage instead.
+
+% ===== フォント =====
+\usefonttheme{professionalfonts}
+\renewcommand{\familydefault}{\sfdefault}
+
+% ===== カラー定義 =====
+\definecolor{myOrange}{RGB}{230,120,0}
+\definecolor{myGreen}{RGB}{0,130,60}   % new (endline) slides
+\definecolor{myDarkGray}{RGB}{50,50,50}
+
+% ===== カラーテーマ設定 =====
+\setbeamercolor{structure}{fg=myGreen}
+\setbeamercolor{title}{fg=myGreen}
+\setbeamercolor{frametitle}{fg=white, bg=myGreen}
+\setbeamercolor{normal text}{fg=myDarkGray, bg=white}
+
+% ===== フレームタイトル =====
+\setbeamertemplate{frametitle}{
+	\vspace{0.2em}
+	\begin{beamercolorbox}[wd=\paperwidth,ht=2.8ex,dp=1.2ex,leftskip=1em]{frametitle}
+		\insertframetitle
+	\end{beamercolorbox}
+}
+
+% ===== フッター（左：著者 / 中：スライドタイトル / 右：ページ）=====
+\setbeamertemplate{footline}{
+	\leavevmode
+	\hbox{
+		% 左
+		\begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1.2ex,left]{author in head/foot}
+			\hspace{1em}\insertshortauthor
+		\end{beamercolorbox}%
+		% 中
+ 		 \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1.2ex,center]{title in head/foot}% \hspace{1em}
+			\usebeamerfont{title in head/foot}
+		\end{beamercolorbox}%
+		% 右
+		\begin{beamercolorbox}[wd=.33\paperwidth,ht=2.5ex,dp=1.2ex,right]{date in head/foot}
+			\insertframenumber{} / \inserttotalframenumber\hspace{1em}
+		\end{beamercolorbox}%
+	}
+}
+
+\setbeamercolor{author in head/foot}{fg=white,bg=myGreen}
+\setbeamercolor{title in head/foot}{fg=white,bg=myGreen}
+\setbeamercolor{date in head/foot}{fg=white,bg=myGreen}
+
+% ===== ナビゲーション消去 =====
+\setbeamertemplate{navigation symbols}{}
+
+% ===== 情報 =====
+\makeatletter
+\newcommand*\exInput[1]{\@@input#1 }
+\makeatother
+
+\title[Short Title]{Results of Baseline, Bi-weekly, and Endline Surveys}
+\author[Takahashi et al.]{Kazushi Takahashi, Wataru Kodama, Yukichi Mano}
+\date{\today}
+\begin{document}
+	
+	% --- 1枚目のスライド（タイトルページ） ---
+	\begin{frame}{Title}
+		\titlepage
+	\end{frame}
+	
+	% --- 2枚目のスライド ---
+	\begin{frame}{Contents} % 
+		\begin{itemize}
+			\item Motivation % 
+			\item Research Questions and What We Do
+			\item Study Areas and Research Design
+			\item Data and Descriptive Statistics
+			\item Results: Bi-weekly and Endline
+			\item Appendix: Reparameterization, Robustness, 2SLS
+		\end{itemize}
+	\end{frame}
+% --- Motivation ---
+\begin{frame}{Motivation}
+	
+	\begin{itemize}
+		\item Improving agricultural productivity requires the adoption of new technologies,
+		such as improved seeds, chemical fertilizers, and appropriate crop management practices.
+		
+		\vspace{0.3cm}
+		
+		\item Since technology development, adoption, and diffusion involve externality,
+		public institutions play a central role.
+		Public agricultural extension workers are key actors in disseminating technologies
+		developed at research stations.
+		
+		\vspace{0.3cm}
+		
+		\item However, in many developing countries, particularly in Sub-Saharan Africa,
+		public extension systems often function poorly.
+		
+		\vspace{0.3cm}
+		
+		\item One explanation is weak incentives:
+		\begin{itemize}
+			\item Limited monitoring and weak linkage between performance and rewards
+			(lack of extrinsic motivation)
+			\item Extension workers may not perceive extension activities as meaningful
+			(lack of intrinsic motivation)
+		\end{itemize}
+		
+		\vspace{0.3cm}
+		
+		
+	\end{itemize}
+	
+\end{frame}
+
+% --- Research gap \& Aim of the paper ---
+\begin{frame}{Research Questions} % 
+	\begin{itemize}
+		\item This study focuses on intrinsic motivation and evaluates interventions
+		that can improve the effectiveness of extension activities.
+		
+		\vspace{0.3cm}
+		
+		\begin{itemize}
+			
+			\item \textbf{Is low extension effort driven by a lack of locus of control?}
+			\begin{itemize}
+				\item Extension workers do not believe that their efforts can improve farmers' lives.
+			\end{itemize}
+			
+			\vspace{0.3cm}
+			
+			\item \textbf{Is low effort driven by weak social recognition?}
+			\begin{itemize}
+				\item No matter how hard AEAs try, their efforts are not particularly recognized or appreciated by their superiors or the farmers. 
+			\end{itemize}
+			
+			\vspace{0.3cm}
+			
+			
+		\end{itemize}
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{What We Do}
+	
+	\begin{itemize}
+		\item This study focuses on intrinsic motivation and evaluates interventions
+		that can improve the effectiveness of extension activities.
+		
+		\vspace{0.3cm}
+		\begin{itemize}
+			\item \textbf{Is low extension effort driven by a lack of locus of control?}
+			\begin{itemize}
+				\item Extension workers do not believe that their efforts can improve farmers' lives.
+				\item $\Rightarrow$ Provide training emphasizing the social significance of extension activities
+			\end{itemize}
+			
+			\vspace{0.3cm}
+			
+			\item \textbf{Is low effort driven by weak social recognition?}
+			\begin{itemize}
+				\item  No matter how hard AEAs try, their efforts are not particularly recognized or appreciated by their superiors or the farmers. 
+				\item $\Rightarrow$ Introduce a feedback system communicating farmers' satisfaction
+				\item $\Rightarrow$ Ask AEAs to stamp their location information when visit farmer fields (somewhat related to extrinsic motivation?)
+			\end{itemize}
+			
+			\vspace{0.3cm}
+			
+			
+		\end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Study Areas}
+	\begin{itemize}
+		\item Rainfed areas covered by GRIP:
+		\begin{itemize}
+			\item Oti (Biakoye and Krachi West)
+			\item Bono East (Pru West and Sene West)
+			\item Western North (Bibiani and Sefwi Wiaoso)
+			\item Eastern Regions (Achiase and Lower Manya) 
+			\vspace{0.3cm}
+		\end{itemize}
+		\item Irrigation schemes:
+		\begin{itemize}
+			\item Weta (Volta)
+			\item Kpong (Eastern)
+		\end{itemize}
+		\vspace{0.3cm}
+		\item Total: 
+		\begin{itemize}
+			\item 10 study sites across major rice-producing environments in Ghana
+			\item 44 agricultural extension agents (AEAs)
+			\item 390 rice-growing farmers
+			
+		\end{itemize}
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Random Assignment}
+	\scriptsize
+	\textbf{Sample}
+	\begin{itemize}
+		\item 44 AEAs who participated in the baseline survey
+		\item Random assignment conducted at the district level
+	\end{itemize}
+	
+	
+	\textbf{Treatment Arms}
+	\begin{itemize}
+		\item \textbf{Group 1: Feedback Treatment (T1)}
+		\begin{itemize}
+			\item Extension agents and their supervisors receive feedback from farmers regarding their extension activities: biweekly
+			\item \textcolor{blue}{Sene West, Achiase, Bibiani}
+		\end{itemize}
+		
+		\item \textbf{Group 2: Feedback + Training (T2)}
+		\begin{itemize}
+			\item Farmer feedback provided
+			\item Additional training emphasizing the social importance and impact of extension services
+			\item \textcolor{blue}{Lower Manya, Krachi West, Sefwi Wiaoso}
+		\end{itemize}
+		
+		\item \textbf{Group 3: Control Group (C)}
+		\begin{itemize}
+			\item No intervention (Collect the satisfaction level, but do not inform the result to AEAs) 
+			\item \textcolor{blue}{Pru West, Biakoye, and 2 irrigation schemes}
+		\end{itemize}
+		
+		\item \textbf{Half of AEAs are subject to stamp treatment}
+		
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Main outcomes of interest}
+	\begin{itemize}
+		\item Rice Production (Farmer data at baseline and endline)
+		\begin{itemize}
+			\item Yield
+			\item Income 
+			\item Profits
+			\item Rice management practices
+			\vspace{0.3cm}
+		\end{itemize}
+		\item Extension Activities (Biweekly data) 
+		\begin{itemize}
+			\item Number of visits
+			\item Number of successful communication
+			\item Satisfaction level 
+		\end{itemize}
+		
+		
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Project Timeline}
+	
+	\begin{itemize}
+		\item \textbf{January 2025:} Baseline Survey
+		\vspace{0.3cm}
+		
+		\item \textbf{April -- September 2025:} Intervention
+		\begin{itemize}
+			\item Satisfaction Survey
+			\item Training
+		\end{itemize}
+		\vspace{0.3cm}
+		
+		\item \textbf{January--February 2026:} Endline Survey 
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Number of Obs by District (Baseline / Endline)}
+\begin{table}[hbtp]
+	\centering
+	\begin{threeparttable}
+		\scalebox{0.72}{%
+		\begin{tabular}{llccccccc}
+			\hline
+			\input{tmp/obs_data2.tex}
+		\end{tabular}}
+	\end{threeparttable}
+\end{table}
+\vspace{-4pt}
+\begin{itemize}\notefont
+	\item \textbf{385 matched panel households} ($\approx$99\% of baseline); 1 AEA retired (Worawora).
+	      Attrition concentrated in Kpong irrigation and Achiase, largely non-random
+	\item \textbf{Analysis} $=$ the sample the estimation tables actually use: the two irrigation
+	      schemes (\textbf{Kpong} and \textbf{Ketu North / Weta}) are dropped everywhere, and the
+	      farmer columns additionally require a matched baseline value --- leaving
+	      \textbf{8 districts} (2 control, 3 T1, 3 T2)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Intrinsic and Extrinsic Motivation}
+	\begin{itemize}
+		\item Intrinsic motivation
+		\begin{itemize}
+			\item Because this activity is fun 
+			\item Because I feel good when doing this activity
+			\vspace{0.3cm}
+		\end{itemize}
+		\item Extrinsic Motivation (External regulation and identified regulation)
+		\begin{itemize}
+			\item Because I am supposed to do it
+			\item Because I don't have any choice
+			\item Because I am doing it for my own good 
+			\item Because I think that this activity is good for me. 
+		\end{itemize}
+		
+		
+		
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (AEA)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_aea.tex}}
+	\begin{itemize}\notefont
+		\item Note: baseline and endline means by assigned arm; SD in parentheses. Stars on T1/T2:
+		difference vs Control \emph{within the wave} (district-clustered); ***, **, * : 1, 5, 10\%.
+	\end{itemize}
+\end{frame}
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+\begin{frame}{Locus of Control (AEA)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_aea_locus.tex}}
+	\begin{itemize}\notefont
+		\item Note: baseline and endline means by assigned arm (panel AEAs, N=41; rainfed sites only); SD in
+		parentheses. Stars on T1/T2: difference vs Control \emph{within the wave}
+		(district-clustered); ***, **, * : 1, 5, 10\%. Items are 1--5 Likert; the composite
+		scales reverse-code the external-control items so that higher $=$ more internal control.
+		Items A--E refer to agricultural production and the respondent's civil-service career;
+		items F--J are the general (Rotter-type) items.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (AEA: Knowledge, Effort, Satisfaction)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_aea_kes.tex}}
+	\begin{itemize}\notefont
+		\item Note: baseline and endline means by assigned arm (panel AEAs, N=41; rainfed sites only); SD in
+		parentheses. Stars on T1/T2: difference vs Control \emph{within the wave}
+		(district-clustered); ***, **, * : 1, 5, 10\%. Job satisfaction on a 1--5 scale.
+		\item The two knowledge indices score the same five questions --- seed selection,
+		levelling, planting spacing, water management and drying --- but differ in the first.
+		The \textbf{0--5} index scores seed selection as a single 0/1 item; because it is a
+		multiple-response question and the coding rule is satisfied by every AEA in both waves,
+		that item carries no variation and the index is effectively 0--4. The \textbf{0--8}
+		index replaces the dummy with a count of how many of the four defensible purposes of
+		seed selection the AEA names (0--4), keeping the other four items.
+		\item The training rows are the AEA's own report of attending an agronomic training on
+		rice during the season, and whether JICA was among the providers. For T2 this partly
+		\emph{is} the intervention (the April DAES sensitization training), so it should not be
+		read as an omitted variable for that arm.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (Farmer I: Characteristics and Inputs)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_farmer_noirr.tex}}
+	\begin{itemize}\notefont
+		\item Note: baseline and endline means by assigned arm; SD in parentheses. Rainfed sites
+		only ($N=382$): the two irrigation schemes (Kpong and Weta; 12 endline households, all
+		in the control arm) are excluded here and from every estimation in the deck.
+		Stars on T1/T2: difference vs Control
+		\emph{within the wave} (district-clustered); ***, **, * : 1, 5, 10\%.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (Farmer II: Production and Technology)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_farmer_noirr_b.tex}}
+	\begin{itemize}\notefont
+		\item Note: as the previous slide. Revenue $=$ output value; income $=$ revenue $-$
+		paid-out costs; profit $=$ income $-$ family labor valued at the district median hired
+		wage. Stars on T1/T2: difference vs Control \emph{within the wave} (district-clustered);
+		***, **, * : 1, 5, 10\%.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (Farmer--AEA Contact)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_contact.tex}}
+	\begin{itemize}\notefont
+		\item Note: farmer-reported contact with the extension worker in the baseline (2024
+		season) and endline (2025 season) household surveys; means by assigned arm, SD in
+		parentheses. Stars on T1/T2: difference vs Control \emph{within the wave}
+		(district-clustered); ***, **, * : 1, 5, 10\%. Contacts $=$ successful contacts
+		($0$ if none). Satisfaction level (1--5) is reported only by farmers with any
+		contact; the satisfied dummy is defined for all farmers ($=0$ if no contact).
+		Round-level (bi-weekly, Apr--Sep 2025) results follow.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Descriptive Results of Biweekly Survey}
+	\begin{figure}
+		\includegraphics[width=12cm,height=0.78\textheight,keepaspectratio]{tmp/b_basic.eps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Satisfaction Level by District and Time}
+	\begin{figure}
+		\includegraphics[width=10cm,height=0.78\textheight,keepaspectratio]{tmp/b_satisfy.eps}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{AEA Effort: Self-Reported vs Farmer-Reported Visits}
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{tmp/fig_selfrep_farmer.pdf}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: one dot per AEA (N=41, rainfed sites only). Both axes are visits \emph{per month}. The AEA question asks
+		``How often do you visit farmer group on average \ldots\ times per month'', so the
+		self-report is already a per-group monthly rate and is used as answered; farmer reports are
+		the mean cumulative visits over the 11 bi-weekly rounds divided by 5.5 months.
+		Solid line: 45$^\circ$; dashed line and the slope in each panel title: OLS. All 41 AEAs
+		are plotted.
+		\par AEAs report 9.4 (baseline) and 13.0 (endline) visits per group per month against 1.6
+		reported by farmers, and 42 of 43 lie below the 45$^\circ$ line.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{AEA Effort: Distance to the Communities Served}
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{tmp/fig_dist_visits.pdf}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: one dot per AEA (N=41, rainfed sites only; third panel: the AEAs with stamp records). Distance $=$
+		mean distance from the AEA's duty station to the communities served, log scale. Dashed line
+		and the slope in each panel title: OLS on $\ln$(distance). ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Baseline -- Preliminary results of Correlation (AEA)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/a_result_table3.tex}}
+	
+\end{frame}
+
+\begin{frame}{Endline -- Preliminary results of Correlation (AEA)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/a_result_table3_e.tex}}
+	
+\end{frame}
+
+\begin{frame}{Baseline -- Preliminary results of Correlation (Farming)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.86\textheight,keepaspectratio}{\input{tmp/f_result_table2.tex}}
+	
+\end{frame}
+
+\begin{frame}{Endline -- Preliminary results of Correlation (Farming)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.86\textheight,keepaspectratio}{\input{tmp/f_result_table2_e.tex}}
+	
+\end{frame}
+
+\begin{frame}{Baseline -- Correlates of Practice Adoption (Farming)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/f_result_pracadopt_b.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: OLS at baseline; each column regresses the practice indicator (No.\ practices
+		$=$ count of the seven) on household characteristics; SE clustered at district.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Endline -- Correlates of Practice Adoption (Farming)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/f_result_pracadopt_e.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: OLS at endline; each column regresses the practice indicator (No.\ practices
+		$=$ count of the seven) on household characteristics; SE clustered at district.
+		***, **, * : 1, 5, 10\%.
+		\par Levelling rises with plot size alongside mechanisation: in the smallest area quartile
+		(mean 0.63\,ha) 31.3\% level and 38.1\% use any machine (27.6\% a tractor), against 48.3\%
+		and 65.2\% (58.4\% a tractor) in the largest quartile (mean 4.42\,ha). Bunds move the other
+		way (18.7\% in Q1 vs 12.4\% in Q4), so the negative area gradient in the table is on bunds,
+		not levelling.
+	\end{minipage}
+\end{frame}
+
+
+
+
+
+
+
+
+
+% ======================= ENDLINE IMPACT RESULTS =======================
+
+
+
+
+
+
+\begin{frame}{Empirical Strategy}
+\begin{itemize}
+	\item \textbf{ANCOVA}: regress endline outcome on treatment status, controlling for
+	      the baseline value of the outcome
+	\item Arms: T1 (Feedback), T2 (Feedback + Training); plus the cross-cutting Stamp (GPS)
+	\item \textbf{Sample}: \emph{rainfed sites only} --- the two irrigation schemes (Kpong and
+	      Weta) are dropped from every estimation (12 farmers, 2 AEAs, all in the control arm;
+	      yields, seed rates and labour there are on a different scale). Farmers $N=382$, AEAs $N=41$
+	\item Farmer models add region (province) FE; SEs clustered at district
+	      (\textbf{8 clusters}: 2 control, 3 T1, 3 T2)
+	\item Few clusters $\Rightarrow$ \textbf{wild cluster bootstrap} (Webb, 9{,}999) and
+	      \textbf{randomization-inference} $p$-values alongside clustered SEs. With 2 control
+	      districts these bind --- read the clustered SEs as the optimistic bound
+	\item Crop failure = realized \textbf{zero} output (kept in sample); logs use $\ln(1+x)$;
+	      outcomes are not winsorized
+\end{itemize}
+\end{frame}
+
+\begin{frame}{AEA: Motivation and Locus of Control}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_aea_attitude.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=41$ AEAs, 8 districts).
+		Wild-boot = Webb wild cluster bootstrap (9{,}999); RI = randomization inference (1{,}000).
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{AEA: Knowledge, Effort, Satisfaction}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.52\textheight,keepaspectratio}{\input{tmp/e_aea_effort.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=41$, 8 districts).
+		Knowledge (0--8) replaces the earlier 0--5 index: item A (``seed selection by salt or urea
+		water is good for what?'') is a \emph{multiple}-response question and the old 0/1 coding
+		scored 1 for every AEA in both waves, so it carried no information; the new score counts how
+		many of the four defensible purposes are named and adds the four single-choice items.
+		Self-reported visits remain noisy --- the bi-weekly farmer reports are the preferred effort
+		measure.
+		\par \textbf{Mediation analysis:} The indirect share is $-3.2\%$ (T1) and $5.2\%$ (T2). 
+		Restricting the mediator to
+		JICA-provided courses gives the same picture ($-2.3\%$ and $1.9\%$).
+		\emph{Caveat}: a post-treatment mediator is a bad control, so this split is descriptive,
+		not a causal mediation estimate.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Bi-weekly (AEA): Effort Level Reported by Farmers}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.66\textheight,keepaspectratio}{\input{tmp/bw_effort_v2.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: farmer$\times$round panel, estimated by OLS; outcomes are the \emph{number} of AEA
+		visits and contacts the farmer reports in the two-week round. Three seasonal windows: all 11 rounds, the
+		planting/establishment window (05-1--06-2) and the growing/harvest window (07-1--09-2).
+		Round and province FE; SE clustered at district. Control mean measured in the first round
+		(all-rounds columns) or within the window. Wild-boot (Webb, 9{,}999) and RI (1{,}000)
+		$p$-values. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Bi-weekly (farmer): Satisfaction to Extension Service}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.66\textheight,keepaspectratio}{\input{tmp/bw_satisfy_v2.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: farmer$\times$round panel, estimated by OLS. ``Satisfied'' $=1$ if the farmer rates
+		the service 4 or 5, defined on the rounds in which the farmer had \emph{either} a visit or
+		an online/face-to-face interaction ($N=2{,}184$) --- the same rounds in which the
+		satisfaction question was actually asked; ``full'' additionally codes a round with no
+		contact at all as 0 (all 4{,}120 rounds). ``Add.\ ctrl'' adds the number of visits and
+		contacts in the round. Three seasonal
+		windows: all 11 rounds, planting/establishment (05-1--06-2) and growing/harvest
+		(07-1--09-2). Round and province FE; SE clustered at district. Wild-boot (Webb, 9{,}999)
+		and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Bi-weekly (farmer): Change in Extension Service Content (I)}
+	\centering
+	{\small\textbf{``Did your extension agent give you helpful advice?'' (rounds with a visit or an interaction)}}\\[3pt]
+	\adjustbox{width=\textwidth,totalheight=0.58\textheight,keepaspectratio}{\input{tmp/bw_content_a.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: farmer$\times$round panel, 11 bi-weekly rounds (Apr--Sep 2025), estimated by OLS,
+		restricted to the rounds in which the farmer had \emph{either} a visit or an
+		online/face-to-face interaction with the AEA --- the skip pattern under which this
+		question was actually administered, and the same restriction as the satisfaction table.
+		The three answers are mutually exclusive and sum to one.
+		Round and province FE; SE clustered at district; control mean in the first
+		round. Wild-boot (Webb, 9{,}999) and RI (1{,}000) $p$-values.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Bi-weekly (farmer): What the Advice Was About}
+	\centering
+	\includegraphics[width=\textwidth,height=0.60\textheight,keepaspectratio]{tmp/fig_advice_themes.pdf}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: the open-ended reason farmers gave for their satisfaction rating (Q5), hand-coded by
+		the PI, pooled over the three arms. Rainfed sites only: of the 2{,}173 rounds carrying any
+		text, 302 name at least one of these eight topics (a response can name more than one).
+		Bars are counts of mentions. Fertilizer, planting and weeding dominate the advice farmers
+		recall.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Farmer: Production and Income}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_prod.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: ANCOVA with region FE and baseline-outcome control; SE clustered at district.
+		\textbf{Income} $=$ value of output at district-median prices $-$ paid-out costs (seed,
+		fertilizer, agro-chemicals, machinery services, hired labor, \emph{and what tenants pay for
+		the land} --- a share of gross output for share croppers, cash or in-kind rent otherwise;
+		about a third of the sample rents, and share croppers hand over a median 30\% of output);
+		\textbf{profit} $=$ income
+		$-$ the imputed value of own resources, here family labor valued at the district
+		\emph{median} hired wage ((cash $+$ in-kind payments) $/$ hired man-days, genders pooled,
+		per wave). Own machinery, recycled seed and manure are not imputed, so profit is an upper
+		bound on the full-cost measure. Columns (8)--(9) exclude the family days spent on bird
+		scaring, which absorb about half of all family labor. Crop failure $=0$ output, so income
+		and profit can be negative; logs use the inverse hyperbolic sine. Wild-boot (Webb,
+		9{,}999) and RI (1{,}000) $p$-values reported. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Farmer: Production and Income (controlling for technology)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_prod_tech.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: same ANCOVA as the previous slide, adding the endline management
+		practices and input dummies as regressors, so the treatment coefficients are
+		conditional on adoption and the practice rows show how each technology correlates
+		with output. \emph{Caveat}: adoption is measured after the intervention, so these
+		are potentially ``bad controls'' --- the practice rows are correlations, not causal
+		effects, and the treatment rows are net of any adoption channel. Region FE and
+		baseline-outcome control; SE clustered at district; wild-boot (Webb, 9{,}999) and
+		RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Farmer: Inputs}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_inputs.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: same ANCOVA specification as the previous slide (region FE,
+		baseline-outcome control, SE clustered at district). Fertilizer, herbicide and machine
+		use are $0/1$ indicators; hired and family labor are man-days per ha, with the last
+		column netting out the family days spent on bird scaring. Wild-boot (Webb, 9{,}999)
+		and RI (1{,}000) $p$-values reported. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+
+
+
+
+\begin{frame}{Farmer: Management-Practice Adoption}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_practice.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: ANCOVA with region FE and baseline-outcome control; SE clustered at district.
+		No.\ practices $=$ count of the seven practices adopted (0--7). Seed-variety and
+		certified-seed measures use the original endline export. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Farmer: Labour by Who Does the Work and by Operation}
+	\centering
+	{\notefont\textbf{Man-days per hectare, male vs female}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.30\textheight,keepaspectratio}{\input{tmp/e_labour_sex.tex}}\\[4pt]
+	{\notefont\textbf{Man-days per hectare, by farm operation}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.30\textheight,keepaspectratio}{\input{tmp/e_labour_ops.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: man-days per hectare. Same ANCOVA and same sample as the main tables (arms, stamp,
+		the same outcome at baseline, province FE; SE clustered at district; the two
+		irrigation schemes excluded, as everywhere). 
+		In the top panel, columns (7)--(8) drop the 12 households that
+		harvested nothing at endline. In the bottom panel, nursery, irrigation and spraying are
+		omitted --- each is under 2\% of total labour.
+		\par The rise in hired female labour attributes to harvest work: the
+		harvest-only effect is $+26.6$ days/ha for T1 (92.6\% of total effect) and $+22.2$ for T2 (80.0\%).
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+
+% ======================= APPENDIX =======================
+\appendix
+\begin{frame}[plain]
+	\vfill
+	\centering
+	{\Huge\bfseries\textcolor{myGreen}{Appendix}}
+	\vfill
+\end{frame}
+
+\begin{frame}{Appendix: Farmer Knowledge --- Correct-Practice Responses}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_know.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: each outcome $=1$ if the farmer's \emph{self-reported practice} matches the
+		recommended level (QY1.4: ``what did you do'' questions scored against recommendations
+		--- a knowledge-in-practice proxy rather than a quiz). Items and correct answers:
+		water level at vegetative growth $=$ 2--3 cm; at reproductive (panicle) stage $=$
+		5--10 cm; at maturity/ripening $=$ 1 cm; field drained \emph{two weeks} before harvest;
+		harvest when 81--90\% of grains are yellowish; grain ``slightly firm to bite'' before
+		storage; threshing done on a tarpaulin. ANCOVA as in the main tables; SE clustered at
+		district; wild-boot (Webb, 9{,}999) and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+
+\begin{frame}{Appendix: AEA Effort --- GPS-Stamp Visit Log vs Reported Visits}
+	\centering
+	\includegraphics[height=0.62\textheight,keepaspectratio]{tmp/fig_stamp_visits.pdf}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: 357 geo-tagged contacts logged by 19 stamp-arm AEAs, Apr--Sep 2025; logs are
+		AEA-submitted, so they bound visits from below. The logged activity is unrelated to
+		self-reported visits (Spearman $0.25$, $p=.30$) or farmer-reported visits
+		($-0.02$, $p=.94$).
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: AEA Effort --- What the Logged Visits Look Like}
+	\centering
+	\includegraphics[width=\textwidth,keepaspectratio]{tmp/fig_stamp_activity.pdf}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: 357 logged contacts, 19 AEAs. Distance travelled: mean 4.5\,km, median 4.9,
+		maximum 23.5. The most active AEA logged 43.7\% of all contacts, the least active one
+		visit in six months.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Prosocialness Answers: Baseline vs Endline (AEA)}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.78\textheight,keepaspectratio]{tmp/prosocial_be.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Locus of Control Answers (A--E): Baseline vs Endline (AEA)}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.78\textheight,keepaspectratio]{tmp/locus1_be.pdf}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Locus of Control Answers (F--J): Baseline vs Endline (AEA)}
+\begin{figure}
+	\centering
+	\includegraphics[height=0.78\textheight,keepaspectratio]{tmp/locus2_be.pdf}
+\end{figure}
+\end{frame}
+
+
+
+\begin{frame}{Appendix: Sampling-Weighted Robustness (Production)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_weighted.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: Population-representative estimates using inverse-probability sampling weights
+		(rice-farmer population $/$ baseline sample size). Region FE and baseline-outcome control;
+		SE clustered at district. Income defined as in the main production table (net of family labor).
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: Sampling-Weighted Robustness (Practices)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_prac_w.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: Population-representative estimates using inverse-probability sampling weights
+		(rice-farmer population $/$ baseline sample size). Region FE and baseline-outcome control;
+		SE clustered at district. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: Dispersion Effects (Glejser)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_disp.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: Glejser test --- absolute residuals from the main ANCOVA regressed on
+		treatment; negative coefficients $=$ lower dispersion. Wild-boot (Webb, 9{,}999)
+		$p$-values. NB: the two extreme hired-labor records (297{,}000 / 252{,}000 GHS;
+		hhID 311/381) behind the earlier variance discussion were in-kind data-entry errors,
+		corrected in the revised labor file used throughout (current maximum 25{,}600 GHS).
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: Profit Excluding Bird-Scaring Labor}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_bird.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: bird scaring is a distinct operation in the labor module and absorbs many
+		low-intensity days spent guarding the field, so valuing it at the hired wage is
+		questionable. Columns (1)--(2) recompute profit deducting family labor
+		\emph{excluding} bird-scaring days; column (3) is bird-scaring family labor itself.
+		Control households devote 52.3 days/ha to bird scaring --- about half of all family
+		labor (50.3\%) --- and excluding it turns the control-group profit from $-3{,}398$ to
+		$+600$ GHS/ha. ANCOVA as in the main table; SE clustered at district; wild-boot
+		(Webb, 9{,}999) and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+
+
+% ---- A1. FB/TR reparameterization ----
+\begin{frame}{Appendix: FB/TR --- Bi-weekly Effort}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/bw_effort_fbtr.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: same regression as the main table, reparameterized: FB $=1$\{T1 or T2\}
+		(feedback effect $=$ T1 vs Control); TR $=1$\{T2\} (incremental effect of training on top
+		of feedback $=$ T2 $-$ T1). Columns (1)--(4): all rounds; (5)--(8): planting window
+		(05-1--06-2). Round and province FE; SE clustered at district; wild-boot (Webb, 9{,}999)
+		and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- Bi-weekly Satisfaction}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/bw_satisfy_fbtr.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). Definitions as in the main
+		satisfaction table. Columns (1)--(4): all rounds; (5)--(8): planting window (05-1--06-2).
+		Round and province FE; SE clustered at district; wild-boot and RI $p$-values.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- AEA Attitudes (ANCOVA)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_aea_att_fbtr.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). ANCOVA with baseline-outcome
+		control; SE clustered at district ($N=41$); wild-boot and RI $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- AEA Knowledge, Effort, Satisfaction}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_aea_eff_fbtr.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). ANCOVA; SE clustered at
+		district; wild-boot and RI $p$-values. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- Farmer Production and Income}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_prod_fbtr.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). ANCOVA with region FE and
+		baseline-outcome control; SE clustered at district; wild-boot and RI $p$-values.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: FB/TR --- Farmer Management Practices}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_prac_fbtr.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: FB $=1$\{T1 or T2\}; TR $=1$\{T2\} (T2 $-$ T1). ANCOVA with region FE and
+		baseline-outcome control; SE clustered at district; wild-boot and RI $p$-values.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+
+
+
+% ---- A2. 2SLS (4 endogenous x production/adoption, two panels per slide) ----
+\begin{frame}{Appendix: 2SLS --- Production and Income}
+	\centering
+	{\notefont\textbf{Endogenous: cumulative visits (Apr--Sep)}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.32\textheight,keepaspectratio}{\input{tmp/e_2sls_o1_cumQ1.tex}}\\[4pt]
+	{\notefont\textbf{Endogenous: mean satisfaction level (Apr--Sep), rounds with contact}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.32\textheight,keepaspectratio}{\input{tmp/e_2sls_o1_msatall.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: 2SLS; the endogenous regressor (top: cumulative farmer-reported AEA visits
+		over the bi-weekly rounds; bottom: mean 1--5 satisfaction level over the rounds with a visit or an interaction) is
+		instrumented by T1/T2 assignment. Outcomes and controls as in the main production table
+		(region FE, baseline-outcome control); SE clustered at district. KP $F$ $=$
+		Kleibergen--Paap weak-ID $F$; Hansen J $p$ from the heteroskedasticity-robust VCE (the
+		district-clustered version is not computable with 8 clusters).
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: 2SLS (combined IV) --- Production and Income}
+	\centering
+	{\notefont\textbf{Endogenous: cumulative visits (Apr--Sep)}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.32\textheight,keepaspectratio}{\input{tmp/e_2sls_p_o1_cumQ1.tex}}\\[4pt]
+	{\notefont\textbf{Endogenous: mean satisfaction level (Apr--Sep), rounds with contact}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.32\textheight,keepaspectratio}{\input{tmp/e_2sls_p_o1_msatall.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: as the corresponding slide above, but with a \emph{single combined}
+		instrument $T = 1\{$T1 or T2$\}$ instead of separate T1/T2 instruments. SE clustered at
+		district; KP $F$ $=$ Kleibergen--Paap weak-ID $F$. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: 2SLS --- Technology Adoption}
+	\centering
+	{\notefont\textbf{Endogenous: cumulative visits (Apr--Sep)}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.32\textheight,keepaspectratio}{\input{tmp/e_2sls_o2_cumQ1.tex}}\\[4pt]
+	{\notefont\textbf{Endogenous: mean satisfaction level (Apr--Sep), rounds with contact}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.32\textheight,keepaspectratio}{\input{tmp/e_2sls_o2_msatall.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: 2SLS as in the production tables above, for the management-practice outcomes
+		of the main practice table (incl.\ No.\ practices). SE clustered at district; KP $F$ $=$
+		Kleibergen--Paap weak-ID $F$; Hansen J $p$ from the heteroskedasticity-robust VCE.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: 2SLS (combined IV) --- Technology Adoption}
+	\centering
+	{\notefont\textbf{Endogenous: cumulative visits (Apr--Sep)}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.32\textheight,keepaspectratio}{\input{tmp/e_2sls_p_o2_cumQ1.tex}}\\[4pt]
+	{\notefont\textbf{Endogenous: mean satisfaction level (Apr--Sep), rounds with contact}}\\[1pt]
+	\adjustbox{width=\textwidth,totalheight=0.32\textheight,keepaspectratio}{\input{tmp/e_2sls_p_o2_msatall.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: as the slide above, but with a \emph{single combined} instrument instead of
+		separate T1/T2 instruments; management-practice outcomes (incl.\ No.\ practices).
+		Instrument $T = 1\{$T1 or T2$\}$. SE clustered at district;
+		KP $F$ $=$ Kleibergen--Paap weak-ID $F$.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: 2SLS --- Practice Count as Endogenous}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_2sls_nprac.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: endogenous regressor $=$ No.\ of practices adopted, instrumented by T1/T2
+		assignment; outcomes as in the main production table. The first stage is the (null) ITT
+		on the practice count, so the instruments are \emph{weak by construction} (KP $F$ $=$
+		0.58) --- estimates are reported for completeness and are uninformative about the return
+		to adoption. SE clustered at district; Hansen J $p$ from the heteroskedasticity-robust
+		VCE. ***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{Appendix: 2SLS (combined IV) --- Practice Count as Endogenous}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_2sls_p_nprac.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: endogenous regressor $=$ No.\ of practices adopted, instrumented by the
+		single combined $T = 1\{$T1 or T2$\}$; outcomes as in the main production table. As in
+		the two-instrument version, the first stage is the (null) ITT on the practice count, so
+		the instrument is \emph{weak by construction} (KP $F$ $=$ 0.16) --- reported for
+		completeness and uninformative about the return to adoption. SE clustered at district.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

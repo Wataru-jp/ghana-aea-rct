@@ -1,0 +1,43 @@
+# =============================================================================
+# 方針: ルート直下は「いったん全部無視」→「入れてよいものだけ許可」。
+#
+# このリポジトリは個票データ（世帯ID・GPS座標を含む）を参照する。生データ本体は
+# Dropbox にあり、ここにはシンボリックリンクしか無いが、万一実体が置かれても
+# 下の /* によってブロックされる。許可リストを増やすときは慎重に。
+# =============================================================================
+/*
+
+# --- 追跡するもの ---
+!/.gitignore
+!/README.md
+!/sync.sh
+!/do/
+!/Slide/
+!/tmp/
+
+# --- tmp/ はデッキが使う成果物だけ（.dta と .gph は再生成できるので入れない）---
+/tmp/*
+!/tmp/*.tex
+!/tmp/*.pdf
+!/tmp/*.eps
+
+# --- Slide/ はソースのみ。LaTeX のビルド生成物と tmp シンボリックリンクは除外 ---
+/Slide/tmp
+/Slide/*.aux
+/Slide/*.fdb_latexmk
+/Slide/*.fls
+/Slide/*.log
+/Slide/*.nav
+/Slide/*.out
+/Slide/*.pdf
+/Slide/*.snm
+/Slide/*.synctex.gz
+/Slide/*.toc
+/Slide/*.gz
+
+# --- Stata / R / macOS のゴミ ---
+*.log
+*.smcl
+.Rhistory
+.RData
+.DS_Store

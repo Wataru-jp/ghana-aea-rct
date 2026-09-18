@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{2}{c}{Knowledge (0--5)}       &\multicolumn{2}{c}{Knowledge (0--8)}       \\\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Direct}&\multicolumn{1}{c}{Total}&\multicolumn{1}{c}{Direct}\\
+\midrule
+T1: Feedback        &       0.472\sym{**} &       0.305         &       0.919\sym{**} &       0.713\sym{**} \\
+                    &     (0.196)         &     (0.243)         &     (0.305)         &     (0.292)         \\
+T2: Feedback+Training&       0.923\sym{**} &       1.019\sym{**} &       1.498\sym{*}  &       1.516\sym{*}  \\
+                    &     (0.291)         &     (0.357)         &     (0.716)         &     (0.788)         \\
+JICA training (=1)  &                     &       0.622\sym{*}  &                     &       1.061         \\
+                    &                     &     (0.287)         &                     &     (0.682)         \\
+Self-rep. visits    &                     &      -0.024\sym{**} &                     &      -0.020         \\
+                    &                     &     (0.009)         &                     &     (0.014)         \\
+Farmer-rep. visits  &                     &       0.103         &                     &       0.116         \\
+                    &                     &     (0.129)         &                     &     (0.203)         \\
+Farmer-rep. contacts&                     &      -0.159         &                     &      -0.167         \\
+                    &                     &     (0.103)         &                     &     (0.184)         \\
+\midrule
+Indirect share, T1 (\%)&           .         &        35.4         &           .         &        22.4         \\
+Indirect share, T2 (\%)&           .         &       -10.4         &           .         &        -1.2         \\
+Obs                 &          43         &          43         &          43         &          43         \\
+\bottomrule
+\end{tabular}
+}

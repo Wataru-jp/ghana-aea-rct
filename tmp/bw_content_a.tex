@@ -1,0 +1,24 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+                    &\multicolumn{1}{c}{Helpful advice (=1)}&\multicolumn{1}{c}{No advice (=1)}&\multicolumn{1}{c}{Had no problem (=1)}\\
+\midrule
+T1: Feedback        &       0.352\sym{***}&      -0.032\sym{**} &      -0.319\sym{***}\\
+                    &     (0.088)         &     (0.012)         &     (0.090)         \\
+T2: Feedback+Training&       0.377\sym{***}&      -0.037\sym{***}&      -0.340\sym{***}\\
+                    &     (0.048)         &     (0.008)         &     (0.054)         \\
+Stamp (GPS)         &       0.055         &      -0.016         &      -0.039         \\
+                    &     (0.040)         &     (0.011)         &     (0.033)         \\
+\midrule
+T1=T2 [p]           &       0.816         &       0.491         &       0.846         \\
+Ctrl mean           &       0.429         &       0.071         &       0.500         \\
+Wild-boot p (T1)    &       0.144         &       0.143         &       0.174         \\
+Wild-boot p (T2)    &       0.130         &       0.200         &       0.165         \\
+RI p (T1)           &       0.005         &       0.020         &       0.008         \\
+RI p (T2)           &       0.000         &       0.001         &       0.000         \\
+Obs                 &        2186         &        2186         &        2186         \\
+\bottomrule
+\end{tabular}
+}

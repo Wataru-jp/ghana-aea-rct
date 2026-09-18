@@ -1,0 +1,19 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{12}{c}}
+\toprule
+                    &\multicolumn{6}{c}{Family labour (man-days/ha)}                                                                                    &\multicolumn{6}{c}{Hired labour (man-days/ha)}                                                                                     \\\cmidrule(lr){2-7}\cmidrule(lr){8-13}
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}&\multicolumn{1}{c}{(11)}&\multicolumn{1}{c}{(12)}\\
+                    &\multicolumn{1}{c}{Land prep}&\multicolumn{1}{c}{Transpl./sow}&\multicolumn{1}{c}{Weeding}&\multicolumn{1}{c}{Bird}&\multicolumn{1}{c}{Harvest}&\multicolumn{1}{c}{Thresh}&\multicolumn{1}{c}{Land prep}&\multicolumn{1}{c}{Transpl./sow}&\multicolumn{1}{c}{Weeding}&\multicolumn{1}{c}{Bird}&\multicolumn{1}{c}{Harvest}&\multicolumn{1}{c}{Thresh}\\
+\midrule
+T1: Feedback        &       -2.33\sym{***}&        5.12\sym{***}&        1.00\sym{*}  &      -18.01         &        3.85         &       -0.82         &        3.72\sym{*}  &        0.36\sym{***}&       -0.60\sym{**} &        0.52         &       25.30\sym{***}&        0.25         \\
+                    &      (0.50)         &      (1.02)         &      (0.47)         &     (11.49)         &      (3.70)         &      (2.78)         &      (1.67)         &      (0.09)         &      (0.20)         &      (0.31)         &      (3.40)         &      (0.36)         \\
+T2: Feedback+Training&       -3.20\sym{***}&       -7.76\sym{***}&       -0.33         &      -30.72\sym{**} &       -4.30         &       -3.10         &       -1.68         &       -2.66\sym{***}&       -1.02\sym{***}&        2.97\sym{***}&       17.71\sym{***}&        0.77\sym{**} \\
+                    &      (0.71)         &      (0.84)         &      (0.36)         &     (10.76)         &      (3.32)         &      (2.14)         &      (1.53)         &      (0.37)         &      (0.17)         &      (0.36)         &      (0.98)         &      (0.28)         \\
+\midrule
+T1=T2 [p]           &       0.207         &       0.000         &       0.083         &       0.243         &       0.280         &       0.611         &       0.001         &       0.000         &       0.078         &       0.008         &       0.107         &       0.179         \\
+Ctrl mean           &       10.40         &        7.00         &        1.30         &       50.39         &       16.33         &       13.09         &        7.91         &        2.36         &        1.59         &        0.82         &       15.68         &        4.36         \\
+Obs                 &         373         &         373         &         373         &         373         &         373         &         373         &         373         &         373         &         373         &         373         &         373         &         373         \\
+\bottomrule
+\end{tabular}
+}

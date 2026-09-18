@@ -1,0 +1,17 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{10}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}\\
+                    &\multicolumn{1}{c}{Profit/ha}&\multicolumn{1}{c}{Log profit}&\multicolumn{1}{c}{Yield}&\multicolumn{1}{c}{Log yield}&\multicolumn{1}{c}{Crop fail}&\multicolumn{1}{c}{Fert use}&\multicolumn{1}{c}{Herb use}&\multicolumn{1}{c}{Machine}&\multicolumn{1}{c}{Hired lab}&\multicolumn{1}{c}{Family lab}\\
+\midrule
+Cumulative contacts (Apr--Sep)&    1127.541\sym{*}  &       0.429         &      -0.028         &      -0.022         &       0.004         &      -0.013         &       0.001         &       0.044\sym{*}  &      -1.250         &     -15.796\sym{**} \\
+                    &   (612.463)         &     (0.334)         &     (0.099)         &     (0.027)         &     (0.004)         &     (0.013)         &     (0.017)         &     (0.023)         &     (2.555)         &     (6.527)         \\
+\midrule
+Ctrl mean (end)     &   -4926.736         &      -4.659         &       1.438         &       0.732         &       0.067         &       0.633         &       0.833         &       0.600         &      33.470         &     101.672         \\
+KP weak-ID F        &      201.75         &      185.00         &      253.55         &      129.69         &       98.09         &       37.31         &      223.65         &      106.15         &       79.72         &       96.62         \\
+Hansen J p          &       0.088         &       0.006         &       0.029         &       0.233         &       0.080         &       0.813         &       0.040         &       0.374         &       0.001         &       0.334         \\
+Obs                 &         372         &         372         &         372         &         372         &         372         &         372         &         372         &         372         &         372         &         372         \\
+\bottomrule
+\end{tabular}
+}

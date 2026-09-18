@@ -1,0 +1,43 @@
+%%% Table created in Stata by command iebaltab
+%%% (https://github.com/worldbank/ietoolkit)
+%%% (https://dimewiki.worldbank.org/iebaltab)
+%%% The command was specified exactly like this: 
+%%% iebaltab a_gender-a_salary a_bike* a_avvisit a_mostvisit a_leastvisit a_ricetraining a_knowledge, grpvar(treat_dis) con(0) rowvarlabels savetex(C:/Users/kaz-takahashi/Dropbox/Ghana/Data//tmp/a_basic_balance) ft replace
+
+\begin{tabular}{@{\extracolsep{5pt}}lcccccccccc}
+\\[-1.8ex]\hline \hline \\[-1.8ex]
+ & \multicolumn{2}{c}{(1)}  & \multicolumn{2}{c}{(2)}  & \multicolumn{2}{c}{(3)}  & \multicolumn{2}{c}{(2)-(1)} & \multicolumn{2}{c}{(3)-(1)} \\
+ & \multicolumn{2}{c}{0}  & \multicolumn{2}{c}{1}  & \multicolumn{2}{c}{2}  & \multicolumn{4}{c}{Pairwise t-test}  \\
+Variable & N & Mean/(SE) & N & Mean/(SE) & N & Mean/(SE) & N & Mean difference & N & Mean difference \\ \hline \\[-1.8ex] 
+C. Gender   & 13    & 0.846    & 16    & 0.875    & 15    & 1.000    & 29    & 0.029    & 28    & 0.154   \\
+ &   & (0.104)  &   & (0.085)  &   & (0.000)  &   &  &   &  \\ [1ex]
+F. Working tenure:   & 13    & 1.308    & 16    & 1.312    & 15    & 1.400    & 29    & 0.005    & 28    & 0.092   \\
+ &   & (0.237)  &   & (0.120)  &   & (0.131)  &   &  &   &  \\ [1ex]
+G. Total years of experience as an extension agent:   & 13    & 11.923    & 16    & 12.250    & 15    & 8.467    & 29    & 0.327    & 28    & -3.456   \\
+ &   & (2.341)  &   & (2.539)  &   & (1.203)  &   &  &   &  \\ [1ex]
+H. Total years of experience as an extension agent in this area:   & 13    & 7.000    & 16    & 8.000    & 15    & 6.000    & 29    & 1.000    & 28    & -1.000   \\
+ &   & (0.892)  &   & (1.763)  &   & (1.082)  &   &  &   &  \\ [1ex]
+K. Monthly salary (gross):   & 13    & 4442.385    & 16    & 4456.812    & 15    & 4849.933    & 29    & 14.428    & 28    & 407.549   \\
+ &   & (549.557)  &   & (262.068)  &   & (330.680)  &   &  &   &  \\ [1ex]
+E. Is motorbike provided by the office?   & 13    & 0.846    & 16    & 0.750    & 15    & 0.667    & 29    & -0.096    & 28    & -0.179   \\
+ &   & (0.104)  &   & (0.112)  &   & (0.126)  &   &  &   &  \\ [1ex]
+G. Average amount of out-of-pocket travel expenses?   & 13    & 556.923    & 16    & 782.500    & 15    & 769.267    & 29    & 225.577    & 28    & 212.344   \\
+ &   & (89.889)  &   & (119.274)  &   & (178.961)  &   &  &   &  \\ [1ex]
+H. How often did you visit farmers' groups on average in 2024?   & 13    & 7.923    & 16    & 10.562    & 15    & 8.867    & 29    & 2.639    & 28    & 0.944   \\
+ &   & (1.883)  &   & (2.907)  &   & (2.358)  &   &  &   &  \\ [1ex]
+I3. Frequency you visit farmer group most visited in 2024:   & 13    & 6.385    & 16    & 8.125    & 15    & 8.600    & 29    & 1.740    & 28    & 2.215   \\
+ &   & (1.412)  &   & (1.297)  &   & (1.802)  &   &  &   &  \\ [1ex]
+J2. Frequency you visit farmer group least visited in 2024   & 13    & 2.538    & 16    & 3.062    & 14    & 2.786    & 29    & 0.524    & 27    & 0.247   \\
+ &   & (1.004)  &   & (0.777)  &   & (0.800)  &   &  &   &  \\ [1ex]
+A. Did you attend any agronomic training on rice production?   & 13    & 0.538    & 16    & 0.562    & 15    & 0.333    & 29    & 0.024    & 28    & -0.205   \\
+ &   & (0.144)  &   & (0.128)  &   & (0.126)  &   &  &   &  \\ [1ex]
+Knowledge   & 13    & 3.538    & 16    & 3.812    & 15    & 3.533    & 29    & 0.274    & 28    & -0.005   \\
+ &   & (0.268)  &   & (0.306)  &   & (0.192)  &   &  &   &  \\ [1ex]
+\hline \\[-1.8ex]
+F-test of joint significance (F-stat) & &   & &   & &     & &  0.534    & &  0.749  \\
+F-test, number of observations & &   & &   & &   & &  29  & &  27  \\
+\hline \hline \\[-1.8ex]
+%%% This is the note. If it does not have the correct margins, use texnotewidth() option or change the number before '\textwidth' in line below to fit it to table size.
+\multicolumn{9}{@{} p{\textwidth}}{If the table includes missing values (.n, .o, .v etc.) see the Missing values section in the help file for the Stata command iebaltab for definitions of these values. Significance: ***=.01, **=.05, *=.1. Full user input as written by user: [iebaltab a\_gender-a\_salary a\_bike* a\_avvisit a\_mostvisit a\_leastvisit a\_ricetraining a\_knowledge, grpvar(treat\_dis) con(0) rowvarlabels savetex(C:/Users/kaz-takahashi/Dropbox/Ghana/Data//tmp/a\_basic\_balance) ft replace] }
+
+\end{tabular}

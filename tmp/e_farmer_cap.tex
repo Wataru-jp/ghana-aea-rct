@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+                    &\multicolumn{1}{c}{Profit (capped)}&\multicolumn{1}{c}{Log profit (capped)}&\multicolumn{1}{c}{Profit excl. bird (capped)}&\multicolumn{1}{c}{Family lab (capped)}\\
+\midrule
+T1: Feedback        &    1429.725         &       3.831\sym{**} &     351.249         &      -7.759         \\
+                    &   (976.048)         &     (1.474)         &  (1156.900)         &    (11.751)         \\
+T2: Feedback+Training&    3099.101\sym{***}&       3.648\sym{**} &    1796.099\sym{*}  &     -30.815\sym{**} \\
+                    &   (627.190)         &     (1.312)         &   (899.720)         &     (9.867)         \\
+Stamp (GPS)         &    1580.715         &      -0.076         &    1592.151         &     -12.558         \\
+                    &  (1528.323)         &     (1.247)         &  (1306.607)         &    (15.281)         \\
+Irrigation          &    6496.256\sym{**} &       4.073         &   11188.511\sym{***}&      16.684         \\
+                    &  (2267.120)         &     (2.388)         &  (2368.705)         &    (26.682)         \\
+\midrule
+T1=T2 [p]           &       0.254         &       0.883         &       0.273         &       0.220         \\
+Ctrl mean (base)    &     764.202         &      -0.711         &    1886.975         &      52.149         \\
+Ctrl mean (end)     &   -1390.894         &      -3.386         &    1123.711         &      83.991         \\
+Wild-boot p (T1)    &       0.445         &       0.289         &       0.860         &       0.757         \\
+Wild-boot p (T2)    &       0.098         &       0.208         &       0.153         &       0.255         \\
+RI p (T1)           &       0.168         &       0.035         &       0.777         &       0.562         \\
+RI p (T2)           &       0.001         &       0.037         &       0.061         &       0.016         \\
+Obs                 &         385         &         385         &         385         &         385         \\
+\bottomrule
+\end{tabular}
+}
