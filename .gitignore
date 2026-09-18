@@ -21,19 +21,22 @@
 !/tmp/*.pdf
 !/tmp/*.eps
 
-# --- Slide/ はソースのみ。LaTeX のビルド生成物と tmp シンボリックリンクは除外 ---
-/Slide/tmp
-/Slide/*.aux
-/Slide/*.fdb_latexmk
-/Slide/*.fls
-/Slide/*.log
-/Slide/*.nav
-/Slide/*.out
-/Slide/*.pdf
-/Slide/*.snm
-/Slide/*.synctex.gz
-/Slide/*.toc
-/Slide/*.gz
+# --- デッキはリポジトリ直下。原稿(.tex)だけ追跡し、ビルド生成物は除外 ---
+!/JICA-Ghana_full-analysis.tex
+/*.aux
+/*.fdb_latexmk
+/*.fls
+/*.nav
+/*.out
+/*.pdf
+/*.snm
+/*.synctex.gz
+/*.toc
+/*.gz
+
+# --- 旧バージョンのスライド（原稿のみ、PDFは除外）---
+!/archive_slides/
+/archive_slides/*.pdf
 
 # --- Stata / R / macOS のゴミ ---
 *.log

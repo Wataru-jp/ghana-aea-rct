@@ -2,7 +2,7 @@
 * run_endline_all.do  --  master script: data -> all .tex tables -> slide deck
 *
 * Every analysis do-file below writes LaTeX fragments into $tmp, which
-* Slide/JICA-Ghana_full-analysis.tex pulls in with \input{tmp/...}. Running this file therefore
+* JICA-Ghana_full-analysis.tex (repo root) pulls in with \input{tmp/...}. Running this file therefore
 * refreshes the whole deck: no table is maintained by hand.
 *
 * Fragments produced (all in $tmp):
@@ -94,6 +94,6 @@ do "$do/fig_dist_visits.do"     // -> tmp/fig_dist_visits.pdf, tmp/fig_selfrep_f
 
 * --- 6. compile the deck ------------------------------------------------------
 * (comment out if TinyTeX/R is not available on this machine)
-capture shell cd "$path/Slide" && Rscript -e 'tinytex::latexmk("JICA-Ghana_full-analysis.tex", engine="pdflatex")'
+capture shell cd "$path" && Rscript -e 'tinytex::latexmk("JICA-Ghana_full-analysis.tex", engine="pdflatex")'
 
-di _n "=== run_endline_all.do finished: tmp/*.tex refreshed, Slide/JICA-Ghana_full-analysis.pdf rebuilt ==="
+di _n "=== run_endline_all.do finished: tmp/*.tex refreshed, JICA-Ghana_full-analysis.pdf rebuilt ==="
