@@ -40,13 +40,14 @@ fi
 
 echo
 echo "=== 3. Overleaf へ ============================================"
-if git push overleaf main:master; then
+# Overleaf 側のブランチ名も main（2026年時点）。master ではない。
+if git push overleaf main; then
     echo "  OK"
 else
     echo
     echo "  失敗しました。Overleaf側で誰かが編集した可能性が高いです。"
     echo "  次の順で取り込んでから、もう一度 ./sync.sh を実行してください:"
-    echo "      git pull overleaf master"
+    echo "      git pull overleaf main"
     echo "  （衝突が出たら、対象ファイルを開いて <<<<<<< の行を手で整理し、"
     echo "    git add <ファイル> && git commit）"
     exit 1

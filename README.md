@@ -80,7 +80,7 @@ archive_slides/                旧バージョンのスライド。現在は使�
 Overleaf側で誰かが本文を編集した場合は、先に取り込んでから送ります:
 
 ```bash
-git pull overleaf master
+git pull overleaf main
 ./sync.sh "Overleafの編集を取り込み"
 ```
 
