@@ -95,6 +95,20 @@ git pull overleaf main
 - 灌漑2郡（Kpong, Weta）は全推定から除外
 - 農家の知識指標は「4項目すべて正答で1」のall-or-nothing方式
 
+## 7. コミットメッセージの書き方
+
+1行目は**英語で簡潔に**（50字程度、何をしたか）。本文が要るときだけ、1行空けて
+「なぜそうしたか」を数行。何をしたかは差分を見れば分かるので、書くべきは理由です。
+
+```
+Drop irrigation districts from all estimations
+
+They are 12 farmers and 2 AEAs, all in the control arm, and yields and
+labour there are on a different scale. Leaves 8 district clusters.
+```
+
+箇条書きの作業ログや、差分を読めば分かる内容の列挙は書かないでください。
+
 ## 7. やってはいけないこと
 
 - 生データをコミットする
