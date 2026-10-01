@@ -49,7 +49,7 @@
 *===============================================================================
 clear all
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct/"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct/"
 global do   "$path/do"
 global tmp  "$path/tmp"
 

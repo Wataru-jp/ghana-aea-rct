@@ -3,7 +3,7 @@
 * Inference: cluster-SE, wild cluster bootstrap (Webb, 9,999), RI
 *==============================================================================
 global path "C:/Users/kaz-takahashi/Dropbox/Ghana/Data/"
-global path "/Users/wkodama/research/ghana-aea-rct/"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct/"
 global base   "$path/Baseline"
 global survey "$path/Biweekly survey data"
 global tmp    "$path/tmp"

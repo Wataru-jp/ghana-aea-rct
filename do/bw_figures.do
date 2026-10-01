@@ -18,7 +18,7 @@
 * Output: tmp/b_basic.eps, tmp/b_satisfy.eps
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 use "$tmp/bw_panel.dta", clear

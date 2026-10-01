@@ -21,7 +21,7 @@
 * Output: tmp/e_farmer_share.tex  (+ tmp/farmer_share.dta)
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 * ---------- land payments, per wave ----------

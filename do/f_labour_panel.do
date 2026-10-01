@@ -6,7 +6,7 @@
 * (QY15_17). Output: tmp/labour_by_op.dta, used by f_labour_detail.do.
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 * ---- areas and wages ----

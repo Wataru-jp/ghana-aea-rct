@@ -19,7 +19,7 @@
 *         tmp/a_AEA_endline_analysis.dta (a_endline_analysis.do)
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 local items panelE_A panelE_B panelE_C panelE_D panelE_E panelE_F ///

@@ -14,7 +14,7 @@
 * Output: tmp/fig_advice_themes.pdf
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 use "$tmp/advice_themes.dta", clear

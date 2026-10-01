@@ -22,7 +22,7 @@
 * visits from below and are used descriptively only.
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 capture program drop mksig

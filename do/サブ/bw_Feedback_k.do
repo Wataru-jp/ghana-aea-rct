@@ -1,5 +1,5 @@
 global path "C:\Users\kaz-takahashi\Dropbox\Ghana\Data"
-global path "/Users/wkodama/research/ghana-aea-rct/"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct/"
 global base $path\Baseline
 global survey "$path\Biweekly survey data"
 global do $path\do

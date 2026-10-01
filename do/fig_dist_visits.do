@@ -8,7 +8,7 @@
 * do/aea_distance.do, which must run first (the master handles this).
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 tempfile dist

@@ -5,7 +5,7 @@
 * Robustness: wild bootstrap, RI, sampling weights.
 *==============================================================================
 global path "C:/Users/kaz-takahashi/Dropbox/Ghana/Data/"
-global path "/Users/wkodama/research/ghana-aea-rct/"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct/"
 global dta  "$path/Baseline"
 global tmp  "$path/tmp"
 

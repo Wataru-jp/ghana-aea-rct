@@ -3,7 +3,7 @@
 * on the matched panel samples (farmers N=385, AEAs N=43).
 *==============================================================================
 global path "C:/Users/kaz-takahashi/Dropbox/Ghana/Data/"
-global path "/Users/wkodama/research/ghana-aea-rct/"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct/"
 global tmp  "$path/tmp"
 
 capture program drop descrow

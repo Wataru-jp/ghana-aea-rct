@@ -15,7 +15,7 @@
 * Output: tmp/e_aea_mediation.tex
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 global controls_extra "i.irrgsch"
 

@@ -5,7 +5,7 @@
 * endline data. AEA demographics (gender/tenure/experience/salary/bike) are
 * time-invariant baseline characteristics merged from AEA_base_tmp.
 *==============================================================================
-global path "/Users/wkodama/research/ghana-aea-rct/"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct/"
 global tmp  "$path/tmp"
 
 * ------------------------------ farmer ---------------------------------------

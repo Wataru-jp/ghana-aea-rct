@@ -5,7 +5,7 @@
 * Requires: tmp/a_AEA_endline.dta (a_endline.do), tmp/AEA_base_tmp.dta (a_baseline.do).
 *==============================================================================
 global path "C:/Users/kaz-takahashi/Dropbox/Ghana/Data/"
-global path "/Users/wkodama/research/ghana-aea-rct/"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct/"
 global dta  "$path/Baseline"
 global tmp  "$path/tmp"
 global controls_extra ""             // treat/gps/lag for AEA (see sample note below)

@@ -38,7 +38,7 @@
 *==============================================================================
 set more off
 set linesize 250
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 * the one thing every section needs: baseline motivation keyed on the AEA id

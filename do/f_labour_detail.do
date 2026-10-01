@@ -12,7 +12,7 @@
 * Output: tmp/e_labour_ops.tex   tmp/e_labour_sex.tex
 *==============================================================================
 set more off
-global path "/Users/wkodama/research/ghana-aea-rct"
+global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
 
 use "$tmp/labour_by_op.dta", clear
