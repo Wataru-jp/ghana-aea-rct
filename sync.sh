@@ -15,6 +15,11 @@
 set -uo pipefail
 cd "$(dirname "$0")"
 
+# Overleaf 経由の編集を取り込むと実行権限(+x)が落ちる。Overleaf は全ファイルを
+# 通常ファイルとして保存するため。落ちていたら黙って戻す。
+# 権限が落ちると ./sync.sh が "permission denied" になるので、毎回ここで直す。
+[ -x "$0" ] || chmod +x "$0"
+
 MSG="${1:-}"
 if [ -z "$MSG" ]; then
     echo "使い方: ./sync.sh \"何を変えたかの一言（英語）\""
