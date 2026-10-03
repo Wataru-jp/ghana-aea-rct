@@ -10,7 +10,38 @@
 \usepackage{subfiles}
 \usepackage{threeparttable}
 \usepackage{graphicx}
-\usepackage[round]{natbib}
+% ----- 引用の体裁（APA） -------------------------------------------------------
+% もとは natbib + apalike だった。apalike が出す \bibitem[Alam and Kijima, 2024]
+% という形式は年を括弧で区切っていないため natbib が解釈できず、番号引用 (1) に
+% 退避してしまう。これが「引用が (1) になる」原因だった。
+% apacite は beamer と衝突する（\st@rtbibchapter 等を前提にしている）ので、
+% APA 用に設計された biblatex-apa を使う。natbib=true なので \citet / \citep は
+% これまでどおり書ける。参照の処理系は bibtex ではなく biber になるが、
+% Overleaf は自動で判別するので設定は不要。
+\usepackage[style=apa, backend=biber, natbib=true]{biblatex}
+\DeclareLanguageMapping{english}{english-apa}
+\addbibresource{references.bib}
+
+% 参考文献リストの字と行間。frame 側で \scriptsize と書いても biblatex が
+% \bibfont で上書きするため、必ずここで指定すること。
+\renewcommand*{\bibfont}{\scriptsize}
+\setlength{\bibitemsep}{2pt}
+
+% \citep の引用だけ本文より小さく組む。大きさを変えたいときはこの1行だけ直す。
+\newcommand{\citepfont}{\footnotesize}
+\let\origcitep\citep
+\RenewDocumentCommand{\citep}{s o o m}{%
+  \begingroup\citepfont
+  \IfBooleanTF{#1}%
+    {\IfNoValueTF{#2}{\origcitep*{#4}}%
+      {\IfNoValueTF{#3}{\origcitep*[#2]{#4}}{\origcitep*[#2][#3]{#4}}}}%
+    {\IfNoValueTF{#2}{\origcitep{#4}}%
+      {\IfNoValueTF{#3}{\origcitep[#2]{#4}}{\origcitep[#2][#3]{#4}}}}%
+  \endgroup
+}
+% 参考文献リスト先頭の beamer のアイコンを消す（著者-年表示には不要）
+\setbeamertemplate{bibliography item}{}
+% ------------------------------------------------------------------------------
 \usepackage{tabularray}
 \usepackage{float}
 \usepackage[normalem]{ulem}
@@ -18,8 +49,6 @@
 \usepackage{multicol}
 \usepackage{comment}
 \usepackage{tikz}
-\usepackage{natbib}
-\bibliographystyle{apalike}
 \usetikzlibrary{arrows.meta}
 \setlength{\emergencystretch}{3em}
 \newcommand{\notefont}{\fontsize{5pt}{6pt}\selectfont}
@@ -135,8 +164,8 @@
         \textbf{BUT:} AEA's absence or inefficient service delivery are reported  \citep{anderson_chapter_2007, alam_incentives_2024}.
         \item Two research have investigated what incentives work:
             \begin{itemize}
-                \item \cite{alam_incentives_2024}:
-                \item \cite{genicot_carrots_nodate}:
+                \item \citet{alam_incentives_2024}:
+                \item \citet{genicot_carrots_nodate}:
             \end{itemize}        
     \end{itemize}
 
@@ -780,10 +809,9 @@
 
 
 % ======================= Reference =======================
-\begin{frame}{Reference}
-	\scriptsize
-	\bibliographystyle{apalike}
-	\bibliography{references}
+% allowframebreaks: 1枚に収まらないときは自動で次ページへ送る（切れ落ち防止）
+\begin{frame}[allowframebreaks]{Reference}
+	\printbibliography[heading=none]
 \end{frame}
 
 
