@@ -18,6 +18,8 @@
 \usepackage{multicol}
 \usepackage{comment}
 \usepackage{tikz}
+\usepackage{natbib}
+\bibliographystyle{apalike}
 \usetikzlibrary{arrows.meta}
 \setlength{\emergencystretch}{3em}
 \newcommand{\notefont}{\fontsize{5pt}{6pt}\selectfont}
@@ -98,18 +100,54 @@
 			\item Motivation % 
 			\item Research Questions and What We Do
 			\item Study Areas and Research Design
-			\item Data and Descriptive Statistics
-			\item Results: Bi-weekly and Endline
-			\item Appendix: Reparameterization, Robustness, 2SLS
+			\item Measuring Extension Performance
+			\item Impacts of Non-monetary incentives
+            \item Conclusions
+			%\item Appendix: Reparameterization, Robustness, 2SLS
 		\end{itemize}
 	\end{frame}
 
 % --- Motivation ---
+\begin{frame}{Motivation: Public Service and Incentives}
+	
+	\begin{itemize}
+        \item Despite its importance for development, the performance of public service delivery in low-income countries is reported to be poor \citep{finan_chapter_2017}.
+        \begin{itemize}
+            \item Quantity: 19\% of teachers and 35\% of health workers across six countries were absent from service \citep{chaudhury_missing_2006}.
+            \item Quality: Doctors in India "do less than what they know they should \citep{das_money_2007}."
+        \end{itemize}
+        \item Incentives can improve the performance.
+        \begin{itemize}
+            \item \textbf{Monetary incentive} enhanced teachers' effort level and students' outcome \citep{leaver_recruitment_2021, muralidharan_teacher_2011}.
+            \item \textbf{Monitoring} reduced absence of teachers \citep{duflo_incentives_2012} and nurses \citep{banerjee_putting_2008}.
+            \item \textbf{Social recognition} improved performance of health workers \citep{ashraf_awards_2014} and village leaders \citep{mansuri_money_2023}.
+            \item Enhanced \textbf{locus of control} increased community health workers' delivery in their core responsibility and other tasks performed \citep{khan_mission_2025}.
+        \end{itemize}
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}{Motivation: Agricultural Extension}
+
+    \begin{itemize}
+        \item Improving agricultural productivity requires the adoption of new technologies and improved management practices \citep{takahashi_technology_2020}.
+        \item Agricultural extension agents (AEA)’ efforts are critical to disseminate knowledge among farmers \citep{anderson_chapter_2007}. \\
+        \textbf{BUT:} AEA's absence or inefficient service delivery are reported  \citep{anderson_chapter_2007, alam_incentives_2024}.
+        \item Two research have investigated what incentives work:
+            \begin{itemize}
+                \item \cite{alam_incentives_2024}:
+                \item \cite{genicot_carrots_nodate}:
+            \end{itemize}        
+    \end{itemize}
+
+\end{frame}
+
+
 \begin{frame}{Motivation}
 	
 	\begin{itemize}
 		\item Improving agricultural productivity requires the adoption of new technologies,
-		such as improved seeds, chemical fertilizers, and appropriate crop management practices.
+		such as improved seeds, chemical fertilizers, and appropriate crop management practices \citep{takahashi_technology_2020}.
 		
 		\vspace{0.3cm}
 		
@@ -738,6 +776,14 @@
 		harvest-only effect is $+26.6$ days/ha for T1 (92.6\% of total effect) and $+22.2$ for T2 (80.0\%).
 		***, **, * : 1, 5, 10\%.
 	\end{minipage}
+\end{frame}
+
+
+% ======================= Reference =======================
+\begin{frame}{Reference}
+	\scriptsize
+	\bibliographystyle{apalike}
+	\bibliography{references}
 \end{frame}
 
 
