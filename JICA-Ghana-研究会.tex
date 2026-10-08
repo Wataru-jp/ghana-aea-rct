@@ -115,16 +115,13 @@
 \author[Takahashi et al.]{Kazushi Takahashi, Wataru Kodama, Yukichi Mano}
 \date{October 26, 2026}
 \begin{document}
-	
-	% --- 1枚目のスライド（タイトルページ） ---
-	\begin{frame}{}
+\begin{frame}{}
 		\titlepage
         \centering
         13th CARD3 Research Seminar
 	\end{frame}
-	
-	% --- 2枚目のスライド ---
-	\begin{frame}{Contents} % 
+
+\begin{frame}{Contents} % 
 		\begin{itemize}
 			\item Motivation % 
 			\item Research Questions and What We Do
@@ -136,191 +133,209 @@
 		\end{itemize}
 	\end{frame}
 
-% --- Motivation ---
 \begin{frame}{Motivation: Public Service and Incentives}
-	
 	\begin{itemize}
-        \item Despite its importance for development, the performance of public service delivery in low-income countries is reported to be poor \citep{finan_chapter_2017}.
-        \begin{itemize}
-            \item Quantity: 19\% of teachers and 35\% of health workers across six countries were absent from service \citep{chaudhury_missing_2006}.
-            \item Quality: Doctors in India "do less than what they know they should \citep{das_money_2007}."
-        \end{itemize}
-        \item Incentives can improve the performance.
-        \begin{itemize}
-            \item \textbf{Monetary incentive} enhanced teachers' effort level and students' outcome \citep{leaver_recruitment_2021, muralidharan_teacher_2011}.
-            \item \textbf{Monitoring} reduced absence of teachers \citep{duflo_incentives_2012} and nurses \citep{banerjee_putting_2008}.
-            \item \textbf{Social recognition} improved performance of health workers \citep{ashraf_awards_2014} and village leaders \citep{mansuri_money_2023}.
-            \item Enhanced \textbf{locus of control} increased community health workers' delivery in their core responsibility and other tasks performed \citep{khan_mission_2025}.
-        \end{itemize}
+		\item Despite its importance for development, public service delivery in low-income
+		countries performs poorly \citep{finan_chapter_2017}.
+		\begin{itemize}
+			\item \textbf{Quantity}: across six countries, 19\% of teachers and 35\% of health
+			workers were absent from their posts \citep{chaudhury_missing_2006}.
+			\item \textbf{Quality}: doctors in India ``do less than what they know they should''
+			\citep{das_money_2007}.
+		\end{itemize}
+		\item Incentives can improve performance.
+		\begin{itemize}
+			\item \textbf{Monetary incentives} raised teachers' effort and students' learning
+			\citep{leaver_recruitment_2021, muralidharan_teacher_2011}.
+			\item \textbf{Monitoring} reduced absence among teachers \citep{duflo_incentives_2012}
+			and nurses \citep{banerjee_putting_2008}.
+			\item \textbf{Social recognition} improved the performance of health workers
+			\citep{ashraf_awards_2014} and village leaders \citep{mansuri_money_2023}.
+			\item Strengthening \textbf{locus of control} increased community health workers'
+			delivery of both core and additional tasks \citep{khan_mission_2025}.
+		\end{itemize}
 	\end{itemize}
-	
 \end{frame}
 
 \begin{frame}{Motivation: Agricultural Extension}
-
-    \begin{itemize}
-        \item Improving agricultural productivity requires the adoption of new technologies and improved management practices \citep{takahashi_technology_2020}.
-        \item Agricultural extension agents (AEA)’ efforts are critical to disseminate knowledge among farmers \citep{anderson_chapter_2007}. \\
-        \textbf{BUT:} AEA's absence or inefficient service delivery are reported  \citep{anderson_chapter_2007, alam_incentives_2024}.
-        \item Two research have investigated what incentives work:
-            \begin{itemize}
-                \item \citet{alam_incentives_2024}:
-                \item \citet{genicot_carrots_nodate}:
-            \end{itemize}        
-    \end{itemize}
-
+	\begin{itemize}
+		\item Raising agricultural productivity requires farmers to adopt new technologies and
+		improved management practices \citep{takahashi_technology_2020}.
+		\item Agricultural extension agents (AEAs) are the main channel through which that
+		knowledge reaches farmers \citep{anderson_chapter_2007}.
+		\item \textbf{But} AEA absenteeism and weak service delivery are widely reported
+		\citep{anderson_chapter_2007, alam_incentives_2024}.
+		\item Two studies have tested incentives for extension agents:
+		\begin{itemize}
+			\item \citet{alam_incentives_2024}: Bangladesh, 807 officers --- a \textbf{cash
+			reward} versus \textbf{recognition by the district director}.
+			\item \citet{genicot_carrots_nodate}: Punjab, Pakistan --- three
+			\textbf{pay-for-performance} schemes tied to a digital monitoring system.
+		\end{itemize}
+		\item Both reward the agent \textbf{from above}, through pay or through supervisors.
+	\end{itemize}
 \end{frame}
 
+\begin{frame}{What We Still Do Not Know}
+	\begin{itemize}\small
+		\item Existing evidence speaks to \textbf{extrinsic} incentives: money, and recognition
+		granted by supervisors.
 
-\begin{frame}{Motivation}
-	
-	\begin{itemize}
-		\item Improving agricultural productivity requires the adoption of new technologies,
-		such as improved seeds, chemical fertilizers, and appropriate crop management practices \citep{takahashi_technology_2020}.
-		
-		\vspace{0.3cm}
-		
-		\item Since technology development, adoption, and diffusion involve externality, public institutions play a central role.
-		Public agricultural extension workers are key actors in disseminating technologies developed at research stations.
-		
-		\vspace{0.3cm}
-		
-		\item However, in many developing countries, particularly in Sub-Saharan Africa, public extension systems often function poorly.
-		
-		\vspace{0.3cm}
-		
-		\item One explanation is weak incentives:
-		\begin{itemize}
-			\item Limited monitoring and weak linkage between performance and rewards (lack of extrinsic motivation)
-			\item Extension workers may not perceive extension activities as meaningful (lack of intrinsic motivation)
-		\end{itemize}
-		
-		\vspace{0.3cm}
-		
-		
+		\vspace{0.18cm}
+		\item \textbf{Can recognition come from below?} Farmers observe an agent's effort
+		directly, yet their voice is rarely fed back to the agent --- and such a scheme costs
+		almost nothing, which matters where civil-service pay is fixed by statute.
+
+		\vspace{0.18cm}
+		\item \textbf{Can the belief that one's effort matters be moved?} If agents doubt that
+		their work changes farmers' lives --- a weak \emph{locus of control} --- then
+		pay-for-performance is addressing the wrong constraint. Whether training can shift that
+		belief, and with it behaviour, is untested in extension.
+
+		\vspace{0.18cm}
+		\item \textbf{Does better service reach the farm?} Prior studies stop at the agent's
+		outreach, not at adoption, yields and income.
+
+		\vspace{0.18cm}
+		\item \textbf{Measurement is itself part of the problem}: effort is normally taken from
+		administrative records or the agent's own report --- both of which the agent controls.
 	\end{itemize}
-	
 \end{frame}
 
-% --- Research gap \& Aim of the paper ---
-\begin{frame}{Research Questions} % 
-	\begin{itemize}
-		\item This study focuses on intrinsic motivation and evaluates interventions that can improve the effectiveness of extension activities.
-		
-		\vspace{0.3cm}
-		
-		\begin{itemize}
-			
-			\item \textbf{Is low extension effort driven by a lack of locus of control?}
-			\begin{itemize}
-				\item Extension workers do not believe that their efforts can improve farmers' lives.
-			\end{itemize}
-			
-			\vspace{0.3cm}
-			
-			\item \textbf{Is low effort driven by weak social recognition?}
-			\begin{itemize}
-				\item No matter how hard AEAs try, their efforts are not particularly recognized or appreciated by their superiors or the farmers. 
-			\end{itemize}
-			
-			\vspace{0.3cm}
-			
-			
-		\end{itemize}
-		
-	\end{itemize}
+\begin{frame}{Research Questions}
+	\begin{enumerate}
+		\item Does \textbf{feedback from farmers} --- telling an agent how satisfied the farmers
+		he or she serves are --- raise extension effort and the quality of the advice given?
+
+		\vspace{0.35cm}
+		\item Does \textbf{training on the social significance} of extension work, aimed at the
+		agent's locus of control, add anything on top of that feedback?
+
+		\vspace{0.35cm}
+		\item Do changes at the agent level reach the \textbf{farm level} --- management
+		practices, input use, yields and income?
+	\end{enumerate}
 \end{frame}
 
 \begin{frame}{What We Do}
-	
-	\begin{itemize}
-		\item This study focuses on intrinsic motivation and evaluates interventions
-		that can improve the effectiveness of extension activities.
-		
-		\vspace{0.3cm}
-		\begin{itemize}
-			\item \textbf{Is low extension effort driven by a lack of locus of control?}
-			\begin{itemize}
-				\item Extension workers do not believe that their efforts can improve farmers' lives.
-				\item $\Rightarrow$ Provide training emphasizing the social significance of extension activities
-			\end{itemize}
-			
-			\vspace{0.3cm}
-			
-			\item \textbf{Is low effort driven by weak social recognition?}
-			\begin{itemize}
-				\item  No matter how hard AEAs try, their efforts are not particularly recognized or appreciated by their superiors or the farmers. 
-				\item $\Rightarrow$ Introduce a feedback system communicating farmers' satisfaction
-				\item $\Rightarrow$ Ask AEAs to stamp their location information when visit farmer fields (somewhat related to extrinsic motivation?)
-			\end{itemize}
-			
-			\vspace{0.3cm}
-			
-			
-		\end{itemize}
+	\begin{itemize}\small
+		\item A \textbf{cluster-randomised controlled trial} with Ghana's public extension
+		service: 44 AEAs across 10 districts, serving about 390 rice farmers. Randomisation is
+		at the \textbf{district} level.
+
+		\vspace{0.18cm}
+		\item \textbf{T1 --- Feedback}: farmers' satisfaction with their AEA is collected and
+		reported back to the agent. Recognition from below, at essentially no cost.
+		\item \textbf{T2 --- Feedback + Training}: the same feedback, plus training that
+		emphasises how extension work matters for farmers' livelihoods.
+		\item \textbf{Cross-cutting --- GPS stamp}: agents record their location when they visit
+		fields; a light form of monitoring.
+
+		\vspace{0.18cm}
+		\item \textbf{How we measure effort}: besides baseline and endline surveys, a
+		\textbf{bi-weekly farmer survey} over 11 rounds (Apr--Sep 2025) --- effort is reported by
+		those who receive the service, not by the agent.
+		\item We keep \textbf{intrinsic motivation}, \textbf{prosocialness} and \textbf{locus of
+		control} as separate constructs rather than one ``motivation'' index: they are distinct,
+		and the data show they move differently.
 	\end{itemize}
-	
 \end{frame}
 
+
+% ----- 2. Experimental design and data -----
+\section{Experimental design and data}
+\begin{frame}[plain]
+	\vfill
+	\centering
+	{\Huge\bfseries\textcolor{myGreen}{2.~Experimental design and data}}
+	\vfill
+\end{frame}
 \begin{frame}{Study Areas}
+\vspace{-0.15cm}
+\begin{columns}[T]
+\begin{column}{0.46\textwidth}
+	\centering
+	\includegraphics[height=0.84\textheight,keepaspectratio]{tmp/fig_map_study_areas.pdf}
+\end{column}
+\begin{column}{0.54\textwidth}
+	\footnotesize
 	\begin{itemize}
-		\item Rainfed areas covered by GRIP:
+		\item \textbf{10 districts} covering the major rice-producing environments in Ghana
+		\vspace{0.14cm}
+		\item \textbf{Rainfed: 8 districts (analysis sample)}
+		\begin{scriptsize}
 		\begin{itemize}
-			\item Oti (Biakoye and Krachi West)
-			\item Bono East (Pru West and Sene West)
-			\item Western North (Bibiani and Sefwi Wiaoso)
-			\item Eastern Regions (Achiase and Lower Manya) 
-			\vspace{0.3cm}
+			\item Oti: Biakoye, Krachi West
+			\item Bono East: Pru West, Sene West
+			\item Western North: Bibiani, Sefwi Wiaoso
+			\item Eastern: Achiase, Lower Manya
 		\end{itemize}
-		\item Irrigation schemes:
+		\end{scriptsize}
+		\vspace{0.14cm}
+		\item \textbf{Irrigation schemes: 2 sites (excluded)}
+		\begin{scriptsize}
 		\begin{itemize}
-			\item Weta (Volta)
-			\item Kpong (Eastern)
+			\item Weta (Volta), Kpong (Eastern)
+			\item Both fell in the control arm and farm in a very different
+			      production environment; dropped from every estimation
 		\end{itemize}
-		\vspace{0.3cm}
-		\item Total: 
-		\begin{itemize}
-			\item 10 study sites across major rice-producing environments in Ghana
-			\item 44 agricultural extension agents (AEAs)
-			\item 390 rice-growing farmers
-			
-		\end{itemize}
-		
+		\end{scriptsize}
+		\vspace{0.14cm}
+		\item 44 agricultural extension agents (AEAs) and 390 rice-growing farmers
 	\end{itemize}
+\end{column}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Random Assignment}
-	\scriptsize
-	\textbf{Sample}
-	\begin{itemize}
-		\item 44 AEAs who participated in the baseline survey
-		\item Random assignment conducted at the district level
-	\end{itemize}
+\vspace{-0.15cm}
+\centering
+\begin{tikzpicture}[font=\scriptsize,
+  box/.style={draw=myDarkGray, rounded corners=2pt, align=center, inner sep=4pt},
+  arm/.style={box, draw=myGreen, fill=myGreen!8, text width=3.0cm},
+  ar/.style={-{Stealth[length=5pt]}, draw=myDarkGray, thick}]
+
+\node[box, fill=gray!10, text width=10.6cm] (pop) at (0,0)
+  {\textbf{Baseline (2024)}\\ 10 districts in 5 regions \ \textbullet\ \ 44 AEAs \ \textbullet\ \ 390 rice farmers};
+
+\node[arm] (c)  at (-4.2,-2.5) {\textbf{Control}\\[3pt] 4 districts\\ 13 AEAs\\ 104 farmers};
+\node[arm] (t1) at ( 0   ,-2.5) {\textbf{T1: Feedback}\\[3pt] 3 districts\\ 16 AEAs\\ 152 farmers};
+\node[arm] (t2) at ( 4.2 ,-2.5) {\textbf{T2: Feedback}\\ \textbf{+ Training}\\[3pt] 3 districts\\ 15 AEAs\\ 134 farmers};
+
+\draw[ar] (pop.south) -- (0,-1.25);
+\draw[ar] (0,-1.25) -| (c.north);
+\draw[ar] (0,-1.25) -- (t1.north);
+\draw[ar] (0,-1.25) -| (t2.north);
+\node[font=\scriptsize\itshape, anchor=west] at (0.25,-0.95) {randomised at the \textbf{district} level};
+
+\node[box, draw=myOrange, dashed, fill=myOrange!6, text width=10.6cm] (st) at (0,-4.5)
+  {\textbf{Cross-cutting: GPS stamp} --- within each arm, half of the AEAs (20 of 44) stamp their
+   location when they visit a field};
+\draw[ar, draw=myOrange] (c.south)  -- (c.south  |- st.north);
+\draw[ar, draw=myOrange] (t1.south) -- (t1.south |- st.north);
+\draw[ar, draw=myOrange] (t2.south) -- (t2.south |- st.north);
+
+\node[box, fill=gray!10, text width=10.6cm] (end) at (0,-6.1)
+  {\textbf{Endline (2025)}: 43 AEAs, 394 farmers \ \textbullet\ \ \textbf{Analysis sample}
+   (rainfed sites only): 41 AEAs, 373 farmers, \textbf{8 district clusters}};
+\draw[ar] (st.south) -- (end.north);
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Project Timeline}
 	
-	
-	\textbf{Treatment Arms}
 	\begin{itemize}
-		\item \textbf{Group 1: Feedback Treatment (T1)}
+		\item \textbf{January 2025:} Baseline Survey
+		\vspace{0.3cm}
+		
+		\item \textbf{April -- September 2025:} Intervention
 		\begin{itemize}
-			\item Extension agents and their supervisors receive feedback from farmers regarding their extension activities: biweekly
-			\item \textcolor{blue}{Sene West, Achiase, Bibiani}
+			\item Satisfaction Survey
+			\item Training
 		\end{itemize}
+		\vspace{0.3cm}
 		
-		\item \textbf{Group 2: Feedback + Training (T2)}
-		\begin{itemize}
-			\item Farmer feedback provided
-			\item Additional training emphasizing the social importance and impact of extension services
-			\item \textcolor{blue}{Lower Manya, Krachi West, Sefwi Wiaoso}
-		\end{itemize}
-		
-		\item \textbf{Group 3: Control Group (C)}
-		\begin{itemize}
-			\item No intervention (Collect the satisfaction level, but do not inform the result to AEAs) 
-			\item \textcolor{blue}{Pru West, Biakoye, and 2 irrigation schemes}
-		\end{itemize}
-		
-		\item \textbf{Half of AEAs are subject to stamp treatment}
-		
+		\item \textbf{January--February 2026:} Endline Survey 
 	\end{itemize}
 	
 \end{frame}
@@ -345,24 +360,6 @@
 		
 		
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{Project Timeline}
-	
-	\begin{itemize}
-		\item \textbf{January 2025:} Baseline Survey
-		\vspace{0.3cm}
-		
-		\item \textbf{April -- September 2025:} Intervention
-		\begin{itemize}
-			\item Satisfaction Survey
-			\item Training
-		\end{itemize}
-		\vspace{0.3cm}
-		
-		\item \textbf{January--February 2026:} Endline Survey 
-	\end{itemize}
-	
 \end{frame}
 
 \begin{frame}{Number of Obs by District (Baseline / Endline)}
@@ -408,31 +405,6 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Descriptives by Treatment Arm (AEA)}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_aea.tex}}
-	\begin{itemize}\notefont
-		\item Note: baseline and endline means by assigned arm; SD in parentheses. Stars on T1/T2:
-		difference vs Control \emph{within the wave} (district-clustered); ***, **, * : 1, 5, 10\%.
-	\end{itemize}
-\end{frame}
-
-
-
-
-
-
-
-
-
-	
-
-
-
-
-
-
-
 \begin{frame}{Locus of Control (AEA)}
 	\centering
 	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_aea_locus.tex}}
@@ -443,6 +415,15 @@
 		scales reverse-code the external-control items so that higher $=$ more internal control.
 		Items A--E refer to agricultural production and the respondent's civil-service career;
 		items F--J are the general (Rotter-type) items.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Descriptives by Treatment Arm (AEA)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_aea.tex}}
+	\begin{itemize}\notefont
+		\item Note: baseline and endline means by assigned arm; SD in parentheses. Stars on T1/T2:
+		difference vs Control \emph{within the wave} (district-clustered); ***, **, * : 1, 5, 10\%.
 	\end{itemize}
 \end{frame}
 
@@ -504,7 +485,33 @@
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Empirical Strategy}
+\begin{itemize}
+	\item \textbf{ANCOVA}: regress endline outcome on treatment status, controlling for
+	      the baseline value of the outcome
+	\item Arms: T1 (Feedback), T2 (Feedback + Training); plus the cross-cutting Stamp (GPS)
+	\item \textbf{Sample}: \emph{rainfed sites only} --- the two irrigation schemes (Kpong and
+	      Weta) are dropped from every estimation (12 farmers, 2 AEAs, all in the control arm;
+	      yields, seed rates and labour there are on a different scale). Farmers $N=382$, AEAs $N=41$
+	\item Farmer models add region (province) FE; SEs clustered at district
+	      (\textbf{8 clusters}: 2 control, 3 T1, 3 T2)
+	\item Few clusters $\Rightarrow$ \textbf{wild cluster bootstrap} (Webb, 9{,}999) and
+	      \textbf{randomization-inference} $p$-values alongside clustered SEs. With 2 control
+	      districts these bind --- read the clustered SEs as the optimistic bound
+	\item Crop failure = realized \textbf{zero} output (kept in sample); logs use $\ln(1+x)$;
+	      outcomes are not winsorized
+\end{itemize}
+\end{frame}
 
+
+% ----- 3. Measuring AEA performance -----
+\section{Measuring AEA performance}
+\begin{frame}[plain]
+	\vfill
+	\centering
+	{\Huge\bfseries\textcolor{myGreen}{3.~Measuring AEA performance}}
+	\vfill
+\end{frame}
 \begin{frame}{Descriptive Results of Biweekly Survey}
 	\begin{figure}
 		\includegraphics[width=12cm,height=0.78\textheight,keepaspectratio]{tmp/b_basic.eps}
@@ -542,122 +549,6 @@
 		Note: one dot per AEA (N=41, rainfed sites only; third panel: the AEAs with stamp records). Distance $=$
 		mean distance from the AEA's duty station to the communities served, log scale. Dashed line
 		and the slope in each panel title: OLS on $\ln$(distance). ***, **, * : 1, 5, 10\%.
-	\end{minipage}
-\end{frame}
-
-\begin{frame}{Baseline -- Preliminary results of Correlation (AEA)}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/a_result_table3.tex}}
-	
-\end{frame}
-
-\begin{frame}{Endline -- Preliminary results of Correlation (AEA)}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/a_result_table3_e.tex}}
-	
-\end{frame}
-
-\begin{frame}{Baseline -- Preliminary results of Correlation (Farming)}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.86\textheight,keepaspectratio}{\input{tmp/f_result_table2.tex}}
-	
-\end{frame}
-
-\begin{frame}{Endline -- Preliminary results of Correlation (Farming)}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.86\textheight,keepaspectratio}{\input{tmp/f_result_table2_e.tex}}
-	
-\end{frame}
-
-\begin{frame}{Baseline -- Correlates of Practice Adoption (Farming)}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/f_result_pracadopt_b.tex}}
-	\begin{minipage}{0.94\textwidth}
-		\notefont
-		Note: OLS at baseline; each column regresses the practice indicator (No.\ practices
-		$=$ count of the seven) on household characteristics; SE clustered at district.
-		***, **, * : 1, 5, 10\%.
-	\end{minipage}
-\end{frame}
-
-\begin{frame}{Endline -- Correlates of Practice Adoption (Farming)}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/f_result_pracadopt_e.tex}}
-	\begin{minipage}{0.94\textwidth}
-		\notefont
-		Note: OLS at endline; each column regresses the practice indicator (No.\ practices
-		$=$ count of the seven) on household characteristics; SE clustered at district.
-		***, **, * : 1, 5, 10\%.
-		\par Levelling rises with plot size alongside mechanisation: in the smallest area quartile
-		(mean 0.63\,ha) 31.3\% level and 38.1\% use any machine (27.6\% a tractor), against 48.3\%
-		and 65.2\% (58.4\% a tractor) in the largest quartile (mean 4.42\,ha). Bunds move the other
-		way (18.7\% in Q1 vs 12.4\% in Q4), so the negative area gradient in the table is on bunds,
-		not levelling.
-	\end{minipage}
-\end{frame}
-
-
-
-
-
-
-
-
-
-% ======================= ENDLINE IMPACT RESULTS =======================
-
-
-
-
-
-
-\begin{frame}{Empirical Strategy}
-\begin{itemize}
-	\item \textbf{ANCOVA}: regress endline outcome on treatment status, controlling for
-	      the baseline value of the outcome
-	\item Arms: T1 (Feedback), T2 (Feedback + Training); plus the cross-cutting Stamp (GPS)
-	\item \textbf{Sample}: \emph{rainfed sites only} --- the two irrigation schemes (Kpong and
-	      Weta) are dropped from every estimation (12 farmers, 2 AEAs, all in the control arm;
-	      yields, seed rates and labour there are on a different scale). Farmers $N=382$, AEAs $N=41$
-	\item Farmer models add region (province) FE; SEs clustered at district
-	      (\textbf{8 clusters}: 2 control, 3 T1, 3 T2)
-	\item Few clusters $\Rightarrow$ \textbf{wild cluster bootstrap} (Webb, 9{,}999) and
-	      \textbf{randomization-inference} $p$-values alongside clustered SEs. With 2 control
-	      districts these bind --- read the clustered SEs as the optimistic bound
-	\item Crop failure = realized \textbf{zero} output (kept in sample); logs use $\ln(1+x)$;
-	      outcomes are not winsorized
-\end{itemize}
-\end{frame}
-
-\begin{frame}{AEA: Motivation and Locus of Control}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_aea_attitude.tex}}
-	\begin{minipage}{0.94\textwidth}
-		\notefont
-		Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=41$ AEAs, 8 districts).
-		Wild-boot = Webb wild cluster bootstrap (9{,}999); RI = randomization inference (1{,}000).
-		***, **, * : 1, 5, 10\%.
-	\end{minipage}
-\end{frame}
-
-\begin{frame}{AEA: Knowledge, Effort, Satisfaction}
-	\centering
-	\adjustbox{width=\textwidth,totalheight=0.52\textheight,keepaspectratio}{\input{tmp/e_aea_effort.tex}}
-	\begin{minipage}{0.94\textwidth}
-		\notefont
-		Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=41$, 8 districts).
-		Knowledge (0--8) replaces the earlier 0--5 index: item A (``seed selection by salt or urea
-		water is good for what?'') is a \emph{multiple}-response question and the old 0/1 coding
-		scored 1 for every AEA in both waves, so it carried no information; the new score counts how
-		many of the four defensible purposes are named and adds the four single-choice items.
-		Self-reported visits remain noisy --- the bi-weekly farmer reports are the preferred effort
-		measure.
-		\par \textbf{Mediation analysis:} The indirect share is $-3.2\%$ (T1) and $5.2\%$ (T2). 
-		Restricting the mediator to
-		JICA-provided courses gives the same picture ($-2.3\%$ and $1.9\%$).
-		\emph{Caveat}: a post-treatment mediator is a bad control, so this split is descriptive,
-		not a causal mediation estimate.
-		***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
 
@@ -722,6 +613,47 @@
 	\end{minipage}
 \end{frame}
 
+
+% ----- 4. AEA and farm level impacts -----
+\section{AEA and farm level impacts}
+\begin{frame}[plain]
+	\vfill
+	\centering
+	{\Huge\bfseries\textcolor{myGreen}{4.~AEA and farm level impacts}}
+	\vfill
+\end{frame}
+\begin{frame}{AEA: Motivation and Locus of Control}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_aea_attitude.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=41$ AEAs, 8 districts).
+		Wild-boot = Webb wild cluster bootstrap (9{,}999); RI = randomization inference (1{,}000).
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+\begin{frame}{AEA: Knowledge, Effort, Satisfaction}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.52\textheight,keepaspectratio}{\input{tmp/e_aea_effort.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=41$, 8 districts).
+		Knowledge (0--8) replaces the earlier 0--5 index: item A (``seed selection by salt or urea
+		water is good for what?'') is a \emph{multiple}-response question and the old 0/1 coding
+		scored 1 for every AEA in both waves, so it carried no information; the new score counts how
+		many of the four defensible purposes are named and adds the four single-choice items.
+		Self-reported visits remain noisy --- the bi-weekly farmer reports are the preferred effort
+		measure.
+		\par \textbf{Mediation analysis:} The indirect share is $-3.2\%$ (T1) and $5.2\%$ (T2). 
+		Restricting the mediator to
+		JICA-provided courses gives the same picture ($-2.3\%$ and $1.9\%$).
+		\emph{Caveat}: a post-treatment mediator is a bad control, so this split is descriptive,
+		not a causal mediation estimate.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
 \begin{frame}{Farmer: Production and Income}
 	\centering
 	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_prod.tex}}
@@ -772,10 +704,6 @@
 	\end{minipage}
 \end{frame}
 
-
-
-
-
 \begin{frame}{Farmer: Management-Practice Adoption}
 	\centering
 	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_practice.tex}}
@@ -808,12 +736,28 @@
 \end{frame}
 
 
-% ======================= Reference =======================
-% allowframebreaks: 1枚に収まらないときは自動で次ページへ送る（切れ落ち防止）
+% ----- 5. Conclusion -----
+\section{Conclusion}
+\begin{frame}[plain]
+	\vfill
+	\centering
+	{\Huge\bfseries\textcolor{myGreen}{5.~Conclusion}}
+	\vfill
+\end{frame}
+\begin{frame}{Conclusion}
+\begin{itemize}
+	\item \textcolor{red}{TO BE WRITTEN --- placeholders below}
+	\item \textbf{What we find}:
+	\item \textbf{Mechanism}:
+	\item \textbf{Policy implication}:
+	\item \textbf{Caveats}: 8 district clusters, only 2 of them control;
+	      yields and income do not move
+\end{itemize}
+\end{frame}
+
 \begin{frame}[allowframebreaks]{Reference}
 	\printbibliography[heading=none]
 \end{frame}
-
 
 % ======================= APPENDIX =======================
 \appendix
@@ -822,6 +766,63 @@
 	\centering
 	{\Huge\bfseries\textcolor{myGreen}{Appendix}}
 	\vfill
+\end{frame}
+
+% moved out of the main deck: exploratory correlations
+\begin{frame}{Baseline -- Preliminary results of Correlation (AEA)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/a_result_table3.tex}}
+	
+\end{frame}
+
+% moved out of the main deck: exploratory correlations
+\begin{frame}{Endline -- Preliminary results of Correlation (AEA)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/a_result_table3_e.tex}}
+	
+\end{frame}
+
+% moved out of the main deck: exploratory correlations
+\begin{frame}{Baseline -- Preliminary results of Correlation (Farming)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.86\textheight,keepaspectratio}{\input{tmp/f_result_table2.tex}}
+	
+\end{frame}
+
+% moved out of the main deck: exploratory correlations
+\begin{frame}{Endline -- Preliminary results of Correlation (Farming)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.86\textheight,keepaspectratio}{\input{tmp/f_result_table2_e.tex}}
+	
+\end{frame}
+
+% moved out of the main deck: exploratory correlations
+\begin{frame}{Baseline -- Correlates of Practice Adoption (Farming)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/f_result_pracadopt_b.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: OLS at baseline; each column regresses the practice indicator (No.\ practices
+		$=$ count of the seven) on household characteristics; SE clustered at district.
+		***, **, * : 1, 5, 10\%.
+	\end{minipage}
+\end{frame}
+
+% moved out of the main deck: exploratory correlations
+\begin{frame}{Endline -- Correlates of Practice Adoption (Farming)}
+	\centering
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/f_result_pracadopt_e.tex}}
+	\begin{minipage}{0.94\textwidth}
+		\notefont
+		Note: OLS at endline; each column regresses the practice indicator (No.\ practices
+		$=$ count of the seven) on household characteristics; SE clustered at district.
+		***, **, * : 1, 5, 10\%.
+		\par Levelling rises with plot size alongside mechanisation: in the smallest area quartile
+		(mean 0.63\,ha) 31.3\% level and 38.1\% use any machine (27.6\% a tractor), against 48.3\%
+		and 65.2\% (58.4\% a tractor) in the largest quartile (mean 4.42\,ha). Bunds move the other
+		way (18.7\% in Q1 vs 12.4\% in Q4), so the negative area gradient in the table is on bunds,
+		not levelling.
+	\end{minipage}
 \end{frame}
 
 \begin{frame}{Appendix: Farmer Knowledge --- Correct-Practice Responses}
