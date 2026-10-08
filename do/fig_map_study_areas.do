@@ -1,9 +1,17 @@
 *==============================================================================
 * fig_map_study_areas.do -- the study-area map on the deck.
 *
-* Ghana's 260 ADM2 districts in light grey with thin borders, the 10 ADM1
-* regions drawn over them in a heavier line, and the study districts filled by
-* treatment arm. In Ghana ADM1 = region and ADM2 = district.
+* Ghana's 260 ADM2 districts in light grey with thin borders, the study
+* districts filled by treatment arm and outlined in a heavier line.
+*
+* WHY NO REGION (ADM1) LAYER. geoBoundaries does not publish a nested hierarchy
+* for Ghana: ADM1 is OpenStreetMap, representative of 2021 (16 regions), while
+* ADM2 is USAID Ghana HPNO / Ghana Statistical Service, representative of 2019
+* (260 districts). Drawn together the two do not share a coastline or any
+* internal border, and re-downloading does not help -- they are different
+* sources. Everything here therefore comes from ADM2 alone, so every line on
+* the map is mutually consistent. A true region layer would need a source that
+* nests the two levels (e.g. GADM).
 *
 * THE TWO IRRIGATION SCHEMES. Kpong and Weta are irrigation schemes, both in
 * the control arm, and every estimation drops them. Neither is an administrative
@@ -38,12 +46,12 @@
 *     labels are truncated at roughly 30 characters.
 *   - ndlabel("") does NOT drop the "No data" key; grmap substitutes the default
 *     whenever the string is empty. The key is removed by overriding grmap's own
-*     legend order: with three classes plus one point overlay the keys are
-*     1 = no data, 2-4 = the classes, 6 = the point overlay, hence order(2 3 4 6).
+*     legend order: with three classes plus one polygon and one point overlay
+*     the keys are 1 = no data, 2-4 = the classes, 6 = the point overlay, hence
+*     order(2 3 4 6). Re-check these numbers if an overlay is added or removed.
 * Drawing takes about three minutes.
 *
-* Input : shp/geoBoundaries-GHA-ADM1-all/geoBoundaries-GHA-ADM1_simplified.*
-*         shp/geoBoundaries-GHA-ADM2-all/geoBoundaries-GHA-ADM2_simplified.*
+* Input : shp/geoBoundaries-GHA-ADM2-all/geoBoundaries-GHA-ADM2_simplified.*
 *           symlink to Dropbox; boundary data is not kept in the repository.
 *           Source: geoBoundaries (www.geoboundaries.org).
 *         tmp/farmer_aid_xy.dta   farmer coordinates (do/aea_distance.do)
@@ -55,7 +63,6 @@ capture noisily grmap, activate
 
 global path "/Users/wkodama/Documents/research/ghana-aea-rct"
 global tmp  "$path/tmp"
-global shp1 "$path/shp/geoBoundaries-GHA-ADM1-all"
 global shp2 "$path/shp/geoBoundaries-GHA-ADM2-all"
 
 *------------------------------------------------------------------------------
@@ -65,7 +72,6 @@ global shp2 "$path/shp/geoBoundaries-GHA-ADM2-all"
 *------------------------------------------------------------------------------
 cd "$tmp"
 spshape2dta "$shp2/geoBoundaries-GHA-ADM2_simplified", replace saving(gha_adm2)
-spshape2dta "$shp1/geoBoundaries-GHA-ADM1_simplified", replace saving(gha_adm1)
 
 use "$tmp/gha_adm2.dta", clear
 qui count
@@ -91,6 +97,16 @@ if r(N) != 8 {
 }
 di as txt "study districts matched: 8 of 8 (the two irrigation schemes are points)"
 save "$tmp/gha_adm2.dta", replace
+
+*------------------------------------------------------------------------------
+* 2b. Boundaries of the study districts only, drawn back over the map as a
+*     heavier outline so the eight districts stand out from their neighbours.
+*------------------------------------------------------------------------------
+use "$tmp/gha_adm2_shp.dta", clear
+merge m:1 _ID using "$tmp/gha_adm2.dta", keepusing(arm) keep(3) nogen
+keep if arm < .
+keep _ID _X _Y
+save "$tmp/study_shp.dta", replace
 
 *------------------------------------------------------------------------------
 * 3. Name labels: the mean of each district's boundary vertices. Good enough to
@@ -145,8 +161,8 @@ append using `dislab'
 save "$tmp/map_labels.dta", replace
 
 *------------------------------------------------------------------------------
-* 5. Draw. The ADM1 overlay carries no legend entry; the irrigation triangles
-*    carry one shared entry.
+* 5. Draw. The study-district outline carries no legend entry; the irrigation
+*    triangles carry one shared entry.
 *------------------------------------------------------------------------------
 use "$tmp/gha_adm2.dta", clear
 grmap arm, ///
@@ -154,7 +170,7 @@ grmap arm, ///
     fcolor("130 130 130" "230 120 0" "0 130 60") ///
     ocolor(gs12 gs12 gs12) osize(0.06 0.06 0.06) ///
     ndfcolor(gs15) ndocolor(gs13) ndsize(0.04) ///
-    polygon(data("$tmp/gha_adm1_shp.dta") fcolor(none) ocolor(gs7) osize(0.45) legenda(off)) ///
+    polygon(data("$tmp/study_shp.dta") fcolor(none) ocolor(black) osize(0.40) legenda(off)) ///
     point(data("$tmp/map_points.dta") x(longitude) y(latitude) ///
           fcolor("205 205 205") ocolor(black) osize(0.35) size(3.0) shape(triangle) ///
           legenda(on) leglabel("Irrigation scheme")) ///
