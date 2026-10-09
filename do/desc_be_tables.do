@@ -159,6 +159,88 @@ armrow6 a_satisfaction
 armobs6 a_knowledge
 file close H
 
+* ---- AEA: the two outcome blocks on one table (deck p.16) ----
+* The research-seminar deck shows motivation/locus and knowledge/effort on a
+* single slide; the two separate files above are still used by the full
+* analysis deck.
+file open H using "$tmp/desc_arm_aea_all.tex", write replace
+armhead6
+foreach v in a_prosocial a_intrinsic a_extrinsic2 a_locus_spec a_locus_gen {
+    armrow6 `v'
+}
+file write H "\midrule" _n
+foreach v in a_knowledge a_knowledge8 a_train a_train_jica a_avvisit a_satisfaction {
+    armrow6 `v'
+}
+armobs6 a_prosocial
+file close H
+
+* ---- AEA: who the agents are, by arm (baseline only) ----------------------
+* These attributes are recorded once, in the baseline AEA questionnaire, so the
+* table has three columns rather than the six of the outcome tables. The sample
+* is the same 41 rainfed-site AEAs the estimations use. Education level is left
+* out: every AEA in the sample holds a college or university degree, so the row
+* would carry no information.
+capture program drop charrow3
+program define charrow3
+    args v lab
+    file write H "`lab'"
+    qui sum `v' if treat_dis==0
+    local fmt = cond(abs(r(mean))>=100 | r(sd)>=100, "%12.1fc", "%9.3f")
+    file write H " & " `fmt' (r(mean)) " (" `fmt' (r(sd)) ")"
+    forvalues a = 1/2 {
+        qui sum `v' if treat_dis==`a'
+        local m  = r(mean)
+        local sd = r(sd)
+        local fmt = cond(abs(`m')>=100 | `sd'>=100, "%12.1fc", "%9.3f")
+        tempvar d
+        qui gen `d' = (treat_dis==`a')
+        qui reg `v' `d' if inlist(treat_dis,0,`a'), cluster(discode)
+        local p = 2*ttail(e(df_r), abs(_b[`d']/_se[`d']))
+        local st = cond(`p'<.01,"\sym{***}",cond(`p'<.05,"\sym{**}",cond(`p'<.1,"\sym{*}","")))
+        qui drop `d'
+        file write H " & " `fmt' (`m') " (" `fmt' (`sd') ")`st'"
+    }
+    file write H " \\" _n
+end
+
+use "$path/Baseline/AEA baseline.dta", clear
+rename aea aid
+drop province district
+merge 1:1 aid using "$path/Baseline/AEA.dta", keepusing(aea treat_dis discode) nogen
+merge 1:1 aeaID using "$tmp/a_AEA_endline_analysis.dta", keepusing(aeaID) keep(3) nogen
+qui count
+di as txt "AEAs in the characteristics table: " r(N) "  (expected 41)"
+
+gen byte c_female = (panelA_C == 2)
+gen byte c_agedu  = (panelA_E1 == 1)
+gen byte c_prof   = (panelA_J >= 3) if panelA_J < .
+clonevar c_age    = panelA_B
+clonevar c_exp    = panelA_G
+clonevar c_exphere= panelA_H
+clonevar c_salary = panelA_K
+clonevar c_groups = panelB_A
+
+file open H using "$tmp/desc_arm_aea_char.tex", write replace
+file write H "\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}" _n
+file write H "\begin{tabular}{lccc}" _n "\toprule" _n
+file write H " & Control & T1 & T2 \\" _n "\midrule" _n
+charrow3 c_age      "Age (years)"
+charrow3 c_female   "Female (=1)"
+charrow3 c_agedu    "Formal education in agriculture (=1)"
+charrow3 c_prof     "Professional grade or above (=1)"
+charrow3 c_exp      "Experience as an extension agent (years)"
+charrow3 c_exphere  "\quad of which in this district (years)"
+charrow3 c_groups   "Farmer groups assisted in 2024"
+charrow3 c_salary   "Monthly gross salary (GHS)"
+file write H "\midrule" _n "Obs"
+forvalues a = 0/2 {
+    qui count if treat_dis==`a'
+    file write H " & " %9.0f (r(N))
+}
+file write H " \\" _n "\bottomrule" _n "\end{tabular}" _n
+file close H
+
 * ---- baseline landsize/irrigated lags (for the by-arm tables) ----
 use "$tmp/farmer.dta", clear
 gen landsize2_bl = landsize*0.4047
