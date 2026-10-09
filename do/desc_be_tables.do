@@ -178,9 +178,16 @@ file close H
 * ---- AEA: who the agents are, by arm (baseline only) ----------------------
 * These attributes are recorded once, in the baseline AEA questionnaire, so the
 * table has three columns rather than the six of the outcome tables. The sample
-* is the same 41 rainfed-site AEAs the estimations use. Education level is left
-* out: every AEA in the sample holds a college or university degree, so the row
-* would carry no information.
+* is the same 41 rainfed-site AEAs the estimations use.
+*
+* Two rows need reading with the questionnaire in hand. "Studied agriculture" is
+* a yes/no question asked after education level; the level itself is left out
+* because all 44 AEAs answered college/university (none answered vocational), so
+* the row carries no information. "Professional grade or above" is the civil
+* service grade ladder, which tracks qualification rather than tenure:
+* 1 technical class (certificate), 2 sub-professional (HND, diploma),
+* 3 professional (degree holder), 4 expert (master's). Whether the post is a
+* permanent one is the separate working-tenure question, reported above it.
 capture program drop charrow3
 program define charrow3
     args v lab
@@ -214,7 +221,8 @@ di as txt "AEAs in the characteristics table: " r(N) "  (expected 41)"
 
 gen byte c_female = (panelA_C == 2)
 gen byte c_agedu  = (panelA_E1 == 1)
-gen byte c_prof   = (panelA_J >= 3) if panelA_J < .
+gen byte c_tenure = (panelA_F == 1)                     // vs fixed term / voluntary
+gen byte c_prof   = (panelA_J >= 3) if panelA_J < .     // degree holder or above
 clonevar c_age    = panelA_B
 clonevar c_exp    = panelA_G
 clonevar c_exphere= panelA_H
@@ -227,8 +235,9 @@ file write H "\begin{tabular}{lccc}" _n "\toprule" _n
 file write H " & Control & T1 & T2 \\" _n "\midrule" _n
 charrow3 c_age      "Age (years)"
 charrow3 c_female   "Female (=1)"
-charrow3 c_agedu    "Formal education in agriculture (=1)"
-charrow3 c_prof     "Professional grade or above (=1)"
+charrow3 c_agedu    "Studied agriculture at college/university (=1)"
+charrow3 c_tenure   "Tenured post (=1)"
+charrow3 c_prof     "Professional grade or above, i.e. degree holder (=1)"
 charrow3 c_exp      "Experience as an extension agent (years)"
 charrow3 c_exphere  "\quad of which in this district (years)"
 charrow3 c_groups   "Farmer groups assisted in 2024"
