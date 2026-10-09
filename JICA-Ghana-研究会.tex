@@ -335,7 +335,7 @@
   ar/.style={-{Stealth[length=5pt]}, draw=myDarkGray, thick}]
 
 \node[box, fill=gray!10, text width=10.6cm] (pop) at (0,0)
-  {\textbf{Baseline (2024)}\\ 10 districts in 5 regions \ \textbullet\ \ 44 AEAs \ \textbullet\ \ 390 rice farmers};
+  {\textbf{All sample}\\ 10 districts in 5 regions \ \textbullet\ \ 44 AEAs \ \textbullet\ \ 390 rice farmers};
 
 \node[arm] (c)  at (-4.2,-2.5) {\textbf{Control}\\[3pt] 4 districts\\ 13 AEAs\\ 104 farmers};
 \node[arm] (t1) at ( 0   ,-2.5) {\textbf{T1: Feedback}\\[3pt] 3 districts\\ 16 AEAs\\ 152 farmers};
@@ -353,11 +353,6 @@
 \draw[ar, draw=myOrange] (c.south)  -- (c.south  |- st.north);
 \draw[ar, draw=myOrange] (t1.south) -- (t1.south |- st.north);
 \draw[ar, draw=myOrange] (t2.south) -- (t2.south |- st.north);
-
-\node[box, fill=gray!10, text width=10.6cm] (end) at (0,-6.1)
-  {\textbf{Endline (2025)}: 43 AEAs, 394 farmers \ \textbullet\ \ \textbf{Analysis sample}
-   (rainfed sites only): 41 AEAs, 373 farmers, \textbf{8 district clusters}};
-\draw[ar] (st.south) -- (end.north);
 \end{tikzpicture}
 \end{frame}
 
