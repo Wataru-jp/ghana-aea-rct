@@ -218,19 +218,22 @@
 		\item A \textbf{cluster-randomised controlled trial} with Ghana's public extension
 		service: 44 AEAs across 10 districts, serving about 390 rice farmers. Randomisation is
 		at the \textbf{district} level.
-
-		\vspace{0.18cm}
-		\item \textbf{T1 --- Feedback}: farmers' satisfaction with their AEA is collected and
+        \begin{itemize}
+            \item \textbf{T1 --- Feedback}: farmers' satisfaction with their AEA is collected and
 		reported back to the agent. Recognition from below, at essentially no cost.
-		\item \textbf{T2 --- Feedback + Training}: the same feedback, plus training that
-		emphasises how extension work matters for farmers' livelihoods.
-		\item \textbf{Cross-cutting --- GPS stamp}: agents record their location when they visit
+            \item \textbf{T2 --- Feedback + Training}: the same feedback, plus training that emphasises how extension work matters for farmers' livelihoods.
+            \item \textbf{Cross-cutting --- GPS stamp}: agents record their location when they visit
 		fields; a light form of monitoring.
+        \end{itemize}
 
 		\vspace{0.18cm}
 		\item \textbf{How we measure effort}: besides baseline and endline surveys, a
 		\textbf{bi-weekly farmer survey} over 11 rounds (Apr--Sep 2025) --- effort is reported by
 		those who receive the service, not by the agent.
+
+        \vspace{0.18cm}
+		\item \textbf{How we measure impacts}: baseline and endline survey to AEAs and farmers.
+
 	\end{itemize}
 \end{frame}
 
@@ -327,14 +330,13 @@
 \node[box, draw=myOrange, dashed, fill=myOrange!6, text width=10.6cm] (st) at (0,-4.5)
   {\textbf{Cross-cutting: GPS stamp} --- within each arm, half of the AEAs (20 of 44) stamp their
    location when they visit a field};
-\draw[ar, draw=myOrange] (c.south)  -- (c.south  |- st.north);
-\draw[ar, draw=myOrange] (t1.south) -- (t1.south |- st.north);
-\draw[ar, draw=myOrange] (t2.south) -- (t2.south |- st.north);
+\draw[line, draw=myOrange] (c.south)  -- (c.south  |- st.north);
+\draw[line, draw=myOrange] (t1.south) -- (t1.south |- st.north);
+\draw[line, draw=myOrange] (t2.south) -- (t2.south |- st.north);
 \end{tikzpicture}
 \end{frame}
 
 \begin{frame}{Project Timeline}
-	
 	\begin{itemize}
 		\item \textbf{January 2025:} Baseline Survey
 		\vspace{0.3cm}
@@ -342,34 +344,36 @@
 		\item \textbf{April -- September 2025:} Intervention
 		\begin{itemize}
 			\item Training
-			\item Bi-weekly survey \to Feedback
+			\item Bi-weekly survey \& Feedback
 		\end{itemize}
 		\vspace{0.3cm}
 		
 		\item \textbf{January--February 2026:} Endline Survey 
 	\end{itemize}
-	
 \end{frame}
 
 \begin{frame}{Main outcomes of interest}
 	\begin{itemize}
-		\item Rice Production (Farmer data at baseline and endline)
-		\begin{itemize}
-			\item Yield
-			\item Income 
-			\item Profits
-			\item Rice management practices
-			\vspace{0.3cm}
-		\end{itemize}
-		\item Extension Activities (Biweekly data) 
+		\item AEA performance (Biweekly) 
 		\begin{itemize}
 			\item Number of visits
-			\item Number of successful communication
 			\item Satisfaction level 
 		\end{itemize}
-		
-		
-		
+
+		\item AEA-level impact (Baseline vs Endline)
+		\begin{itemize}
+			\item Motivation and locus of control 
+			\item Knowledge and self-reported efforts 
+		\end{itemize}
+
+
+		\item Farm-level impact  (Baseline vs Endline)
+        \begin{itemize}
+			\item Yield, income, profits
+			\item Inputs
+			\item Rice management practices
+			\vspace{0.3cm}
+		\end{itemize}		
 	\end{itemize}
 \end{frame}
 
@@ -395,7 +399,7 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Intrinsic and Extrinsic Motivation}
+\begin{frame}<0>{Intrinsic and Extrinsic Motivation}
 	\begin{itemize}
 		\item Intrinsic motivation
 		\begin{itemize}
@@ -416,7 +420,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Locus of Control (AEA)}
+\begin{frame}<0>{Locus of Control (AEA)}
 	\centering
 	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_aea_locus.tex}}
 	\begin{itemize}\notefont
@@ -429,7 +433,7 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Descriptives by Treatment Arm (AEA)}
+\begin{frame}{Descriptives by Treatment Arm}
 	\centering
 	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_aea.tex}}
 	\begin{itemize}\notefont
@@ -497,21 +501,22 @@
 \end{frame}
 
 \begin{frame}{Empirical Strategy}
-\begin{itemize}
-	\item \textbf{ANCOVA}: regress endline outcome on treatment status, controlling for
-	      the baseline value of the outcome
-	\item Arms: T1 (Feedback), T2 (Feedback + Training); plus the cross-cutting Stamp (GPS)
-	\item \textbf{Sample}: \emph{rainfed sites only} --- the two irrigation schemes (Kpong and
-	      Weta) are dropped from every estimation (12 farmers, 2 AEAs, all in the control arm;
-	      yields, seed rates and labour there are on a different scale). Farmers $N=382$, AEAs $N=41$
-	\item Farmer models add region (province) FE; SEs clustered at district
-	      (\textbf{8 clusters}: 2 control, 3 T1, 3 T2)
-	\item Few clusters $\Rightarrow$ \textbf{wild cluster bootstrap} (Webb, 9{,}999) and
-	      \textbf{randomization-inference} $p$-values alongside clustered SEs. With 2 control
-	      districts these bind --- read the clustered SEs as the optimistic bound
-	\item Crop failure = realized \textbf{zero} output (kept in sample); logs use $\ln(1+x)$;
-	      outcomes are not winsorized
+    \begin{itemize}
+    \item AEA's performance (biweekly round x farmer panel)
+    \begin{itemize}
+        \item OLS estimates; round FE; SEs clustered at district.
+    \end{itemize}
+			\vspace{0.3cm}
+    \item AEA and farm-level impact (baseline-endline panel)
+    \begin{itemize}
+    	\item \textbf{ANCOVA}: regress endline outcome on treatment status, controlling for the baseline value of the outcome
+	    \item Arms: T1 (Feedback), T2 (Feedback + Training); plus the cross-cutting Stamp (GPS)
+	   \item Farmer models add region (province) FE; SEs clustered at district
+       \item Few clusters: \textbf{wild cluster bootstrap} (Webb, 9{,}999) and \textbf{randomization-inference} $p$-values alongside clustered SEs.
+    \end{itemize}
 \end{itemize}
+
+
 \end{frame}
 
 
@@ -529,7 +534,7 @@
 	\end{figure}
 \end{frame}
 
-\begin{frame}{Satisfaction Level by District and Time}
+\begin{frame}<0>{Satisfaction Level by District and Time}
 	\begin{figure}
 		\includegraphics[width=10cm,height=0.78\textheight,keepaspectratio]{tmp/b_satisfy.eps}
 	\end{figure}
@@ -594,7 +599,7 @@
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{Bi-weekly (farmer): Change in Extension Service Content (I)}
+\begin{frame}{Bi-weekly (farmer): Change in Extension Service Content}
 	\centering
 	{\small\textbf{``Did your extension agent give you helpful advice?'' (rounds with a visit or an interaction)}}\\[3pt]
 	\adjustbox{width=\textwidth,totalheight=0.58\textheight,keepaspectratio}{\input{tmp/bw_content_a.tex}}
@@ -757,12 +762,10 @@
 \end{frame}
 \begin{frame}{Conclusion}
 \begin{itemize}
-	\item \textcolor{red}{TO BE WRITTEN --- placeholders below}
 	\item \textbf{What we find}:
 	\item \textbf{Mechanism}:
 	\item \textbf{Policy implication}:
-	\item \textbf{Caveats}: 8 district clusters, only 2 of them control;
-	      yields and income do not move
+	\item \textbf{Caveats}: 8 district clusters, only 2 of them control
 \end{itemize}
 \end{frame}
 
