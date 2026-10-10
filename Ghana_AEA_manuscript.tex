@@ -34,8 +34,19 @@
 \setlength{\tabcolsep}{3pt}
 \newcommand{\fittable}[1]{%
   \begin{adjustbox}{max width=\linewidth}\scriptsize\input{#1}\end{adjustbox}}
-\newcommand{\panel}[1]{\par\vspace{6pt}\textbf{#1}\par\vspace{2pt}}
+% A multi-panel table puts all of its panels in ONE box, so every panel is
+% scaled by the same factor and column (1) sits in the same place in each of
+% them. The box is flush left, as are the captions, for the same reason.
+% Fixed-width columns for the stacked panels (see do/make_ms_tables.do): S for
+% the stub, P for a data column. Change a width here and rerun that do-file.
+\newcolumntype{S}{>{\raggedright\arraybackslash}p{3.2cm}}
+\newcolumntype{P}{>{\centering\arraybackslash}p{1.85cm}}
+\newenvironment{panels}
+  {\begin{adjustbox}{max width=\linewidth}\scriptsize\begin{tabular}{@{}l@{}}}
+  {\end{tabular}\end{adjustbox}}
+\newcommand{\panel}[1]{\textbf{#1}\\[2pt]}
 \captionsetup[table]{skip=4pt}
+\captionsetup[table]{singlelinecheck=false}
 \captionsetup{font=small,labelfont=bf}
 \newcommand{\tnote}[1]{\par\vspace{2pt}{\footnotesize\textit{Note:} #1}}
 
@@ -163,39 +174,38 @@ Improving agricultural productivity requires the adoption of new technologies, s
 %======================================================================
 
 \begin{table}[H]
-\centering
 \caption{Impacts on extension agents}
 \label{tab:aeaimpact}
+\begin{panels}
 \panel{Panel A. Motivation and locus of control}
-\fittable{tmp/e_aea_attitude}
+\input{tmp/ms_e_aea_attitude}\\[10pt]
 \panel{Panel B. Knowledge, effort and job satisfaction}
-\fittable{tmp/e_aea_effort}
+\input{tmp/ms_e_aea_effort_ms}
+\end{panels}
 \end{table}
 
 \begin{table}[H]
-\centering
 \caption{Impacts at the farm level}
 \label{tab:farmimpact}
+\begin{panels}
 \panel{Panel A. Production and income}
-\fittable{tmp/e_farmer_prod}
+\input{tmp/ms_e_farmer_prod}\\[10pt]
 \panel{Panel B. Input use}
-\fittable{tmp/e_farmer_inputs}
+\input{tmp/ms_e_farmer_inputs}\\[10pt]
 \panel{Panel C. Adoption of management practices}
-\fittable{tmp/e_farmer_practice}
-\end{table}
-
-\begin{table}[H]
-\centering
-\caption{Labour use, by who does the work}
-\label{tab:laboursex}
-\fittable{tmp/e_labour_sex}
+\input{tmp/ms_e_farmer_practice}
+\end{panels}
 \end{table}
 
 \begin{sidewaystable}
-\centering
-\caption{Labour use, by operation}
-\label{tab:labourops}
-\fittable{tmp/e_labour_ops}
+\caption{Impacts on labour use}
+\label{tab:labour}
+\begin{panels}
+\panel{Panel A. By who does the work}
+\input{tmp/ms_e_labour_sex}\\[10pt]
+\panel{Panel B. By operation}
+\input{tmp/ms_e_labour_ops}
+\end{panels}
 \end{sidewaystable}
 \clearpage
 

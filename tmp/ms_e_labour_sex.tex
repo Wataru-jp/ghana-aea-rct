@@ -1,0 +1,19 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{@{}S*{8}{P}@{}}
+\toprule
+                    &\multicolumn{3}{c}{Family labour}                                &\multicolumn{3}{c}{Hired labour}                                 &\multicolumn{2}{c}{Excl.\ crop failure}    \\\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-9}
+                    &\multicolumn{1}{P}{(1)}&\multicolumn{1}{P}{(2)}&\multicolumn{1}{P}{(3)}&\multicolumn{1}{P}{(4)}&\multicolumn{1}{P}{(5)}&\multicolumn{1}{P}{(6)}&\multicolumn{1}{P}{(7)}&\multicolumn{1}{P}{(8)}\\
+                    &\multicolumn{1}{P}{All}&\multicolumn{1}{P}{Male}&\multicolumn{1}{P}{Female}&\multicolumn{1}{P}{All}&\multicolumn{1}{P}{Male}&\multicolumn{1}{P}{Female}&\multicolumn{1}{P}{Family}&\multicolumn{1}{P}{Hired}\\
+\midrule
+T1: Feedback        &      -14.15         &       -2.42         &      -11.71         &       30.56\sym{***}&        2.76\sym{***}&       28.76\sym{***}&      -16.13         &       29.47\sym{***}\\
+                    &     (16.95)         &      (9.40)         &      (8.03)         &      (3.24)         &      (0.50)         &      (2.89)         &     (17.03)         &      (3.75)         \\
+T2: Feedback+Training&      -50.74\sym{**} &      -26.69\sym{**} &      -23.55\sym{**} &       19.86\sym{***}&       -8.35\sym{***}&       27.77\sym{***}&      -51.32\sym{**} &       18.71\sym{***}\\
+                    &     (15.74)         &      (8.85)         &      (7.02)         &      (2.89)         &      (0.52)         &      (2.39)         &     (15.53)         &      (3.38)         \\
+\midrule
+T1=T2 [p]           &       0.125         &       0.122         &       0.158         &       0.051         &       0.000         &       0.725         &       0.131         &       0.049         \\
+Ctrl mean           &      101.07         &       60.18         &       40.89         &       33.57         &       19.21         &       14.35         &      107.37         &       35.76         \\
+Obs                 &         373         &         373         &         373         &         373         &         373         &         373         &         361         &         361         \\
+\bottomrule
+\end{tabular}
+}
