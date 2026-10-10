@@ -249,6 +249,8 @@ forvalues a = 0/2 {
 }
 file write H " \\" _n "\bottomrule" _n "\end{tabular}" _n
 file close H
+tempfile aeachar
+save `aeachar'           // reused by the manuscript table at the foot of this file
 
 * ---- baseline landsize/irrigated lags (for the by-arm tables) ----
 use "$tmp/farmer.dta", clear
@@ -307,6 +309,8 @@ armrow6 famd_ha
 armrow6 famd_ha_nf
 armobs6 yield
 file close H
+tempfile farmprep
+save `farmprep'          // reused by the manuscript table at the foot of this file
 
 file open H using "$tmp/desc_arm_farmer_noirr_b.tex", write replace
 armhead6
@@ -522,3 +526,110 @@ armrow6 sat5
 armrow6 satd
 armobs6 satd
 file close H
+tempfile contactprep
+save `contactprep'       // reused by the manuscript table at the foot of this file
+
+*==============================================================================
+* MANUSCRIPT TABLES. The same numbers as the by-arm tables above, collapsed
+* into one AEA table and one farmer table with lettered panels, which is how
+* Ghana_AEA_manuscript.tex shows them. Nothing is recomputed here: the prepared
+* datasets come back from the tempfiles the blocks above left behind.
+*   tmp/desc_ms_aea.tex     A characteristics, B motivation and performance
+*   tmp/desc_ms_farmer.tex  A household characteristics and inputs,
+*                           B production and technology, C contact with the AEA
+* Panel A of the AEA table leaves the endline columns empty: those attributes
+* are recorded once, in the baseline questionnaire.
+*==============================================================================
+capture program drop panlab
+program define panlab
+    args txt
+    file write H "\midrule" _n "\multicolumn{7}{l}{\textbf{`txt'}} \\" _n
+end
+
+capture program drop charrow6
+program define charrow6
+    args v lab
+    file write H "`lab'"
+    qui sum `v' if treat_dis==0
+    local fmt = cond(abs(r(mean))>=100 | r(sd)>=100, "%12.1fc", "%9.3f")
+    file write H " & " `fmt' (r(mean)) " (" `fmt' (r(sd)) ")"
+    forvalues a = 1/2 {
+        qui sum `v' if treat_dis==`a'
+        local m  = r(mean)
+        local sd = r(sd)
+        local fmt = cond(abs(`m')>=100 | `sd'>=100, "%12.1fc", "%9.3f")
+        tempvar d
+        qui gen `d' = (treat_dis==`a')
+        qui reg `v' `d' if inlist(treat_dis,0,`a'), cluster(discode)
+        local p = 2*ttail(e(df_r), abs(_b[`d']/_se[`d']))
+        local st = cond(`p'<.01,"\sym{***}",cond(`p'<.05,"\sym{**}",cond(`p'<.1,"\sym{*}","")))
+        qui drop `d'
+        file write H " & " `fmt' (`m') " (" `fmt' (`sd') ")`st'"
+    }
+    file write H " &  &  &  \\" _n
+end
+
+capture program drop obsrow6
+program define obsrow6
+    args blvar
+    file write H "\midrule" _n "Obs"
+    forvalues a = 0/2 {
+        qui count if treat_dis==`a' & `blvar'_bl<.
+        file write H " & " %9.0f (r(N))
+    }
+    forvalues a = 0/2 {
+        qui count if treat_dis==`a'
+        file write H " & " %9.0f (r(N))
+    }
+    file write H " \\" _n
+end
+
+* ---- AEA ----
+use `aeachar', clear
+file open H using "$tmp/desc_ms_aea.tex", write replace
+armhead6
+file write H "\multicolumn{7}{l}{\textbf{Panel A. Agent characteristics}} \\" _n
+charrow6 c_age      "Age (years)"
+charrow6 c_female   "Female (=1)"
+charrow6 c_agedu    "Studied agriculture at college/university (=1)"
+charrow6 c_tenure   "Tenured post (=1)"
+charrow6 c_prof     "Professional grade or above, i.e. degree holder (=1)"
+charrow6 c_exp      "Experience as an extension agent (years)"
+charrow6 c_exphere  "\quad of which in this district (years)"
+charrow6 c_groups   "Farmer groups assisted in 2024"
+charrow6 c_salary   "Monthly gross salary (GHS)"
+
+use "$tmp/a_AEA_endline_analysis.dta", clear
+panlab "Panel B. Motivation, knowledge and performance"
+foreach v in a_prosocial a_intrinsic a_extrinsic2 a_locus_spec a_locus_gen ///
+             a_knowledge a_knowledge8 a_train a_train_jica a_avvisit a_satisfaction {
+    armrow6 `v'
+}
+armobs6 a_prosocial
+file close H
+
+* ---- Farmer ----
+use `farmprep', clear
+file open H using "$tmp/desc_ms_farmer.tex", write replace
+armhead6
+file write H "\multicolumn{7}{l}{\textbf{Panel A. Household characteristics and inputs}} \\" _n
+foreach v in landsize2 hage hedu hgen hhsize o_total o_equip ///
+             squant_ha u_fert fert_ha u_her u_machine u_tractor u_combine ///
+             u_thresh u_other hired_ha hired_ha_nf famd_ha famd_ha_nf {
+    armrow6 `v'
+}
+panlab "Panel B. Rice production and technology"
+foreach v in nonprod yield yield_nf rev_ha rincome_ha finc_ha fincnb_ha ///
+             u_impany u_scertify u_seedtreat u_dib u_ptrans u_bunds u_level {
+    armrow6 `v'
+}
+obsrow6 yield
+
+use `contactprep', clear
+panlab "Panel C. Contact with the extension agent"
+foreach v in anyc contact_n sat5 satd {
+    armrow6 `v'
+}
+armobs6 satd
+file close H
+

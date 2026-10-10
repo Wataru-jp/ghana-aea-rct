@@ -159,28 +159,17 @@ twoway (scatter f_visits lnd if treat_dis==0, mcolor(`cC') `opt') ///
     ytitle("Farmer-reported visits", size(small)) ///
     title("Farmer-reported (slope `lab2')", size(medium)) `leg' ///
     graphregion(color(white)) name(g2, replace) nodraw
-* third panel: the GPS-stamp log, which exists only for the 19 stamp-arm AEAs
-* that submitted records, so this panel has N=19 rather than 43.
-preserve
-    keep if has_stamp
-    slopestar st_days lnd
-    local lab5 = r(txt)
-restore
-twoway (scatter st_days lnd if treat_dis==0 & has_stamp, mcolor(`cC') `opt') ///
-       (scatter st_days lnd if treat_dis==1 & has_stamp, mcolor("`c1'") `opt') ///
-       (scatter st_days lnd if treat_dis==2 & has_stamp, mcolor("`c2'") `opt') ///
-       (lfit st_days lnd if has_stamp, lcolor(gs5) lpattern(dash)), ///
-    `xl' ///
-    xtitle("Distance to communities (km, log)", size(small)) ///
-    ytitle("Days with a logged visit", size(small)) ///
-    title("GPS-stamp log, N=19 (slope `lab5')", size(medium)) `leg' ///
-    graphregion(color(white)) name(g3, replace) nodraw
+* The GPS-stamp log used to be a third panel here. It rests on the 19 stamp-arm
+* AEAs that submitted records, not on all 41, so it does not belong beside two
+* panels drawn on the full sample; it is now shown on its own in
+* tmp/fig_stamp_visits.pdf (Figure 3 below). The regression is kept so the
+* slope stays in the log.
 * NB grc1leg ignores xsize/ysize -- set the canvas on the combined graph instead,
-* otherwise the three panels come out on Stata's default 5.5x4in square.
-grc1leg g1 g2 g3, rows(1) graphregion(color(white)) legendfrom(g1) name(gcomb, replace)
-graph display gcomb, xsize(16) ysize(6)
+* otherwise the panels come out on Stata's default 5.5x4in square.
+grc1leg g1 g2, rows(1) graphregion(color(white)) legendfrom(g1) name(gcomb, replace)
+graph display gcomb, xsize(11) ysize(6)
 graph export "$tmp/fig_dist_visits.pdf", replace
-di _n "=== Fig 1 panel 3: stamp log on ln(distance) ==="
+di _n "=== dropped panel: stamp log on ln(distance) ==="
 regress st_days lnd if has_stamp
 
 di _n "=== Fig 1: slope on ln(distance) ==="
