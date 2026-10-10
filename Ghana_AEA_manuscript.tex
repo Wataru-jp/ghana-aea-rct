@@ -7,10 +7,11 @@
 %  TABLE SIZING. All tables are set at \scriptsize with \tabcolsep 3pt and
 %  are shrunk only when they still overflow, so the type is the same size
 %  everywhere. The width of these tables is driven by the column count, not
-%  by the font, so the wide ones are rotated (sidewaystable, 650pt of room
-%  instead of 470pt) rather than scaled down. Only Tables 3 and 5 are still
-%  reduced, by about 6%. A rotated float cannot be pinned with [H], so each
-%  sidewaystable is followed by \clearpage to keep the floats in order.
+%  by the font, so the four tables that are far too wide are rotated
+%  (sidewaystable, 650pt of room instead of 470pt). Only Tables 3 and 5 are
+%  reduced, by about 6%. Everything else stays upright and is shrunk at most to
+%  0.86. A rotated float cannot be pinned with [H], so each sidewaystable is
+%  followed by \clearpage to keep the floats in order.
 %======================================================================
 \documentclass[11pt]{article}
 
@@ -22,6 +23,8 @@
 \usepackage{caption}
 \usepackage{float}
 \usepackage{rotating}
+\usepackage{setspace}
+\doublespacing
 \usepackage[export]{adjustbox}
 \usepackage[style=apa, backend=biber, natbib=true]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
@@ -36,8 +39,7 @@
 \captionsetup{font=small,labelfont=bf}
 \newcommand{\tnote}[1]{\par\vspace{2pt}{\footnotesize\textit{Note:} #1}}
 
-\title{Improving extension services through non-monetary incentives:
-Experimental evidence from Ghana}
+\title{Improving extension services through non-monetary incentives: Experimental evidence from Ghana}
 \author{Kazushi Takahashi \and Wataru Kodama \and Yukichi Mano}
 \date{\today}
 
@@ -45,7 +47,14 @@ Experimental evidence from Ghana}
 
 \maketitle
 
+\begin{abstract}
+We study the impacts of non-monetary incentives on agricultural extension agents (AEA) in Ghana. 
+\end{abstract}
+
+\clearpage
+
 \section{Introduction}
+Improving agricultural productivity requires the adoption of new technologies, such as improved seeds, chemical fertilizers, and appropriate crop management practices \citep{takahashi_technology_2020}. Since technology development, adoption, and diﬀusion involve externality, public institutions play a central role. Public agricultural extension workers are key actors in disseminating technologies...
 
 %======================================================================
 \section{Experimental design and data}\label{sec:design}
@@ -153,7 +162,7 @@ Experimental evidence from Ghana}
 \section{AEA and farm level impacts}\label{sec:impacts}
 %======================================================================
 
-\begin{sidewaystable}
+\begin{table}[H]
 \centering
 \caption{Impacts on extension agents}
 \label{tab:aeaimpact}
@@ -161,10 +170,9 @@ Experimental evidence from Ghana}
 \fittable{tmp/e_aea_attitude}
 \panel{Panel B. Knowledge, effort and job satisfaction}
 \fittable{tmp/e_aea_effort}
-\end{sidewaystable}
-\clearpage
+\end{table}
 
-\begin{sidewaystable}
+\begin{table}[H]
 \centering
 \caption{Impacts at the farm level}
 \label{tab:farmimpact}
@@ -174,8 +182,7 @@ Experimental evidence from Ghana}
 \fittable{tmp/e_farmer_inputs}
 \panel{Panel C. Adoption of management practices}
 \fittable{tmp/e_farmer_practice}
-\end{sidewaystable}
-\clearpage
+\end{table}
 
 \begin{table}[H]
 \centering
@@ -206,12 +213,11 @@ Experimental evidence from Ghana}
 \section{Appendix}\label{sec:appendix}
 %======================================================================
 
-\begin{sidewaystable}
+\begin{table}[H]
 \centering
 \caption{Production and income, controlling for technology}
 \label{tab:prodtech}
 \fittable{tmp/e_farmer_prod_tech}
-\end{sidewaystable}
-\clearpage
+\end{table}
 
 \end{document}
