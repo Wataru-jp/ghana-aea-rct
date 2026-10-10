@@ -11,19 +11,11 @@
 \usepackage{threeparttable}
 \usepackage{graphicx}
 % ----- 引用の体裁（APA） -------------------------------------------------------
-% もとは natbib + apalike だった。apalike が出す \bibitem[Alam and Kijima, 2024]
-% という形式は年を括弧で区切っていないため natbib が解釈できず、番号引用 (1) に
-% 退避してしまう。これが「引用が (1) になる」原因だった。
-% apacite は beamer と衝突する（\st@rtbibchapter 等を前提にしている）ので、
-% APA 用に設計された biblatex-apa を使う。natbib=true なので \citet / \citep は
-% これまでどおり書ける。参照の処理系は bibtex ではなく biber になるが、
-% Overleaf は自動で判別するので設定は不要。
+
 \usepackage[style=apa, backend=biber, natbib=true]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
 \addbibresource{references.bib}
 
-% 参考文献リストの字と行間。frame 側で \scriptsize と書いても biblatex が
-% \bibfont で上書きするため、必ずここで指定すること。
 \renewcommand*{\bibfont}{\scriptsize}
 \setlength{\bibitemsep}{2pt}
 
@@ -53,9 +45,6 @@
 \setlength{\emergencystretch}{3em}
 \newcommand{\notefont}{\fontsize{5pt}{6pt}\selectfont}
 
-% NOTE: threeparttable's \tablenotes is only width-aware inside a threeparttable.
-% Used bare, it ignores \linewidth and runs off the right edge of the slide without
-% any Overfull warning, so the note frames below use an explicit minipage instead.
 
 % ===== フォント =====
 %\usetheme{Boadilla}
@@ -305,9 +294,6 @@
 		\item \textbf{Weta} ($\approx$1{,}200 farmers): randomly selected \textbf{10 sample farmers} and
 		      10 reserves.
 	\end{enumerate}
-
-	\vspace{0.12cm}
-	%{\scriptsize\textit{Two further Kpong branch canals, SLLC and NLLCA, were drawn at first	(6 and 8 farmers), but their villages turned out to be too dispersed to visit, so the Kpong sample was concentrated on SLLCA.}}
 \end{frame}
 
 \begin{frame}{Random Assignment}
@@ -419,8 +405,6 @@
 			\item Because I am doing it for my own good 
 			\item Because I think that this activity is good for me. 
 		\end{itemize}
-		
-		
 		
 	\end{itemize}
 \end{frame}

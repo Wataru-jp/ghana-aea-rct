@@ -14,6 +14,8 @@
 \usepackage{caption}
 \usepackage{float}
 \usepackage{pdflscape}
+\usepackage{setspace}
+\doublespacing
 \usepackage[style=apa, backend=biber, natbib=true]{biblatex}
 \DeclareLanguageMapping{english}{english-apa}
 \addbibresource{references.bib}
@@ -25,8 +27,7 @@
 \captionsetup{font=small,labelfont=bf}
 \newcommand{\tnote}[1]{\par\vspace{2pt}{\footnotesize\textit{Note:} #1}}
 
-\title{Improving extension services through non-monetary incentives:
-Experimental evidence from Ghana}
+\title{Improving extension services through non-monetary incentives: Experimental evidence from Ghana}
 \author{Kazushi Takahashi \and Wataru Kodama \and Yukichi Mano}
 \date{\today}
 
@@ -34,7 +35,14 @@ Experimental evidence from Ghana}
 
 \maketitle
 
+\begin{abstract}
+We study the impacts of non-monetary incentives on agricultural extension agents (AEA) in Ghana. 
+\end{abstract}
+
+\clearpage
+
 \section{Introduction}
+Improving agricultural productivity requires the adoption of new technologies, such as improved seeds, chemical fertilizers, and appropriate crop management practices \citep{takahashi_technology_2020}. Since technology development, adoption, and diﬀusion involve externality, public institutions play a central role. Public agricultural extension workers are key actors in disseminating technologies...
 
 %======================================================================
 \section{Experimental design and data}\label{sec:design}
@@ -208,14 +216,12 @@ Experimental evidence from Ghana}
 \fittable{tmp/e_labour_sex}
 \end{table}
 
-\begin{landscape}
 \begin{table}[H]
 \centering
 \caption{Labour use, by operation}
 \label{tab:labourops}
 \fittable{tmp/e_labour_ops}
 \end{table}
-\end{landscape}
 
 \clearpage
 %======================================================================
