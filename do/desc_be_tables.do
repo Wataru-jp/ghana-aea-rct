@@ -476,7 +476,12 @@ file write H " & & Farmers & AEAs & Farmers & AEAs & Farmers & AEAs & \\ \hline"
 forvalues r = 1/10 {
     tokenize `"`R`r''"'
     if !inlist("`3'","kpong","ketu") {
-        file write H "`1' & `2' & " %4.0f (tg_`3') " & " %3.0f (ab_`3') ///
+        * the manuscript uses the official district names
+        local dname "`2'"
+        if "`3'"=="bibiani" local dname "Bibiani-Anhwiaso-Bekwai"
+        if "`3'"=="manya"   local dname "Lower Manya Krobo"
+        if "`3'"=="sefwi"   local dname "Sefwi Wiawso"
+        file write H "`1' & `dname' & " %4.0f (tg_`3') " & " %3.0f (ab_`3') ///
                      " & " %4.0f (fb_`3') " & " %3.0f (ab_`3') ///
                      " & " %4.0f (fa_`3') " & " %3.0f (aa_`3') " & `4' \\" _n
     }
