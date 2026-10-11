@@ -444,6 +444,49 @@ file write H "\hline  & & 390 & 44 & 394 & 43 & " %4.0f (fa_tot) " & " %3.0f (aa
 file close H
 
 *==============================================================================
+* MANUSCRIPT version of the same table -> tmp/ms_obs.tex
+* Rainfed districts only, and three columns instead of four: Target (the sample
+* the listing exercise drew, from the "Sample size" sheet of
+* Baseline/Lists of sample AEAs and farmers FINAL20Feb2024.xlsx), Baseline (what
+* was actually surveyed) and Endline (the estimation sample -- replacements and
+* reserve households brought in at endline are excluded, so this column is the
+* "Analysis" column of the deck table).
+*==============================================================================
+scalar tg_achiase = 40
+scalar tg_bibiani = 80
+scalar tg_biakoye = 54
+scalar tg_krachi  = 64
+scalar tg_manya   = 18
+scalar tg_pru     = 40
+scalar tg_sefwi   = 60
+scalar tg_sene    = 40
+
+scalar tgf_tot = 0
+scalar fb_tot  = 0
+scalar ab_tot  = 0
+foreach k in pru sene achiase manya biakoye krachi bibiani sefwi {
+    scalar tgf_tot = tgf_tot + tg_`k'
+    scalar fb_tot  = fb_tot  + fb_`k'
+    scalar ab_tot  = ab_tot  + ab_`k'
+}
+
+file open H using "$tmp/ms_obs.tex", write replace
+file write H "Province & District & \multicolumn{2}{c}{Target} & \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{Endline} & Treatment\\" _n
+file write H " & & Farmers & AEAs & Farmers & AEAs & Farmers & AEAs & \\ \hline" _n
+forvalues r = 1/10 {
+    tokenize `"`R`r''"'
+    if !inlist("`3'","kpong","ketu") {
+        file write H "`1' & `2' & " %4.0f (tg_`3') " & " %3.0f (ab_`3') ///
+                     " & " %4.0f (fb_`3') " & " %3.0f (ab_`3') ///
+                     " & " %4.0f (fa_`3') " & " %3.0f (aa_`3') " & `4' \\" _n
+    }
+}
+file write H "\hline  & & " %4.0f (tgf_tot) " & " %3.0f (ab_tot) ///
+             " & " %4.0f (fb_tot) " & " %3.0f (ab_tot) ///
+             " & " %4.0f (fa_tot) " & " %3.0f (aa_tot) " & \\ \hline" _n
+file close H
+
+*==============================================================================
 * 6-col by-arm, both waves (Jul 2026): AEA locus-of-control ITEMS and
 * farmer-reported AEA contact/satisfaction (replacing the baseline-only
 * balance tables a_balance3 / b_balance1 on deck pp. 15-16).
