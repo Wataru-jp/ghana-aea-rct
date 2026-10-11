@@ -10,6 +10,12 @@
 \usepackage{caption}
 \usepackage{float}
 \usepackage{rotating}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\usepackage{xcolor}
+\definecolor{myOrange}{RGB}{230,120,0}
+\definecolor{myGreen}{RGB}{0,130,60}
+\definecolor{myDarkGray}{RGB}{50,50,50}
 \usepackage{setspace}
 \doublespacing
 \usepackage[export]{adjustbox}
@@ -75,6 +81,8 @@ Improving agricultural productivity requires the adoption of new technologies, s
 \label{fig:map}
 \end{figure}
 
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}[font=\scriptsize,
   box/.style={draw=myDarkGray, rounded corners=2pt, align=center, inner sep=4pt},
   arm/.style={box, draw=myGreen, fill=myGreen!8, text width=3.0cm},
@@ -101,6 +109,9 @@ Improving agricultural productivity requires the adoption of new technologies, s
 \draw[line, draw=myOrange] (t1.south) -- (t1.south |- st.north);
 \draw[line, draw=myOrange] (t2.south) -- (t2.south |- st.north);
 \end{tikzpicture}
+\caption{Random assignment}
+\label{fig:assignment}
+\end{figure}
 
 \begin{table}[H]
 \centering
@@ -253,9 +264,32 @@ Improving agricultural productivity requires the adoption of new technologies, s
 
 \clearpage
 \appendix
+% Appendix floats are numbered A1, A2, ... rather than continuing the main
+% sequence.
+\setcounter{figure}{0}
+\setcounter{table}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+\renewcommand{\thetable}{A\arabic{table}}
 %======================================================================
 \section{Appendix}\label{sec:appendix}
 %======================================================================
+
+\begin{sidewaysfigure}
+\centering
+\begin{minipage}{0.48\linewidth}
+	\centering
+	\textbf{Example 1}\par\vspace{3pt}
+	\includegraphics[width=\linewidth]{fig_feedback_pos.pdf}
+\end{minipage}\hfill
+\begin{minipage}{0.48\linewidth}
+	\centering
+	\textbf{Example 2}\par\vspace{3pt}
+	\includegraphics[width=\linewidth]{fig_feedback_neg.pdf}
+\end{minipage}
+\caption{The feedback report: two agents in the same round}
+\label{fig:feedback}
+\end{sidewaysfigure}
+\clearpage
 
 \begin{table}[H]
 \centering
