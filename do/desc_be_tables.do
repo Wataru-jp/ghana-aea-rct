@@ -273,7 +273,7 @@ merge 1:1 hhID using `landbl', keep(1 3) nogen
 label var landsize2 "Landsize (ha)"
 label var hage      "Head: age (years)"
 label var hedu      "Head: education level"
-label var hgen      "Head: female (=1)"
+label var hgen      "Head: male (=1)"
 label var hhsize    "Household size"
 * Two control households hold 1.6 and 2.0 million GHS at baseline (hhID 69 and
 * 305) and on their own move the control mean; they are excluded from the asset
