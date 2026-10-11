@@ -76,7 +76,7 @@ Improving agricultural productivity requires the adoption of new technologies, s
 
 In collaboration with Japan International Cooperation Agency (JICA) and Institute of Statistical, Social and Economic Research (ISSER), University of Ghana, we conducted a randomized controlled trial (RCT) with agricultural extension agents (AEAs) in ten target sites by JICA's Ghana Rice Production Improvement Project (GRIP). This includes eight rainfed rice-producing districts and two irrigation schemes.
 
-We randomized at the district level. AEAs within the same district are each responsible for several communities (five to eight in our sample), and their assigned communities usually do not overlap. Nevertheless, they all report to the same district director and commute to the same district office, so randomization at the AEA level could cause the intervention effects to spill over to AEAs in the control group. We randomly assigned the eight rainfed districts to treatment group 1 (three districts), treatment group 2 (three districts), and the control group (two districts). In addition, we introduced a cross-cutting GPS treatment (described below) to a randomly selected half of the AEAs in each district. Because the production environment of the two irrigation schemes differs substantially from that of the rainfed areas, the schemes were excluded from the randomization and received no treatment. Although we also surveyed the irrigation schemes, we do not use these data, and the remainder of this paper covers only the rainfed areas. Figure~\ref{fig:map} presents the study sites and their assigned treatment status.
+We randomized at the district level. AEAs within the same district are each responsible for several communities (five to eight in our sample), and their assigned communities usually do not overlap. Nevertheless, they all report to the same district director and commute to the same district office, so randomization at the AEA level could cause the intervention effects to spill over to AEAs in the control group. We randomly assigned the eight rainfed districts to T1 (three districts), T2 (three districts), and the control group (two districts). In addition, we introduced a cross-cutting GPS treatment (described below) to a randomly selected half of the AEAs in each district. Because the production environment of the two irrigation schemes differs substantially from that of the rainfed areas, the schemes were excluded from the randomization and received no treatment. Although we also surveyed the irrigation schemes, we do not use these data, and the remainder of this paper covers only the rainfed areas. Figure~\ref{fig:map} presents the study sites and their assigned treatment status.
 
 We conducted the baseline survey in February 2025. All 42 AEAs in the eight district offices participated. The AEA questionnaire covered individual characteristics and career history (age, gender, education, civil-service grade, and tenure), work motivation (intrinsic and extrinsic), locus of control over agricultural production and their own career as well as in general, technical knowledge of recommended rice cultivation practices, self-reported extension effort (the number of farmer groups served and the frequency of visits), job satisfaction, and participation in training. We also surveyed 378 randomly selected rice farmers in the communities assigned to each AEA. Farmers were asked about household demographics and assets, the 2024 season rice production on their representative plot (area, output, and sales), input use and costs, family and hired labor by farm operation, the adoption of recommended management practices, land tenure, and their contact with and satisfaction with their AEA. We conducted the endline survey between January and February 2026. Apart from minor modifications, the endline questionnaires were identical to those of the baseline but asked about performance in the 2025 season.
 
@@ -135,9 +135,9 @@ We conducted the baseline survey in February 2025. All 42 AEAs in the eight dist
 
 Following the baseline survey, we introduced three treatments for the corresponding AEAs from mid-April to the end of September 2025, a period that covers the rice production season.
 
-\textbf{Feedback}: The first intervention is a bi-weekly feedback report based on farmers' evaluations of their AEA's service. From the second half of April to the end of September 2025, we conducted a brief bi-weekly phone survey of all sample farmers. The questionnaire covered (1) effort---whether the AEA had visited the community or the farmer in the past two weeks and, if so, how many times; (2) satisfaction---how satisfied the farmer was with the AEA's service in the past two weeks; and (3) the reason for that satisfaction or dissatisfaction. Based on the responses of each AEA's sample farmers (around ten farmers per AEA), we produced a one-page report in PDF format for AEAs in both treatment groups only and shared it with each AEA within two weeks. Appendix Figure~\ref{fig:feedback} shows examples of the feedback report. This treatment aims to enhance AEAs' intrinsic motivation through social recognition.
+\textbf{Feedback}: The first intervention is a bi-weekly feedback report based on farmers' evaluations of their AEA's service. From the second half of April to the end of September 2025, we conducted a brief bi-weekly phone survey of all sample farmers. The questionnaire covered (1) effort---whether the AEA had visited the community or the farmer in the past two weeks and, if so, how many times; (2) satisfaction---how satisfied the farmer was with the AEA's service in the past two weeks; and (3) the reason for that satisfaction or dissatisfaction. Based on the responses of each AEA's sample farmers (around ten farmers per AEA), we produced a one-page report in PDF format for AEAs in T1 and T2 only and shared it with each AEA within two weeks. Appendix Figure~\ref{fig:feedback} shows examples of the feedback report. This treatment aims to enhance AEAs' intrinsic motivation through social recognition.
 
-\textbf{Training}: We invited the 15 AEAs in treatment group 2 to an overnight sensitization training, held in April 2025 at a hotel in Koforidua, the capital of the Eastern Region of Ghana. The training was delivered by two assistant directors of the Directorate of Agricultural Extension Services (DAES) of the Ministry of Food and Agriculture (MoFA). It contained no technical training on rice production; instead, it focused on the social impacts and importance of agricultural extension. All 15 invited AEAs attended. This treatment aims to strengthen AEAs' locus of control over their extension services. Similar interventions have been shown to be effective among community health workers in Pakistan \citep{khan_mission_2025} and teachers in India \citep{kaur_how_nodate}.
+\textbf{Training}: We invited the 15 AEAs in T2 to an overnight sensitization training, held in April 2025 at a hotel in Koforidua, the capital of the Eastern Region of Ghana. The training was delivered by two assistant directors of the Directorate of Agricultural Extension Services (DAES) of the Ministry of Food and Agriculture (MoFA). It contained no technical training on rice production; instead, it focused on the social impacts and importance of agricultural extension. All 15 invited AEAs attended. This treatment aims to strengthen AEAs' locus of control over their extension services. Similar interventions have been shown to be effective among community health workers in Pakistan \citep{khan_mission_2025} and teachers in India \citep{kaur_how_nodate}.
 
 \textbf{GPS stamp}: We asked 20 randomly selected AEAs across the eight districts to submit their GPS coordinates through a KoboToolbox form whenever they visited farmers. This ``light'' monitoring treatment requires no special device other than a smartphone, and AEAs cannot manipulate the recorded location. Between mid-April and the end of September, 19 of the 20 AEAs submitted at least one record, and 357 records were submitted in total.
 
@@ -148,6 +148,14 @@ Following the baseline survey, we introduced three treatments for the correspond
 \caption{Descriptive statistics: extension agents}
 \label{tab:descaea}
 \fittable{tmp/desc_ms_aea}
+\tnote{Means by assigned arm, standard deviations in parentheses; panel AEAs,
+$N=41$. The attributes in Panel A are recorded once, in the baseline
+questionnaire, so the endline columns are left empty. Stars on the T1 and T2
+columns come from a regression of the variable on an arm dummy, estimated on
+that arm and the control group within the same wave with standard errors
+clustered at the district level: *** $p<0.01$, ** $p<0.05$, * $p<0.1$.
+Appendix Table~\ref{tab:scales} describes how the motivation and locus-of-control
+scales are measured.}
 \end{sidewaystable}
 \clearpage
 
@@ -156,6 +164,11 @@ Following the baseline survey, we introduced three treatments for the correspond
 \caption{Descriptive statistics: farm households}
 \label{tab:descfarmer}
 \fittable{tmp/desc_ms_farmer}
+\tnote{Means by assigned arm, standard deviations in parentheses; rainfed sites
+only. Stars on the T1 and T2 columns come from a regression of the variable on
+an arm dummy, estimated on that arm and the control group within the same wave
+with standard errors clustered at the district level: *** $p<0.01$,
+** $p<0.05$, * $p<0.1$.}
 \end{sidewaystable}
 \clearpage
 
@@ -291,6 +304,67 @@ Following the baseline survey, we introduced three treatments for the correspond
 %======================================================================
 \section{Appendix}\label{sec:appendix}
 %======================================================================
+
+\begin{table}[H]
+\caption{Measurement of the prosocialness, motivation and locus-of-control scales}
+\label{tab:scales}
+\footnotesize
+\begin{tabular}{@{}p{2.1cm}p{3.3cm}p{2.5cm}p{7.4cm}@{}}
+\toprule
+Scale & What it captures & Source & Items and scoring \\
+\midrule
+Prosocialness (6--30)
+& Willingness to help and to share knowledge with others, and empathy with them
+& Six items of the prosocialness scale of \citet{caprara_new_2005}
+& Six statements, each answered on a five-point scale from
+  \emph{never or almost never true} (1) to \emph{always or almost always true}
+  (5), summed. Example: ``I am willing to make my knowledge and abilities
+  available to others.'' A higher score means more prosocial. \\
+\addlinespace
+Intrinsic motivation (2--10)
+& Doing extension work for the satisfaction of the work itself
+& Intrinsic-motivation subscale of the Situational Motivation Scale
+  \citep{guay_assessment_2000}
+& Two statements completing the stem ``Why are you engaged in extension work?'',
+  each from \emph{disagree strongly} (1) to \emph{agree strongly} (5), summed:
+  ``Because this activity is fun'' and ``Because I feel good when doing this
+  activity.'' \\
+\addlinespace
+Extrinsic motivation (2--10)
+& Doing extension work because it is required rather than chosen
+& External-regulation subscale of the same scale
+  \citep{guay_assessment_2000}
+& Two statements on the same stem and scale, summed: ``Because I am supposed to
+  do it'' and ``Because I don't have any choice.'' \\
+\addlinespace
+Locus of control, agriculture (5--25)
+& Belief that farmers' outcomes, and the agent's own standing, follow from the
+  agent's own effort
+& Adapted by the authors to the extension setting, in the format of
+  \citet{rotter_generalized_1966}
+& Five statements from \emph{disagree strongly} (1) to \emph{agree strongly}
+  (5); the three worded externally are reverse-coded and the five are then
+  summed. Internal example: ``Agricultural production of farmers depends on the
+  effort I put in.'' Reverse-coded example: ``I have little control over
+  agricultural production of farmers.'' A higher score means a more internal
+  locus. \\
+\addlinespace
+Locus of control, general (5--25)
+& The same belief about life in general, outside the job
+& Five items in the tradition of \citet{rotter_generalized_1966}
+& Five statements on the same five-point scale, two of them reverse-coded, then
+  summed. Internal example: ``My life is determined by my own actions.''
+  Reverse-coded example: ``When I get what I want, it's usually because I am
+  lucky.'' \\
+\bottomrule
+\end{tabular}
+\tnote{All five scales are put to the AEA in both the baseline and the endline
+questionnaire, in the same wording. Scales are simple unweighted sums of their
+items, with no imputation; an AEA missing any item of a scale is missing that
+scale.}
+\end{table}
+
+\clearpage
 
 \begin{sidewaysfigure}
 \centering
