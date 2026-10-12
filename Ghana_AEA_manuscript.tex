@@ -276,11 +276,18 @@ The three right-hand columns are the categories of a single question on whether 
 \subsection{Estimation model}
 
 To estimate the impacts of the interventions on AEAs and farmers, we use the baseline and endline surveys. We employ an analysis of covariance (ANCOVA) rather than a difference-in-differences (DID) model, because ANCOVA gives more precise estimates than DID when the outcome is weakly correlated over time \citep{mckenzie_beyond_2012}, as is often the case for farm income and profit. Specifically, we estimate the following model by OLS:
+For the AEA-level analysis, we estimate
 \begin{equation}
-Y_{id1} = \alpha + \beta_1 T1_d + \beta_2 T2_d + \gamma GPS_j + \rho Y_{id0} + \mu_r + \varepsilon_{i},
-\label{eq:ancova}
+A_{jd1} = \alpha + \beta_1 T1_d + \beta_2 T2_d + \gamma GPS_j + \rho A_{jd0} + \varepsilon_{jd},
+\label{eq:ancova_aea}
 \end{equation}
-where $Y_{i1}$ is the outcome of AEA or farmer $i$ in the endline survey (the 2025 season) and $Y_{i0}$ is the same outcome in the baseline survey (the 2024 season). $T1_d$, $T2_d$ and $GPS_j$ are defined as in equation~(\ref{eq:bw}). Region fixed effects $\mu_r$ are included only in the farmer regressions. As in Section~\ref{sec:performance}, standard errors are clustered at the district level, and we also report $p$-values from the wild cluster bootstrap and randomization inference. Income and profit can be negative, so for these outcomes the columns labelled ``log'' use the inverse hyperbolic sine transformation.
+where $A_{jd1}$ is the outcome of AEA $j$ in district $d$ in the endline survey and $A_{jd0}$ is the same outcome in the baseline survey.
+For the farm-level analysis, we estimate
+\begin{equation}
+Y_{ijd1} = \alpha + \beta_1 T1_d + \beta_2 T2_d + \gamma GPS_j + \rho Y_{ijd0} + \mu_r + \varepsilon_{ijd},
+\label{eq:ancova_farm}
+\end{equation}
+where $Y_{ijd1}$ is the outcome of farmer $i$, served by AEA $j$ in district $d$, in the endline survey (the 2025 season), and $Y_{ijd0}$ is the same outcome in the baseline survey (the 2024 season). $\mu_r$ are region fixed effects. In both equations, $T1_d$, $T2_d$ and $GPS_j$ are defined as in equation~(\ref{eq:bw}). As in Section~\ref{sec:performance}, standard errors are clustered at the district level, and we also report $p$-values from the wild cluster bootstrap and randomization inference. Income and profit can be negative, so for these outcomes the columns labelled ``log'' use the inverse hyperbolic sine transformation.
 
 \begin{table}[H]
 \caption{Impacts on extension agents}
