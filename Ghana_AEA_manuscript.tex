@@ -28,12 +28,12 @@
 \newcommand{\fittable}[1]{%
   \begin{adjustbox}{max width=\linewidth}\scriptsize\input{#1}\end{adjustbox}}
 % Fixing a multi-panel table.
-\newcolumntype{S}{>{\raggedright\arraybackslash}p{3.2cm}}
-\newcolumntype{P}{>{\centering\arraybackslash}p{1.85cm}}
+\newcolumntype{S}{>{\raggedright\arraybackslash}p{3.5cm}}
+\newcolumntype{P}{>{\centering\arraybackslash\hspace{0pt}}p{1.6cm}}
 \newenvironment{panels}
   {\par\centering\begin{adjustbox}{max width=\linewidth}\scriptsize\begin{tabular}{@{}c@{}}}
   {\end{tabular}\end{adjustbox}\par}
-\newcommand{\panel}[1]{\textbf{#1}\\[5pt]}
+\newcommand{\panel}[1]{\rule{0pt}{20pt}\small\textbf{#1}\\[6pt]}
 \captionsetup[table]{skip=4pt}
 \captionsetup[table]{justification=centering}
 \captionsetup{font=small,labelfont=bf}

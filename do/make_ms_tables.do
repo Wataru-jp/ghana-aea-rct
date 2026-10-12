@@ -12,8 +12,10 @@
 * stars and statistics come straight from the originals.
 *
 * The manuscript must define, with the same widths used when these were made:
-*     \newcolumntype{S}{>{\raggedright\arraybackslash}p{3.2cm}}
-*     \newcolumntype{P}{>{\centering\arraybackslash}p{1.85cm}}
+*     \newcolumntype{S}{>{\raggedright\arraybackslash}p{2.8cm}}
+*     \newcolumntype{P}{>{\centering\arraybackslash}p{1.5cm}}
+* These widths are chosen so that the widest panel (nine data columns) still
+* fits the text block without being scaled down.
 *
 * Run after the analysis do-files that write the originals.
 * Input : tmp/<name>.tex     Output: tmp/ms_<name>.tex
