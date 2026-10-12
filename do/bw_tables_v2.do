@@ -467,7 +467,7 @@ esttab msat1 msat2 msat3 msat4 cA1 cA2 cA3 ///
           labels("T1=T2 [p]" "Control mean" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
     mtitles("Satisfied" "Satisfied (full)" "Add.\ ctrl" "Full, add.\ ctrl" ///
             "Helpful advice" "No advice" "Had no problem") ///
-    mgroups("Satisfaction with the service" "Content of the advice", ///
+    mgroups("Satisfaction with the service" "Was the advice helpful?", ///
             pattern(1 0 0 0 1 0 0) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) ///
     star(* 0.10 ** 0.05 *** 0.01)
 
