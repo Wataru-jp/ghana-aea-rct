@@ -1,0 +1,29 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{7}{c}}
+\toprule
+                    &\multicolumn{4}{c}{Satisfaction with the service}                                      &\multicolumn{3}{c}{Content of the advice}                        \\\cmidrule(lr){2-5}\cmidrule(lr){6-8}
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}\\
+                    &\multicolumn{1}{c}{Satisfied}&\multicolumn{1}{c}{Satisfied (full)}&\multicolumn{1}{c}{Add.\ ctrl}&\multicolumn{1}{c}{Full, add.\ ctrl}&\multicolumn{1}{c}{Helpful advice}&\multicolumn{1}{c}{No advice}&\multicolumn{1}{c}{Had no problem}\\
+\midrule
+T1: Feedback        &       0.147\sym{**} &       0.055\sym{*}  &       0.152\sym{**} &       0.069\sym{**} &       0.352\sym{***}&      -0.032\sym{**} &      -0.319\sym{***}\\
+                    &     (0.047)         &     (0.027)         &     (0.047)         &     (0.026)         &     (0.088)         &     (0.012)         &     (0.090)         \\
+T2: Feedback+Training&       0.075\sym{**} &       0.043\sym{*}  &       0.062\sym{**} &       0.001         &       0.377\sym{***}&      -0.037\sym{***}&      -0.340\sym{***}\\
+                    &     (0.025)         &     (0.020)         &     (0.026)         &     (0.025)         &     (0.048)         &     (0.008)         &     (0.054)         \\
+Stamp (GPS)         &       0.049         &       0.051         &       0.043         &       0.018         &       0.055         &      -0.016         &      -0.039         \\
+                    &     (0.030)         &     (0.055)         &     (0.027)         &     (0.033)         &     (0.040)         &     (0.011)         &     (0.033)         \\
+Number visits (2 weeks)&                     &                     &       0.062\sym{**} &       0.259\sym{***}&                     &                     &                     \\
+                    &                     &                     &     (0.018)         &     (0.033)         &                     &                     &                     \\
+Number contacts (2 weeks)&                     &                     &       0.006         &       0.048         &                     &                     &                     \\
+                    &                     &                     &     (0.005)         &     (0.025)         &                     &                     &                     \\
+\midrule
+T1=T2 [p]           &       0.230         &       0.792         &       0.121         &       0.042         &       0.816         &       0.491         &       0.846         \\
+Control mean        &       0.750         &       0.239         &       0.750         &       0.239         &       0.429         &       0.071         &       0.500         \\
+Wild-boot p (T1)    &       0.203         &       0.272         &       0.189         &       0.185         &       0.144         &       0.143         &       0.174         \\
+Wild-boot p (T2)    &       0.395         &       0.320         &       0.453         &       0.975         &       0.130         &       0.200         &       0.165         \\
+RI p (T1)           &       0.014         &       0.094         &       0.014         &       0.029         &       0.005         &       0.020         &       0.008         \\
+RI p (T2)           &       0.020         &       0.091         &       0.050         &       0.962         &       0.000         &       0.001         &       0.000         \\
+Obs                 &        2184         &        4120         &        2184         &        4120         &        2186         &        2186         &        2186         \\
+\bottomrule
+\end{tabular}
+}

@@ -222,12 +222,12 @@ end
 eststo clear
 bw_one Q1  eQ1
 bw_one Q2  eQ2
-* planting/establishment window: rounds 05-1..06-2 (t = 2..5)
-bw_one Q1  wQ1  "" inrange(t,2,5)
-bw_one Q2  wQ2  "" inrange(t,2,5)
-* growing/harvest window: rounds 07-1..09-2 (t = 6..11)
-bw_one Q1  hQ1  "" inrange(t,6,9)
-bw_one Q2  hQ2  "" inrange(t,6,9)
+* planting window: rounds 06-1..07-1 (t = 4..6)
+bw_one Q1  wQ1  "" inrange(t,4,6)
+bw_one Q2  wQ2  "" inrange(t,4,6)
+* growing window: rounds 07-2..08-2 (t = 7..9)
+bw_one Q1  hQ1  "" inrange(t,7,9)
+bw_one Q2  hQ2  "" inrange(t,7,9)
 esttab eQ1 eQ2 wQ1 wQ2 hQ1 hQ2 using "$tmp/bw_effort_v2.tex", replace ///
     se nogap b(%9.3f) label booktabs nonotes ///
     keep(1.treat_dis 2.treat_dis 1.gps) ///
@@ -237,7 +237,7 @@ esttab eQ1 eQ2 wQ1 wQ2 hQ1 hQ2 using "$tmp/bw_effort_v2.tex", replace ///
     stats(t12p cmean wb_t1 wb_t2 ri_t1 ri_t2 N, fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
           labels("T1=T2 [p]" "Control mean" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
     mtitles("Visits" "Contacts" "Visits" "Contacts" "Visits" "Contacts") ///
-    mgroups("All rounds (Apr--Sep)" "Planting window (05-1--06-2)" "Growing season (07-1--08-2)", ///
+    mgroups("All rounds (Apr--Sep)" "Planting window (06-1--07-1)" "Growing season (07-2--08-2)", ///
             pattern(1 0 1 0 1 0) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) ///
     star(* 0.10 ** 0.05 *** 0.01)
 
@@ -248,16 +248,16 @@ bw_one satisfy  esat
 bw_one satisfy2 esat2
 bw_one satisfy  asat  yes
 bw_one satisfy2 asat2 yes
-* planting/establishment window: rounds 05-1..06-2 (t = 2..5)
-bw_one satisfy  wsat   ""  inrange(t,2,5)
-bw_one satisfy2 wsat2  ""  inrange(t,2,5)
-bw_one satisfy  wasat  yes inrange(t,2,5)
-bw_one satisfy2 wasat2 yes inrange(t,2,5)
-* growing/harvest window: rounds 07-1..09-2 (t = 6..11)
-bw_one satisfy  hsat   ""  inrange(t,6,9)
-bw_one satisfy2 hsat2  ""  inrange(t,6,9)
-bw_one satisfy  hasat  yes inrange(t,6,9)
-bw_one satisfy2 hasat2 yes inrange(t,6,9)
+* planting window: rounds 06-1..07-1 (t = 4..6)
+bw_one satisfy  wsat   ""  inrange(t,4,6)
+bw_one satisfy2 wsat2  ""  inrange(t,4,6)
+bw_one satisfy  wasat  yes inrange(t,4,6)
+bw_one satisfy2 wasat2 yes inrange(t,4,6)
+* growing window: rounds 07-2..08-2 (t = 7..9)
+bw_one satisfy  hsat   ""  inrange(t,7,9)
+bw_one satisfy2 hsat2  ""  inrange(t,7,9)
+bw_one satisfy  hasat  yes inrange(t,7,9)
+bw_one satisfy2 hasat2 yes inrange(t,7,9)
 esttab esat esat2 asat asat2 wsat wsat2 wasat wasat2 hsat hsat2 hasat hasat2 ///
     using "$tmp/bw_satisfy_v2.tex", replace ///
     se nogap b(%9.3f) label booktabs nonotes ///
@@ -270,9 +270,10 @@ esttab esat esat2 asat asat2 wsat wsat2 wasat wasat2 hsat hsat2 hasat hasat2 ///
     mtitles("Satisfied" "Satisfied (full)" "Add.\ ctrl" "Full, add.\ ctrl" ///
             "Satisfied" "Satisfied (full)" "Add.\ ctrl" "Full, add.\ ctrl" ///
             "Satisfied" "Satisfied (full)" "Add.\ ctrl" "Full, add.\ ctrl") ///
-    mgroups("All rounds (Apr--Sep)" "Planting window (05-1--06-2)" "Growing season (07-1--08-2)", ///
+    mgroups("All rounds (Apr--Sep)" "Planting window (06-1--07-1)" "Growing season (07-2--08-2)", ///
             pattern(1 0 0 0 1 0 0 0 1 0 0 0) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) ///
     star(* 0.10 ** 0.05 *** 0.01)
+
 
 *==============================================================================
 * APPENDIX (co-author request, Jul 2026)
@@ -443,6 +444,31 @@ esttab cA1 cA2 cA3 using "$tmp/bw_content_a.tex", replace ///
     stats(t12p cmean wb_t1 wb_t2 ri_t1 ri_t2 N, fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
           labels("T1=T2 [p]" "Ctrl mean" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
     mtitles("Helpful advice (=1)" "No advice (=1)" "Had no problem (=1)") ///
+    star(* 0.10 ** 0.05 *** 0.01)
+
+*------------------------------------------------------------------------------
+* MANUSCRIPT: satisfaction (all rounds) and the content of the advice on one
+* table (co-author request, Oct 2026). The satisfaction models are re-estimated
+* here because the appendix blocks above clear the stored estimates; they are
+* the same four specifications as the all-rounds columns of bw_satisfy_v2.
+*------------------------------------------------------------------------------
+bw_one satisfy  msat1
+bw_one satisfy2 msat2
+bw_one satisfy  msat3 yes
+bw_one satisfy2 msat4 yes
+esttab msat1 msat2 msat3 msat4 cA1 cA2 cA3 ///
+    using "$tmp/ms_bw_satcontent.tex", replace ///
+    se nogap b(%9.3f) label booktabs nonotes ///
+    keep(1.treat_dis 2.treat_dis 1.gps Q1 Q2) ///
+    order(1.treat_dis 2.treat_dis 1.gps Q1 Q2) ///
+    coeflabels(1.treat_dis "T1: Feedback" 2.treat_dis "T2: Feedback+Training" ///
+               1.gps "Stamp (GPS)") ///
+    stats(t12p cmean wb_t1 wb_t2 ri_t1 ri_t2 N, fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
+          labels("T1=T2 [p]" "Control mean" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
+    mtitles("Satisfied" "Satisfied (full)" "Add.\ ctrl" "Full, add.\ ctrl" ///
+            "Helpful advice" "No advice" "Had no problem") ///
+    mgroups("Satisfaction with the service" "Content of the advice", ///
+            pattern(1 0 0 0 1 0 0) prefix(\multicolumn{@span}{c}{) suffix(}) span erepeat(\cmidrule(lr){@span})) ///
     star(* 0.10 ** 0.05 *** 0.01)
 
 eststo clear

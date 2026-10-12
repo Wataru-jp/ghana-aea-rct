@@ -65,8 +65,6 @@ Improving agricultural productivity requires the adoption of new technologies, s
 %======================================================================
 \section{Agricultural extension in Ghana}\label{sec:context}
 
-
-
 %======================================================================
 % DESIGN AND DATA
 %======================================================================
@@ -231,22 +229,33 @@ Figure~\ref{fig:distvisits} further presents the relationship between the number
 \caption{Effort reported by farmers, bi-weekly rounds}
 \label{tab:bweffort}
 \fittable{tmp/bw_effort_v2}
+\tnote{Farmer $\times$ round panel, estimated by OLS with round and province
+fixed effects. The outcomes are the number of visits and the number of
+successful contacts the farmer reports for the two-week round. Standard errors
+clustered on district in parentheses (8 clusters). Wild-boot $p$ is a wild
+cluster bootstrap with Webb weights and 9,999 replications; RI $p$ is a
+randomisation-inference $p$-value from 1,000 re-assignments of the district
+arms. Control mean is the control-group mean over the same rounds.
+*** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{table}
 
 \begin{sidewaystable}
 \centering
-\caption{Satisfaction with extension service, bi-weekly rounds}
+\caption{Satisfaction with the service and the content of the advice,
+bi-weekly rounds}
 \label{tab:bwsatisfy}
-\fittable{tmp/bw_satisfy_v2}
+\fittable{tmp/ms_bw_satcontent}
+\tnote{Specification as in Table~\ref{tab:bweffort}, on all eleven rounds.
+``Satisfied'' is a dummy for \emph{satisfied} or \emph{very satisfied}, defined
+on the rounds in which the farmer had a visit or any other contact with the
+agent; ``Satisfied (full)'' sets it to zero for rounds with neither.
+``Add.\ ctrl'' adds the number of visits and contacts in the round as controls.
+The three right-hand columns are the categories of a single question on whether
+the agent gave helpful advice, defined on the rounds with a visit or a contact.
+*** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{sidewaystable}
 \clearpage
 
-\begin{table}[H]
-\centering
-\caption{Content of the extension service, bi-weekly rounds}
-\label{tab:bwcontent}
-\fittable{tmp/bw_content_a}
-\end{table}
 
 \begin{figure}[H]
 \centering

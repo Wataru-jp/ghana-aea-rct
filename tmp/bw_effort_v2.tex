@@ -2,24 +2,24 @@
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
 \begin{tabular}{l*{6}{c}}
 \toprule
-                    &\multicolumn{2}{c}{All rounds (Apr--Sep)}  &\multicolumn{2}{c}{Planting window (05-1--06-2)}&\multicolumn{2}{c}{Growing season (07-1--08-2)}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+                    &\multicolumn{2}{c}{All rounds (Apr--Sep)}  &\multicolumn{2}{c}{Planting window (06-1--07-1)}&\multicolumn{2}{c}{Growing season (07-2--08-2)}\\\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}
                     &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
                     &\multicolumn{1}{c}{Visits}&\multicolumn{1}{c}{Contacts}&\multicolumn{1}{c}{Visits}&\multicolumn{1}{c}{Contacts}&\multicolumn{1}{c}{Visits}&\multicolumn{1}{c}{Contacts}\\
 \midrule
-T1: Feedback        &      -0.043         &      -0.057         &       0.111         &       0.146\sym{**} &      -0.060         &      -0.169         \\
-                    &     (0.059)         &     (0.075)         &     (0.146)         &     (0.052)         &     (0.117)         &     (0.163)         \\
-T2: Feedback+Training&       0.150\sym{**} &       0.057         &       0.140         &       0.159\sym{***}&       0.164         &       0.048         \\
-                    &     (0.050)         &     (0.057)         &     (0.133)         &     (0.042)         &     (0.089)         &     (0.120)         \\
-Stamp (GPS)         &       0.121         &       0.046         &       0.185         &      -0.019         &       0.132         &       0.078         \\
-                    &     (0.114)         &     (0.186)         &     (0.106)         &     (0.201)         &     (0.187)         &     (0.272)         \\
+T1: Feedback        &      -0.043         &      -0.057         &       0.218\sym{**} &       0.133         &      -0.110         &      -0.262         \\
+                    &     (0.059)         &     (0.075)         &     (0.063)         &     (0.126)         &     (0.116)         &     (0.170)         \\
+T2: Feedback+Training&       0.150\sym{**} &       0.057         &       0.265\sym{***}&       0.115         &       0.186\sym{*}  &       0.114         \\
+                    &     (0.050)         &     (0.057)         &     (0.046)         &     (0.096)         &     (0.086)         &     (0.126)         \\
+Stamp (GPS)         &       0.121         &       0.046         &       0.171         &      -0.007         &       0.177         &       0.140         \\
+                    &     (0.114)         &     (0.186)         &     (0.147)         &     (0.226)         &     (0.212)         &     (0.292)         \\
 \midrule
-T1=T2 [p]           &       0.027         &       0.387         &       0.729         &       0.867         &       0.272         &       0.460         \\
-Control mean        &       0.511         &       0.239         &       0.683         &       0.410         &       0.747         &       0.620         \\
-Wild-boot p (T1)    &       0.709         &       0.707         &       0.869         &       0.243         &       0.769         &       0.547         \\
-Wild-boot p (T2)    &       0.187         &       0.548         &       0.700         &       0.166         &       0.369         &       0.807         \\
-RI p (T1)           &       0.486         &       0.492         &       0.481         &       0.021         &       0.626         &       0.339         \\
-RI p (T2)           &       0.022         &       0.365         &       0.320         &       0.004         &       0.087         &       0.705         \\
-Obs                 &        4120         &        4120         &        1503         &        1503         &        1499         &        1499         \\
+T1=T2 [p]           &       0.027         &       0.387         &       0.665         &       0.928         &       0.174         &       0.234         \\
+Control mean        &       0.511         &       0.239         &       0.768         &       0.558         &       0.623         &       0.554         \\
+Wild-boot p (T1)    &       0.709         &       0.707         &       0.188         &       0.639         &       0.615         &       0.371         \\
+Wild-boot p (T2)    &       0.187         &       0.548         &       0.107         &       0.533         &       0.239         &       0.591         \\
+RI p (T1)           &       0.486         &       0.492         &       0.017         &       0.365         &       0.385         &       0.172         \\
+RI p (T2)           &       0.022         &       0.365         &       0.000         &       0.272         &       0.050         &       0.410         \\
+Obs                 &        4120         &        4120         &        1124         &        1124         &        1126         &        1126         \\
 \bottomrule
 \end{tabular}
 }
