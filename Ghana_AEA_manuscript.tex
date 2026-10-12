@@ -204,7 +204,7 @@ Figure~\ref{fig:bwbasic} shows, for each round of the survey, the average number
 \label{fig:bwbasic}
 \end{figure}
 
-Figure~\ref{fig:selfrep} compares, for each AEA, the number of visits reported by farmers with the number of visits the AEA reported in the baseline and endline surveys. Both are converted to a monthly basis: visits per farmer group for the AEA's self-report and visits per farmer for the farmers' reports. On average, AEAs reported that they visited each group nine times a month at baseline and thirteen times at endline. These numbers exceed the visiting frequency that district officers told us during our field visits: AEAs are supposed to visit each community at least eight times a month. However, farmers reported only around 1.5 visits per month on average, and almost all AEAs lie below the 45-degree line, which implies that AEAs overstate their efforts. More importantly, there is no correlation between the two measures, self-reported and farmer-reported visits.
+Figure~\ref{fig:selfrep} compares, for each AEA, the number of visits reported by farmers with the number of visits the AEA reported in the baseline and endline surveys. Both are converted to a monthly basis: visits per farmer group for the AEA's self-report and visits per farmer for the farmers' reports. On average, AEAs reported that they visited each group nine times a month at baseline and thirteen times at endline. These numbers exceed the visiting frequency expected of AEAs.\footnote{During our field visits, district officers told us that AEAs are supposed to visit each community at least eight times a month.} However, farmers reported only around 1.5 visits per month on average, and almost all AEAs lie below the 45-degree line, which implies that AEAs overstate their efforts. More importantly, there is no correlation between the two measures, self-reported and farmer-reported visits.
 
 \begin{figure}[H]
 \centering
@@ -224,7 +224,18 @@ Figure~\ref{fig:distvisits} further presents the relationship between the number
 
 \subsection{Regression analysis}
 
+We investigate how the treatments relate to the efforts and performance of AEAs as reported by farmers. We estimate the following model by OLS:
+\begin{equation}
+Y_{ijdt} = \alpha + \beta_1 T1_d + \beta_2 T2_d + \gamma GPS_j + \delta_t + \mu_r + \varepsilon_{ijdt},
+\label{eq:bw}
+\end{equation}
+where $Y_{ijdt}$ is the outcome reported by farmer $i$, served by AEA $j$ in district $d$, in survey round $t$. $T1_d$ and $T2_d$ are dummies for the arm to which district $d$ was assigned, and $GPS_j$ is a dummy for AEAs who were asked to submit GPS stamps. $\delta_t$ are round fixed effects, which absorb the seasonal pattern of extension activity seen in Figure~\ref{fig:bwbasic}, and $\mu_r$ are region fixed effects. Standard errors are clustered at the district level. Since we have only eight clusters, we also report $p$-values from the wild cluster bootstrap with Webb weights and from randomization inference, which re-assigns the district arms 1,000 times. The bi-weekly survey started together with the interventions, so we have no baseline data for these outcomes and cannot control for differences between districts that existed before the interventions. We therefore interpret the results as correlations rather than causal effects.
 
+Table~\ref{tab:bweffort} presents the results. Across all rounds, T2 farmers reported about 0.15 more visits per two weeks than control farmers, which is about 20\% higher than the control group average. The difference between T1 and the control group is negligible. The relationships become clearer when we restrict the sample to the planting season (June to the first half of July): both T1 and T2 farmers reported significantly more visits than control farmers. These differences are significant under randomization inference ($p=0.017$ for T1 and $p<0.001$ for T2), but not under the wild cluster bootstrap ($p=0.188$ and $0.107$). In contrast, no significant differences are observed for the number of contacts. Finally, the GPS stamp intervention does not show any significant differences.
+
+Table~\ref{tab:bwsatisfy} shows the relationship with farmers' satisfaction with their engagement with the AEA, if any. The outcome is a binary variable that takes the value of 1 if the farmer answered that they were satisfied or very satisfied with the engagement, and 0 otherwise. Column (1) restricts the sample to the rounds in which the farmer had any visit or contact, and column (2) uses the full sample. On average, T1 and T2 farmers were about 15 and 7.5 percentage points more likely to be satisfied, respectively (column 1). The coefficients hardly change when we control for the number of visits and contacts (column 3). This suggests that the treatments are related not only to more frequent visits by AEAs but also to a better quality of the service delivered.\footnote{We also asked what the engagement with the AEA was about (multiple answers allowed). In the rounds with any visit or contact, 97.4\% of farmers reported that they discussed crop production, 2.1\% livestock production, 0.8\% crop or livestock prices, and 3.0\% other topics, such as the formation and registration of farmer groups.}
+
+Columns (5)--(7) further show the relationship with the quality of the service. T1 and T2 farmers were more likely to report that they received helpful advice (column 5) and less likely to report that they received no advice (column 6) or had no issue to seek advice on (column 7). These relationships are robust under randomization inference but not under the wild cluster bootstrap. Overall, the regression results suggest that the interventions for AEAs are associated with both a larger quantity and a better quality of the extension services delivered.
 
 \begin{table}[H]
 \centering
@@ -241,6 +252,7 @@ arms. Control mean is the control-group mean over the same rounds.
 *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{table}
 
+\begin{table}[H]
 \centering
 \caption{Satisfaction with the service and the content of the advice,
 bi-weekly rounds}
@@ -254,6 +266,7 @@ agent; ``Satisfied (full)'' sets it to zero for rounds with neither.
 The three right-hand columns are the categories of a single question on whether
 the agent gave helpful advice, defined on the rounds with a visit or a contact.
 *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
+\end{table}
 \clearpage
 
 
