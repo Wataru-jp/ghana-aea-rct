@@ -31,9 +31,9 @@
 \newcolumntype{S}{>{\raggedright\arraybackslash}p{3.2cm}}
 \newcolumntype{P}{>{\centering\arraybackslash}p{1.85cm}}
 \newenvironment{panels}
-  {\begin{adjustbox}{max width=\linewidth}\scriptsize\begin{tabular}{@{}l@{}}}
-  {\end{tabular}\end{adjustbox}}
-\newcommand{\panel}[1]{\textbf{#1}\\[2pt]}
+  {\par\centering\begin{adjustbox}{max width=\linewidth}\scriptsize\begin{tabular}{@{}c@{}}}
+  {\end{tabular}\end{adjustbox}\par}
+\newcommand{\panel}[1]{\textbf{#1}\\[5pt]}
 \captionsetup[table]{skip=4pt}
 \captionsetup[table]{justification=centering}
 \captionsetup{font=small,labelfont=bf}
@@ -278,10 +278,16 @@ The three right-hand columns are the categories of a single question on whether 
 \label{tab:aeaimpact}
 \begin{panels}
 \panel{Panel A. Motivation and locus of control}
-\input{tmp/ms_e_aea_attitude}\\[10pt]
+\input{tmp/ms_e_aea_attitude}\\[18pt]
 \panel{Panel B. Knowledge, effort and job satisfaction}
 \input{tmp/ms_e_aea_effort_ms}
 \end{panels}
+\tnote{ANCOVA: the endline value of the outcome on the two arm dummies, the
+GPS-stamp indicator and the baseline value of the same outcome. Extension-agent
+sample, $N=41$, rainfed sites only. Standard errors clustered on district in
+parentheses (8 clusters). Wild-boot $p$ and RI $p$ are defined as in
+Table~\ref{tab:bweffort}. Ctrl mean (base) and (end) are the control-group means
+at baseline and at endline. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{table}
 
 \begin{table}[H]
@@ -289,12 +295,18 @@ The three right-hand columns are the categories of a single question on whether 
 \label{tab:farmimpact}
 \begin{panels}
 \panel{Panel A. Production and income}
-\input{tmp/ms_e_farmer_prod}\\[10pt]
+\input{tmp/ms_e_farmer_prod}\\[18pt]
 \panel{Panel B. Input use}
-\input{tmp/ms_e_farmer_inputs}\\[10pt]
+\input{tmp/ms_e_farmer_inputs}\\[18pt]
 \panel{Panel C. Adoption of management practices}
 \input{tmp/ms_e_farmer_practice}
 \end{panels}
+\tnote{ANCOVA as in Table~\ref{tab:aeaimpact}, on the farmer sample (rainfed
+sites, $N=373$), with region fixed effects added. Standard errors clustered on
+district (8 clusters). Revenue is the value of output; income is revenue less
+paid-out costs; profit is income less family labour valued at the district
+median hired wage. Logs use $\ln(1+x)$ and outcomes are not winsorised.
+*** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{table}
 
 \begin{sidewaystable}
@@ -302,10 +314,12 @@ The three right-hand columns are the categories of a single question on whether 
 \label{tab:labour}
 \begin{panels}
 \panel{Panel A. By who does the work}
-\input{tmp/ms_e_labour_sex}\\[10pt]
+\input{tmp/ms_e_labour_sex}\\[18pt]
 \panel{Panel B. By operation}
 \input{tmp/ms_e_labour_ops}
 \end{panels}
+\tnote{Specification as in Table~\ref{tab:farmimpact}. Labour is measured in
+man-days per hectare. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{sidewaystable}
 \clearpage
 
