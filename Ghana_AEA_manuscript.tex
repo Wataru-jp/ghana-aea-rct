@@ -273,6 +273,15 @@ The three right-hand columns are the categories of a single question on whether 
 %======================================================================
 \section{AEA and farm level impacts}\label{sec:impacts}
 
+\subsection{Estimation model}
+
+To estimate the impacts on AEAs and farmers, we use the baseline and endline surveys. We regress the endline value of each outcome on the treatment dummies and on the baseline value of the same outcome:
+\begin{equation}
+Y_{i1} = \alpha + \beta_1 T1_d + \beta_2 T2_d + \gamma GPS_j + \rho Y_{i0} + \mu_r + \varepsilon_{i},
+\label{eq:ancova}
+\end{equation}
+where $Y_{i1}$ is the outcome of AEA or farmer $i$ in the endline survey (the 2025 season) and $Y_{i0}$ is the same outcome in the baseline survey (the 2024 season). $T1_d$, $T2_d$ and $GPS_j$ are defined as in equation~(\ref{eq:bw}). Region fixed effects $\mu_r$ are included only in the farmer regressions. We use this analysis of covariance (ANCOVA) rather than a difference-in-differences (DID) model, because ANCOVA gives more precise estimates than DID when the outcome is weakly correlated over time \citep{mckenzie_beyond_2012}, as is often the case for farm income and profit. As in Section~\ref{sec:performance}, standard errors are clustered at the district level, and we also report $p$-values from the wild cluster bootstrap and randomization inference. Income and profit can be negative, so for these outcomes the columns labelled ``log'' use the inverse hyperbolic sine transformation.
+
 \begin{table}[H]
 \caption{Impacts on extension agents}
 \label{tab:aeaimpact}
