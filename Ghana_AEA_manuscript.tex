@@ -35,9 +35,15 @@
   {\end{tabular}\end{adjustbox}}
 \newcommand{\panel}[1]{\textbf{#1}\\[2pt]}
 \captionsetup[table]{skip=4pt}
-\captionsetup[table]{singlelinecheck=false}
+\captionsetup[table]{justification=centering}
 \captionsetup{font=small,labelfont=bf}
-\newcommand{\tnote}[1]{\par\vspace{2pt}{\footnotesize\textit{Note:} #1}}
+% Notes sit in a minipage so they are justified to the table width rather than
+% inheriting the float's centring, and one step smaller than the caption.
+\newcommand{\tnote}[1]{%
+  \par\vspace{3pt}%
+  \noindent\begin{minipage}{\linewidth}%
+    \scriptsize\setlength{\parindent}{0pt}\textit{Note:} #1%
+  \end{minipage}}
 
 \title{Improving extension services through non-monetary incentives: Experimental evidence from Ghana}
 \author{Kazushi Takahashi \and Wataru Kodama \and Yukichi Mano}
