@@ -64,12 +64,49 @@ We study the impacts of non-monetary incentives on agricultural extension agents
 %======================================================================
 \section{Introduction}
 
-Improving agricultural productivity requires the adoption of new technologies, such as improved seeds, chemical fertilizers, and appropriate crop management practices \citep{takahashi_technology_2020}. Since technology development, adoption, and diﬀusion involve externality, public institutions play a central role. Public agricultural extension workers are key actors in disseminating technologies...
+Addressing global food insecurity and poverty, particularly in Sub-Saharan Africa, requires sustained improvements in agricultural productivity. Such improvements depend not only on the development of agricultural technologies but also on their effective dissemination and adoption by farmers. Public agricultural extension services play a central role in this process, as knowledge spillovers among farmers can lead to the under provision of privater extension services \citep{Takahashi2020}. Yet public extension services in developing countries often suffer from weak service delivery, including agent absenteeism and infrequent visits to farmers \citep{Anderson2007, Alam2024}. Even when extension agents possess relevant technical knowledge and operational resources, the effectiveness of their services depends on the effort they exert in reaching farmers and supporting technology adoption. This raises a central question: How can extension agents be motivated to deliver more effective services?
+
+This question is related to the incentive problem common to public service delivery in developing countries. Absenteeism among teachers and health workers is widespread \citep{Chaudhury2006}, and even when present, providers often fail to deliver services commensurate with their knowledge \citep{Das2007, Finan2017}. Because providers’ performance is hard to measure and monitoring systems are weak in many developing countries, individual effort is only loosely linked to rewards: working harder often brings neither higher pay nor better promotion prospects, which weakens providers’ incentives to perform well. Research has shown that incentive schemes involving monetary rewards, monitoring, and public recognition can improve service providers' behavior \citep{Muralidharan2011, Duflo2012, Banerjee2008, Ashraf2014, Leaver2021, Mansuri2023}.  
+ %and that compensation and prosocial motivation shape who enters public service \citep{Bo2013, Banuri2016}. 
+ In addition, while providers may exert less effort when they believe that their work is unlikely to improve the lives of the people they serve \citep{Kaur2023}, interventions that remind service providers of the mission of their work have been found to increase effort \citep{Khan2025}. Similar challenges arise in agricultural extension. \citet{Ragasa2013} reports that a lack of encouragement from supervisors undermines extension agents' motivation, whereas expressions of gratitude from farmers increase it. These findings suggest that non-monetary interventions that communicate farmers' evaluations or the social value of extension work may strengthen extension agents' motivation. However, whether such interventions change agents' actual behavior and improve outcomes for farmers remains insufficiently understood.
+
+This study uses a randomized controlled trial (RCT) to examine the causal effects of non-monetary interventions on the behavior of public agricultural extension agents (AEAs) and on farmer outcomes in Ghana. Specifically, we introduce two interventions: feedback from farmers and training that communicates the social value of extension work. The first intervention provides AEAs and their supervisors with regular feedback on farmers' assessments of extension services. This feedback can operate through several channels. By making farmers' assessments visible, it may increase the social recognition agents receive from farmers and supervisors. Because it also reports the average for the agent's district office and the figures for the highest-rated agent in that office, it introduces an element of social comparison with peers \citep{Blanes2011, Ashraf2014}. Also, because it is shared with supervisors, it may function as a simple form of supervisory monitoring. The second intervention is training that explains the role extension services play in improving farmers' livelihoods and agricultural productivity. This intervention is intended not only to help extension agents recognize the social significance of their work but also to strengthen their internal locus of control and self-efficacy---that is, their belief that their own efforts and actions can make a meaningful difference to farmers' outcomes. Comparing the feedback-only group with the control group identifies the effect of feedback, while comparing the group receiving both feedback and training with the feedback-only group identifies the additional effect of emphasizing the social value of extension work and agents' capacity to influence farmer outcomes.
+
+In addition, we cross-randomize a GPS-stamp intervention with the two interventions above, in which extension agents record their location when visiting farmers' fields. This is a simple monitoring tool that makes agents' effort more visible by creating a location-based record of visits. Monitoring interventions examined in previous studies have often been external mechanisms tied to rewards or penalties, such as recording teachers' attendance with photographs and linking it to their salaries \citep{Duflo2012}, or combining digital monitoring with performance-based pay \citep{Genicot2022}. Within each district, we randomly assign GPS stamps, which are not linked to rewards, to half of the agents, rounded down (20 of the 42 agents in total), so that agents with and without GPS stamps are present in all three groups. This design allows us to compare the effects of feedback and training on the social value of extension work with those of simple monitoring. \textcolor{red}{It also enables us to test whether monitoring complements or substitutes for feedback in motivating extension agents.}
+
+The experiment is conducted in eight districts across four rain-fed rice-growing regions of Ghana---Oti, Bono East, Western North, and Eastern---covered by the Ghana Rice Production Improvement Project (GRIP), implemented by the Japan International Cooperation Agency (JICA) since 2022. We randomly assign the eight districts, and thus the 42 participating AEAs working in them, to three groups: three districts receive feedback from farmers; three receive feedback as well as training on the social value of extension work; and two serve as a control group and receive neither intervention. We randomize at the district level because agents in the same district report to the same district director and work from the same office, so assigning them to different groups could lead to spillovers. In addition, half of the agents within each district (20 of the 42) are randomly selected to receive the GPS-stamp intervention. All agents in the three groups, including the control group, also received a small fuel allowance of 150 Ghana cedis per month (less than US\$15) through mobile money from April to August 2025. This allowance replaced similar support from a previous project that was phased out in early 2025, and was provided to keep agents’ operating conditions comparable between the baseline and endline periods. Because it was common to all groups, it does not affect the comparison across arms.
+
+Feedback is provided to AEAs and their supervisors every two weeks from April through September in 2025, the main period of rice cultivation. It draws on a biweekly phone-based survey of farmers conducted in all three groups, for a total of 11 rounds over the same period; agents in the control group are surveyed in the same way but do not receive the feedback results. The feedback reflects each agent's number of farmer visits and farmer satisfaction alongside the average for the relevant district office and the corresponding scores for the highest-rated agent in that office. Baseline and endline surveys of AEAs, implemented in February 2025 and January 2026, respectively, measure their extension activities and psychological characteristics, including prosocial and intrinsic motivation. We also randomly select approximately 400 households from the farmers associated with the sample AEAs and collect data on satisfaction with extension services, knowledge and adoption of rice-farming technologies, rice productivity, and household income in baseline and endline surveys. Through the high-frequency surveys implemented in-between, we continuously measure these farmers' reports of the frequency of extension agents' visits and other contact, their satisfaction, and the content of advice received, independently of the agents' own reports. Combining these data allows us to examine how non-monetary interventions and monitoring affect agents' psychological characteristics and behavior, as well as outcomes for farmers.
+
+Three features of the design warrant comment. First, the number of agents is modest, which limits statistical power for agent-level outcomes and for comparisons across the six cells of the cross-randomized design. The biweekly farmer survey partly mitigates this concern by providing repeated observations of each agent's activities over 11 rounds, which improves the precision of our estimates. Given the small number of agents and clustered, we report standard errors clustered at the district level together with wild cluster bootstrap and randomization-inference $p$-values. We treat the main effects of feedback, training, and GPS stamps as our primary analyses, \textcolor{red}{and the interaction between feedback and GPS stamps and the analysis of mechanisms as exploratory}. Second, because farmers in the control group are also surveyed regularly, control agents may become aware that their visits are being recorded. Such monitoring effect in the control group would bias our estimates of the treatment effects downward, so the resultant impacts, especially from social recognition, would be interpreted as lower bounds on the true effects. Third, because all agents received a small fuel allowance during the intervention period, our estimates should be interpreted as the effects of non-monetary incentives when agents have minimal resources for transportation.
+
+\textcolor{red}{Our results show that....}
+
+This study makes three contributions. First, it contributes to the literature on agricultural extension in developing countries by shifting the focus from farmers to the public agents responsible for delivering extension services, and in particular to the incentives these agents face. Existing experimental and non-experimental studies have focused primarily on two questions: whether technical training improves farmers' technology adoption and productivity, and how to select training participants to facilitate knowledge spillovers among farmers \citep[e.g.,][]{Kondylis2017, Ben2019, Beaman2021}. A related literature examines incentives for agricultural extension providers \citep{Takahashi2020}, including lead farmers \citep{Balew2023, Ben2019, Shikuku2019, Okello2023} and public extension agents \citep{Alam2024, Genicot2022}. Among studies focusing on public extension agents, \citet{Alam2024} compare monetary rewards with recognition from district directors in Bangladesh, while \citet{Genicot2022} examine pay-for-performance schemes linked to a digital monitoring system in Punjab, Pakistan. We complement this literature by experimentally evaluating two non-monetary interventions---feedback on farmers' assessments of extension services and training that emphasizes the social value of extension work. These interventions target agents' responsiveness to farmers' evaluations and their motivation to improve farmers' livelihoods, rather than relying primarily on monetary rewards or formal performance-based incentives. The crossed GPS-stamp intervention further allows us to evaluate the effects of simpler and lower-cost monitoring alongside these non-monetary interventions. By examining the effects of these interventions on both agents' activities and farmer outcomes, we provide evidence on whether non-monetary approaches can improve the delivery and effectiveness of public agricultural extension services.
+
+Second, the study contributes to the measurement of extension-agent performance. Agents' effort is difficult to observe directly, and previous studies have measured extension activities mainly using such information as self-reports and administrative records. Self-reports create incentives for overreporting, raising particular concerns about reliability. Administrative records can capture the number of visits, but are less able to measure the content of advice or its usefulness to farmers. In this study, we conduct high-frequency surveys of farmers in all groups every two weeks during the intervention period. These surveys measure, at the farmer level and independently of agents' own reports, the frequency of agents' visits and other contact, farmer satisfaction, and the content of advice. \textcolor{red}{For agents assigned to GPS stamps, we also obtain location-based visit records, which allows us to compare three measures based on different sources for this subsample: agents' self-reports, farmers' reports, and GPS records. Although GPS records are available only for agents whose behavior may itself respond to the intervention, this comparison enables us to assess the extent to which each measure captures agents' effort and deviations across measurements. A system that continuously measures extension-agent performance at the farmer level may itself serve as a low-cost tool for monitoring and evaluation. Thus, this contribution has implications not only for research measurement, but also for the management and performance evaluation of public extension services.}
+
+
+Finally, the study contributes to the broader literature on the motivation of public service providers. Studies of teachers and health workers have shown that incentives and beliefs about the impact of one's effort can influence service providers' behavior \citep{Duflo2012, Ashraf2014, Banuri2016, Mansuri2023, Kaur2023, Khan2025}. Non-monetary interventions are often presumed to work by changing providers' motivation or beliefs, yet few studies measure these psychological characteristics directly alongside providers' behavior and beneficiaries' outcomes. We measure agents' psychological characteristics, including prosocial and intrinsic motivation, before and after the interventions, and combine these measures with farmers' reports of agents' behavior and farmer outcomes. We find that feedback combined with training increased agents' visits and farmer satisfaction, whereas we find little evidence that either intervention changed agents' self-reported psychological characteristics. Although the limited number of agents and the timing of the endline survey, conducted several months after the interventions ended, call for caution in interpreting these null results, this pattern suggests that the training may have worked less by durably reshaping agents' motivation than by helping them translate farmers' feedback into action. The findings have policy implications for governments in developing countries and development agencies seeking to improve the effectiveness of agricultural extension services under tight budget constraints.
 
 %======================================================================
 % CONTEXT
 %======================================================================
 \section{Agricultural extension in Ghana}\label{sec:context}
+
+Agriculture plays a central role in Ghana's economy, employment, rural livelihoods, and food security. In 2025, agriculture
+accounted for 21.3\% of GDP and employed 34.6\% of the country's workforce \citep{worldbank_wdi_2026}. Agricultural production is dominated by smallholder farmers, many of whom rely on rain-fed farming and face constraints
+related to irrigation, access to improved technologies, and agricultural services \citep{gipc_agriculture_2025}.
+Improving agricultural productivity is therefore an important priority for economic development and poverty reduction.
+
+Rice is one of Ghana's major staple foods, alongside maize, and its consumption has increased rapidly with population
+growth, urbanization, and changing dietary preferences. Despite the expansion of domestic production, Ghana remains
+heavily dependent on rice imports, with domestic production meeting only 55.1\% of national demand in 2024
+\citep{ndpc_progress_2025}. Rice is cultivated under both irrigated and rain-fed conditions, predominantly by smallholder farmers. Many improved rice cultivation practices developed in Asia can be adapted to African conditions, suggesting substantial scope for productivity gains through their wider dissemination and adoption \citep{Otsuka2024}. Strengthening agricultural extension services is therefore an important component of efforts to increase domestic rice production and improve farmers' productivity and profitability. 
+
+In Ghana, public extension services are coordinated by the Ministry of Food and Agriculture (MoFA) and develivered primarily through decentralized agricultural offices. Their effectiveness depends not only on extension agents' technical knowledge and operational resources but also on their effort and incentives to engage with farmers. According to \citep{MoFA2025Extension}, each agricultural extension agent (AEA) serves more than 1,500 farmers, compared with a benchmark of 500 farmers per agent. During field visits to the study areas in early 2025, interviews with local agricultural officials and extension agents indicated that some agents were responsible for dozens of communities, serving farmers cultivating rice and other crops, but lacked sufficient funding for motorcycle fuel and maintenance. These constraints made it particularly difficult to visit more distant communities regularly. Moreover, even when agents possess relevant technical knowledge, weak incentives may limit their efforts to deliver advice and support farmers' adoption of improved practices \citep{Ragasa2013, Takahashi2020}. To strengthen rice extension, JICA and MoFA are implementing the Ghana Rice Production Improvement Project (GRIP, 2022--2027), which provides technical training to extension agents and supports the dissemination of improved rice cultivation practices, including water management, harvesting, and post-harvest handling \citep{jica_grip_2022}. Building on these efforts to strengthen technical capacity, our study examines whether non-monetary incentives and monitoring can further improve extension agents' service delivery and outcomes for farmers.
+
+
 
 %======================================================================
 % DESIGN AND DATA
@@ -80,7 +117,7 @@ Improving agricultural productivity requires the adoption of new technologies, s
 
 In collaboration with Japan International Cooperation Agency (JICA) and Institute of Statistical, Social and Economic Research (ISSER), University of Ghana, we conducted a randomized controlled trial (RCT) with agricultural extension agents (AEAs) in rice producing sites in Ghana. These ten areas are target sites of JICA's Ghana Rice Production Improvement Project (GRIP). This includes eight rainfed rice-producing districts and two irrigation schemes.
 
-We randomized at the district level. AEAs within the same district are each responsible for several communities (five to eight in our sample), and their assigned communities usually do not overlap. Nevertheless, they all report to the same district director and commute to the same district office, so randomization at the AEA level could cause the intervention effects to spill over to AEAs in the control group. We randomly assigned the eight rainfed districts to T1 (three districts), T2 (three districts), and the control group (two districts). In addition, we introduced a cross-cutting GPS treatment (described below) to a randomly selected half of the AEAs in each district. Because the production environment of the two irrigation schemes differs substantially from that of the rainfed areas, the schemes were excluded from the randomization and received no treatment. Although we also surveyed the irrigation schemes, we do not use these data, and the remainder of this paper covers only the rainfed areas. Figure~\ref{fig:map} presents the study sites and their assigned treatment status.
+We randomized at the district level. AEAs within the same district are each responsible for several rice-producing communities (five to eight in our sample), and their assigned communities usually do not overlap. Nevertheless, they all report to the same district director and commute to the same district office, so randomization at the AEA level could cause the intervention effects to spill over to AEAs in the control group. We randomly assigned the eight rainfed districts to T1 (three districts), T2 (three districts), and the control group (two districts). In addition, we introduced a cross-cutting GPS treatment (described below) to a randomly selected half of the AEAs in each district. Because the production environment of the two irrigation schemes differs substantially from that of the rainfed areas, the schemes were excluded from the randomization and received no treatment. Although we also surveyed the irrigation schemes, we do not use these data, and the remainder of this paper covers only the rainfed areas. Figure~\ref{fig:map} presents the study sites and their assigned treatment status.
 
 \begin{figure}[H]
 \centering
@@ -187,9 +224,7 @@ an arm dummy, estimated on that arm and the control group within the same wave
 with standard errors clustered at the district level: *** $p<0.01$,
 ** $p<0.05$, * $p<0.1$.}
 \end{sidewaystable}
-\clearpage
 
-\clearpage
 
 %======================================================================
 % Measuring AEA performance
@@ -232,7 +267,7 @@ Figure~\ref{fig:distvisits} further presents the relationship between the number
 
 We investigate how the treatments relate to the efforts and performance of AEAs as reported by farmers. We estimate the following model by OLS:
 \begin{equation}
-Y_{ijdt} = \alpha + \beta_1 T1_d + \beta_2 T2_d + \gamma GPS_j + \delta_t + \mu_r + \varepsilon_{ijdt},
+Y_{ijdt} = \alpha_0 + \alpha_1 T1_d + \alpha_2 T2_d + \alpha_3 GPS_j + \delta_t + \mu_r + \varepsilon_{ijdt},
 \label{eq:bw}
 \end{equation}
 where $Y_{ijdt}$ is the outcome (AEAs' efforts and performance) reported by farmer $i$, served by AEA $j$ in district $d$, in survey round $t$. $T1_d$ and $T2_d$ are dummies for the treatment arms, and $GPS_j$ is a dummy for AEAs with a GPS stamps treatment. $\delta_t$ are round fixed effects, which absorb the seasonal pattern of extension activity seen in Figure~\ref{fig:bwbasic}. $\mu_r$ are region fixed effects. Standard errors are clustered at the district level. Since we have only eight clusters, we also report $p$-values from the wild cluster bootstrap with Webb weights \citep{webb_reworking_2023} and from randomization inference, which re-assigns the district arms 1,000 times. As the bi-weekly survey started together with the interventions, we have no baseline data for these outcomes and cannot control for differences between districts that existed before the interventions. We therefore interpret the results as correlations rather than causal effects.
@@ -263,9 +298,6 @@ bi-weekly rounds}
 The three right-hand columns are the categories of a single question on whether the agent gave helpful advice asked to farmers who had any visit or contact on that round.
 *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{table}
-\clearpage
-
-\clearpage
 
 
 %======================================================================
@@ -275,21 +307,24 @@ The three right-hand columns are the categories of a single question on whether 
 
 \subsection{Estimation model}
 
-To estimate the impacts of the interventions on AEAs and farmers, we use the baseline and endline surveys. We employ an analysis of covariance (ANCOVA) rather than a difference-in-differences (DID) model, because ANCOVA gives more precise estimates than DID when the outcome is weakly correlated over time \citep{mckenzie_beyond_2012}, as is often the case for farm income and profit. Specifically, we estimate the following model by OLS:
+To estimate the impacts of the interventions on AEAs and farmers, we use the baseline and endline surveys. We employ an analysis of covariance (ANCOVA) rather than a difference-in-differences (DID) model, because ANCOVA gives more precise estimates than DID when the outcome is weakly correlated over time \citep{mckenzie_beyond_2012}, as is often the case for farm income and profit.
+
 For the AEA-level analysis, we estimate
 \begin{equation}
-A_{jd1} = \alpha + \beta_1 T1_d + \beta_2 T2_d + \gamma GPS_j + \rho A_{jd0} + \varepsilon_{jd},
+A_{jd1} = \beta_0 + \beta_1 T1_d + \beta_2 T2_d + \beta_3 GPS_j + \zeta A_{jd0} + \varepsilon_{jd},
 \label{eq:ancova_aea}
 \end{equation}
 where $A_{jd1}$ is the outcome of AEA $j$ in district $d$ in the endline survey and $A_{jd0}$ is the same outcome in the baseline survey.
 For the farm-level analysis, we estimate
 \begin{equation}
-Y_{ijd1} = \alpha + \beta_1 T1_d + \beta_2 T2_d + \gamma GPS_j + \rho Y_{ijd0} + \mu_r + \varepsilon_{ijd},
+F_{ijd1} = \gamma_0 + \gamma_1 T1_d + \gamma_2 T2_d + \gamma_3 GPS_j + \eta F_{ijd0} + \varepsilon_{ijd},
 \label{eq:ancova_farm}
 \end{equation}
-where $Y_{ijd1}$ is the outcome of farmer $i$, served by AEA $j$ in district $d$, in the endline survey (the 2025 season), and $Y_{ijd0}$ is the same outcome in the baseline survey (the 2024 season). $\mu_r$ are region fixed effects. In both equations, $T1_d$, $T2_d$ and $GPS_j$ are defined as in equation~(\ref{eq:bw}). As in Section~\ref{sec:performance}, standard errors are clustered at the district level, and we also report $p$-values from the wild cluster bootstrap and randomization inference. Income and profit can be negative, so for these outcomes the columns labelled ``log'' use the inverse hyperbolic sine transformation.
+where $F_{ijd1}$ is the outcome of farmer $i$, served by AEA $j$ in district $d$, in the endline survey (the 2025 season), and $Y_{ijd0}$ is the same outcome in the baseline survey (the 2024 season). In both equations, $T1_d$, $T2_d$ and $GPS_j$ are defined as in equation~(\ref{eq:bw}). As in Section~\ref{sec:performance}, standard errors are clustered at the district level, and we also report $p$-values from the wild cluster bootstrap and randomization inference. Income and profit can be negative, so for these outcomes the columns labelled ``log'' use the inverse hyperbolic sine transformation.
 
 \subsection{AEA-level impacts}
+Panel A of figure \ref{tab:aeaimpact} presents the impacts on AEA's motivation and locus of control. First, we do not find any impacts on intrinsic, extrinsic, and prosocial motives. On the other hand, T1 shows significant and positive impacts on general locus of control. While not significant, it  This result echoes with the literature 
+and pro 
 
 \begin{table}[H]
 \caption{Impacts on extension agents}
@@ -353,6 +388,7 @@ man-days per hectare. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \clearpage
 \printbibliography
 
+
 \clearpage
 \appendix
 % Appendix floats are numbered A1, A2, ... rather than continuing the main
@@ -369,71 +405,52 @@ man-days per hectare. *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \caption{Measurement of the prosocialness, motivation and locus-of-control scales}
 \label{tab:scales}
 \footnotesize
-\begin{tabular}{@{}p{2.1cm}p{3.3cm}p{2.5cm}p{7.4cm}@{}}
+\begin{tabular}{@{}p{2.5cm}p{3.3cm}p{3cm}p{7.4cm}@{}}
 \toprule
 Scale & What it captures & Source & Items and scoring \\
 \midrule
-Prosocialness (6--30)
+Prosocialness
 & Willingness to help and to share knowledge with others, and empathy with them
-& Six items of the prosocialness scale of \citet{caprara_new_2005}
+& \citet{caprara_new_2005}
 & Six statements, each answered on a five-point scale from
-  \emph{never or almost never true} (1) to \emph{always or almost always true}
-  (5), summed. Example: ``I am willing to make my knowledge and abilities
-  available to others.'' A higher score means more prosocial. \\
+  \emph{never or almost never true} (1) to \emph{always or almost always true} (5), summed. Example: ``I am willing to make my knowledge and abilities available to others.'' A higher score means more prosocial. \\
 \addlinespace
-Intrinsic motivation (2--10)
+Intrinsic motivation
 & Doing extension work for the satisfaction of the work itself
-& Intrinsic-motivation subscale of the Situational Motivation Scale
-  \citep{guay_assessment_2000}
-& Two statements completing the stem ``Why are you engaged in extension work?'',
-  each from \emph{disagree strongly} (1) to \emph{agree strongly} (5), summed:
-  ``Because this activity is fun'' and ``Because I feel good when doing this
+& \citet{guay_assessment_2000}
+& Two statements completing the stem ``Why are you engaged in extension work?'', each from \emph{disagree strongly} (1) to \emph{agree strongly} (5), summed: ``Because this activity is fun'' and ``Because I feel good when doing this
   activity.'' \\
 \addlinespace
-Extrinsic motivation (2--10)
+Extrinsic motivation
 & Doing extension work because it is required rather than chosen
-& External-regulation subscale of the same scale
-  \citep{guay_assessment_2000}
-& Two statements on the same stem and scale, summed: ``Because I am supposed to
-  do it'' and ``Because I don't have any choice.'' \\
+& \citet{guay_assessment_2000}
+& Two statements on the same stem and scale, summed: ``Because I am supposed to do it'' and ``Because I don't have any choice.'' \\
 \addlinespace
-Locus of control, agriculture (5--25)
+Locus of control, agriculture
 & Belief that farmers' outcomes, and the agent's own standing, follow from the
   agent's own effort
-& Adapted by the authors to the extension setting, in the format of
-  \citet{rotter_generalized_1966}
-& Five statements from \emph{disagree strongly} (1) to \emph{agree strongly}
-  (5); the three worded externally are reverse-coded and the five are then
-  summed. Internal example: ``Agricultural production of farmers depends on the
-  effort I put in.'' Reverse-coded example: ``I have little control over
-  agricultural production of farmers.'' A higher score means a more internal
-  locus. \\
+& \citet{rotter_generalized_1966}
+& Five statements from \emph{disagree strongly} (1) to \emph{agree strongly} (5); the three worded externally are reverse-coded and the five are then summed. Internal example: ``Agricultural production of farmers depends on the effort I put in.'' Reverse-coded example: ``I have little control over agricultural production of farmers.'' A higher score means a more internal locus. \\
 \addlinespace
-Locus of control, general (5--25)
+Locus of control, general
 & The same belief about life in general, outside the job
-& Five items in the tradition of \citet{rotter_generalized_1966}
-& Five statements on the same five-point scale, two of them reverse-coded, then
-  summed. Internal example: ``My life is determined by my own actions.''
-  Reverse-coded example: ``When I get what I want, it's usually because I am
-  lucky.'' \\
+& \citet{rotter_generalized_1966}
+& Five statements on the same five-point scale, two of them reverse-coded, then summed. Internal example: ``My life is determined by my own actions.'' Reverse-coded example: ``When I get what I want, it's usually because I am lucky.'' \\
 \bottomrule
 \end{tabular}
-\tnote{All five scales are put to the AEA in both the baseline and the endline
-questionnaire, in the same wording. Scales are simple unweighted sums of their
-items, with no imputation; an AEA missing any item of a scale is missing that
-scale.}
+\tnote{All five scales are put to the AEA in both the baseline and the endline questionnaire, in the same wording. Scales are simple unweighted sums of their items.}
 \end{table}
 
 \clearpage
 
 \begin{sidewaysfigure}
 \centering
-\begin{minipage}{0.48\linewidth}
+\begin{minipage}{0.4\linewidth}
 	\centering
 	\textbf{Example 1}\par\vspace{3pt}
 	\includegraphics[width=\linewidth]{fig_feedback_pos.pdf}
 \end{minipage}\hfill
-\begin{minipage}{0.48\linewidth}
+\begin{minipage}{0.4\linewidth}
 	\centering
 	\textbf{Example 2}\par\vspace{3pt}
 	\includegraphics[width=\linewidth]{fig_feedback_neg.pdf}
@@ -449,5 +466,6 @@ scale.}
 \label{tab:prodtech}
 \fittable{tmp/e_farmer_prod_tech}
 \end{table}
+
 
 \end{document}
