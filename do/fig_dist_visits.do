@@ -16,6 +16,10 @@ use "$tmp/aea_dist.dta", clear
 save `dist'
 
 * ---- farmer-reported visits: bi-weekly panel ----
+* NB both figures below plot visits PER MONTH (fv_week). f_visits is the
+* cumulative count over the 11 rounds and is 5.5 times larger; plotting it in
+* one figure and the monthly rate in the other is what made the two look
+* inconsistent (co-author query, Oct 2026).
 use "$tmp/bw_cum.dta", clear
 merge 1:1 hhID using "$tmp/farmer_aid_xy.dta", keepusing(aid) keep(3) nogen
 collapse (mean) f_visits=cumQ1, by(aid)
@@ -139,7 +143,7 @@ local xl xlabel(-4.61 "0.01" -2.30 "0.1" 0 "1" 2.30 "10" 3.40 "30", labsize(smal
 * the slope is printed in each panel title (floating text collided with the fit line)
 slopestar a_avvisit lnd
 local lab1 = r(txt)
-slopestar f_visits lnd
+slopestar fv_week lnd
 local lab2 = r(txt)
 twoway (scatter a_avvisit lnd if treat_dis==0, mcolor(`cC') `opt') ///
        (scatter a_avvisit lnd if treat_dis==1, mcolor("`c1'") `opt') ///
@@ -147,16 +151,16 @@ twoway (scatter a_avvisit lnd if treat_dis==0, mcolor(`cC') `opt') ///
        (lfit a_avvisit lnd, lcolor(gs5) lpattern(dash)), ///
     `xl' ///
     xtitle("Distance to communities (km, log)", size(small)) ///
-    ytitle("AEA self-reported visits", size(small)) ///
+    ytitle("Self-reported visits per month", size(small)) ///
     title("Self-reported (slope `lab1')", size(medium)) `leg' ///
     graphregion(color(white)) name(g1, replace) nodraw
-twoway (scatter f_visits lnd if treat_dis==0, mcolor(`cC') `opt') ///
-       (scatter f_visits lnd if treat_dis==1, mcolor("`c1'") `opt') ///
-       (scatter f_visits lnd if treat_dis==2, mcolor("`c2'") `opt') ///
-       (lfit f_visits lnd, lcolor(gs5) lpattern(dash)), ///
+twoway (scatter fv_week lnd if treat_dis==0, mcolor(`cC') `opt') ///
+       (scatter fv_week lnd if treat_dis==1, mcolor("`c1'") `opt') ///
+       (scatter fv_week lnd if treat_dis==2, mcolor("`c2'") `opt') ///
+       (lfit fv_week lnd, lcolor(gs5) lpattern(dash)), ///
     `xl' ///
     xtitle("Distance to communities (km, log)", size(small)) ///
-    ytitle("Farmer-reported visits", size(small)) ///
+    ytitle("Farmer-reported visits per month", size(small)) ///
     title("Farmer-reported (slope `lab2')", size(medium)) `leg' ///
     graphregion(color(white)) name(g2, replace) nodraw
 * The GPS-stamp log used to be a third panel here. It rests on the 19 stamp-arm
@@ -178,9 +182,9 @@ display "self-reported : b=" _b[lnd] "  p=" 2*ttail(e(df_r),abs(_b[lnd]/_se[lnd]
 regress a_avvisit lnd if relocate==0
 display "   excl. the 2 corrected AEAs: b=" _b[lnd] "  p=" 2*ttail(e(df_r),abs(_b[lnd]/_se[lnd])) "  N=" e(N)
 
-regress f_visits lnd
+regress fv_week lnd
 display "farmer-reported : b=" _b[lnd] "  p=" 2*ttail(e(df_r),abs(_b[lnd]/_se[lnd])) "  N=" e(N)
-regress f_visits lnd if relocate==0
+regress fv_week lnd if relocate==0
 display "   excl. the 2 corrected AEAs: b=" _b[lnd] "  p=" 2*ttail(e(df_r),abs(_b[lnd]/_se[lnd])) "  N=" e(N)
 
 * ---- Figure 2 ----
@@ -252,7 +256,7 @@ twoway (scatter a_avvisit st_days if treat_dis==0, mcolor(`cC') `opt') ///
        (scatter a_avvisit st_days if treat_dis==2, mcolor("`c2'") `opt') ///
        (lfit a_avvisit st_days, lcolor(gs5) lpattern(dash)), ///
     xtitle("Days with a logged visit (Apr--Sep 2025)", size(small)) ///
-    ytitle("AEA self-reported visits", size(small)) ///
+    ytitle("Self-reported visits per month", size(small)) ///
     title("Self-reported (slope = `s1')", size(medsmall)) `leg' ///
     graphregion(color(white)) name(k1, replace)
 twoway (scatter f_visits st_days if treat_dis==0, mcolor(`cC') `opt') ///
