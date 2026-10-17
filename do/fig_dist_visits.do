@@ -206,8 +206,6 @@ display "   excl. the 2 corrected AEAs: b=" _b[lnd] "  p=" 2*ttail(e(df_r),abs(_
 * ---- Figure 2 ----
 * axis fixed by hand (edit here): x ticks 0(10)50, y ticks 0(1)5
 * Full x range (0-50) with the y axis opened to 0-5 (co-author request, Sep 2026).
-* The 45-degree reference line was removed in Oct 2026: the two axes differ by
-* roughly a factor of eight, so it carried no information.
 local xmax = 50
 local ymax = 5
 * Both panels now put the ENDLINE self-report on the x axis; the panels differ
