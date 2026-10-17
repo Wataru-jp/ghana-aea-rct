@@ -204,8 +204,10 @@ regress fv_week lnd if relocate==0
 display "   excl. the 2 corrected AEAs: b=" _b[lnd] "  p=" 2*ttail(e(df_r),abs(_b[lnd]/_se[lnd])) "  N=" e(N)
 
 * ---- Figure 2 ----
-* axis fixed by hand (edit here): x ticks 0(5)15, y ticks 0(1)5
+* axis fixed by hand (edit here): x ticks 0(10)50, y ticks 0(1)5
 * Full x range (0-50) with the y axis opened to 0-5 (co-author request, Sep 2026).
+* The 45-degree reference line was removed in Oct 2026: the two axes differ by
+* roughly a factor of eight, so it carried no information.
 local xmax = 50
 local ymax = 5
 * Both panels now put the ENDLINE self-report on the x axis; the panels differ
@@ -217,8 +219,7 @@ local lab4 = r(txt)
 twoway (scatter fv_week sv_week_e if treat_dis==0, msize(vtiny) mcolor(`cC') `opt') ///
        (scatter fv_week sv_week_e if treat_dis==1, msize(tiny) mcolor("`c1'") `opt') ///
        (scatter fv_week sv_week_e if treat_dis==2, msize(tiny) mcolor("`c2'") `opt') ///
-       (lfit fv_week sv_week_e, range(0 50) lcolor(gs5) lpattern(dash)) ///
-       (function y=x, range(0 `ymax') lcolor(black)), ///
+       (lfit fv_week sv_week_e, range(0 50) lcolor(gs5) lpattern(dash)), ///
     xscale(range(0 50)) yscale(range(0 `ymax')) ///
     xlabel(0(10)50) ylabel(0(1)5) ///
     xtitle("AEA self-reported visits per group per month", size(small)) ///
@@ -228,8 +229,7 @@ twoway (scatter fv_week sv_week_e if treat_dis==0, msize(vtiny) mcolor(`cC') `op
 twoway (scatter fv_plant sv_week_e if treat_dis==0, msize(vtiny) mcolor(`cC') `opt') ///
        (scatter fv_plant sv_week_e if treat_dis==1, msize(vtiny) mcolor("`c1'") `opt') ///
        (scatter fv_plant sv_week_e if treat_dis==2, msize(vtiny) mcolor("`c2'") `opt') ///
-       (lfit fv_plant sv_week_e, range(0 50) lcolor(gs5)  lpattern(dash)) ///
-       (function y=x, range(0 `ymax') lcolor(black)), ///
+       (lfit fv_plant sv_week_e, range(0 50) lcolor(gs5)  lpattern(dash)), ///
     xscale(range(0 50)) yscale(range(0 `ymax')) ///
     xlabel(0(10)50) ylabel(0(1)5) ///
     xtitle("AEA self-reported visits per group per month", size(small)) ///
@@ -237,8 +237,6 @@ twoway (scatter fv_plant sv_week_e if treat_dis==0, msize(vtiny) mcolor(`cC') `o
     title("Planting window, 06-1--07-1 (slope = `lab4')", size(medium)) `leg' ///
     graphregion(color(white)) name(h2, replace) nodraw
 * NB grc1leg ignores xsize/ysize -- set the canvas on the combined graph.
-* Each panel is twice as wide as before so the 45-degree reference reads closer
-* to a diagonal (the axes still differ by a factor of ~17, see the log).
 grc1leg h1 h2, rows(1) graphregion(color(white)) legendfrom(h1) name(hcomb, replace)
 graph display hcomb, xsize(11) ysize(4)
 graph export "$tmp/fig_selfrep_farmer.pdf", replace
