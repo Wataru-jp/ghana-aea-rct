@@ -262,7 +262,8 @@ esttab a_knowledge a_train a_avvisit a_satisfaction ///
 * ---- Panel C: the same outcomes with endline locus of control added -------
 * The T1/T2 coefficients here are DIRECT effects, i.e. holding the agent's
 * agriculture-specific locus of control at endline fixed. "Indirect effect" is
-* the total effect from Panel B minus that direct effect. The mediator is
+* the total effect from Panel B minus that direct effect. Only T2 is
+* decomposed: Panel B finds no T1 effect to decompose. The mediator is
 * measured at endline and is itself moved by the treatment, so this is a
 * decomposition to look at, not an identified mediation effect.
 capture program drop ancova_medloc
@@ -272,10 +273,10 @@ program define ancova_medloc
     scalar tot1 = _b[1.treat_dis]
     scalar tot2 = _b[2.treat_dis]
     eststo medl_`y': reg `y' i.treat_dis i.gps $controls_extra `ylag' a_locus_spec, cluster(district)
-    estadd scalar dir1 = _b[1.treat_dis]
     estadd scalar dir2 = _b[2.treat_dis]
-    estadd scalar ind1 = tot1 - _b[1.treat_dis]
     estadd scalar ind2 = tot2 - _b[2.treat_dis]
+    estadd scalar dsh2 = 100*_b[2.treat_dis]/tot2
+    estadd scalar ish2 = 100*(tot2 - _b[2.treat_dis])/tot2
 end
 
 eststo clear
@@ -290,9 +291,9 @@ esttab medl_a_knowledge medl_a_train medl_a_avvisit medl_a_satisfaction ///
     order(1.treat_dis 2.treat_dis 1.gps a_locus_spec) ///
     coeflabels(1.treat_dis "T1: Feedback" 2.treat_dis "T2: Feedback+Training" ///
                1.gps "Stamp (GPS)" a_locus_spec "Locus: agri (endline)") ///
-    stats(dir1 ind1 dir2 ind2 N, fmt(%9.3f %9.3f %9.3f %9.3f %9.0g) ///
-          labels("Direct effect (T1)" "Indirect effect (T1)" ///
-                 "Direct effect (T2)" "Indirect effect (T2)" "Obs")) ///
+    stats(dir2 dsh2 ind2 ish2 N, fmt(%9.3f %9.1f %9.3f %9.1f %9.0g) ///
+          labels("Direct effect (T2)" "\quad share (\%)" ///
+                 "Indirect effect (T2)" "\quad share (\%)" "Obs")) ///
     mtitles("Knowledge (0--5)" "Training attend." "Self-rep.\ visits" "Job satisf.") ///
     star(* 0.10 ** 0.05 *** 0.01)
 
