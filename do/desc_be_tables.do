@@ -657,7 +657,18 @@ armobs6 a_prosocial
 file close H
 
 * ---- Farmer ----
+* Both waves on the same 373 panel households (Oct 2026). Without this, the
+* endline columns also counted 9 households first interviewed at endline and
+* the baseline columns only the panel, so the two halves of the table described
+* different farmers. The households surveyed at baseline are those in farmer.dta.
+preserve
+use "$tmp/farmer.dta", clear
+keep hhID
+tempfile blhh
+save `blhh'
+restore
 use `farmprep', clear
+merge 1:1 hhID using `blhh', keep(3) nogen
 file open H using "$tmp/desc_ms_farmer.tex", write replace
 armhead6
 file write H "\multicolumn{7}{l}{\textbf{Panel A. Household characteristics and inputs}} \\" _n
@@ -674,6 +685,7 @@ foreach v in nonprod yield yield_nf rev_ha rincome_ha finc_ha fincnb_ha ///
 obsrow6 yield
 
 use `contactprep', clear
+merge 1:1 hhID using `blhh', keep(3) nogen
 panlab "Panel C. Contact with the extension agent"
 foreach v in anyc contact_n sat5 satd {
     armrow6 `v'
