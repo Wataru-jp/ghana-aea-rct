@@ -253,7 +253,7 @@ No statistically significant baseline differences are detected in previous train
 \label{tab:descfarmer}
 \fittable{tmp/desc_ms_farmer}
 \tnote{The table reports means by experimental group, with standard deviations in parentheses. The sample includes differences between each treatment group and the control group within the same survey round, based on regressions with standard errors clustered a the district level: *** $p<0.01$,
-** $p<0.05$, * $p<0.1$. Both survey rounds cover the same 373 panel households. \textcolor{red}{Mano: Table 1 lists 378 farmers at baseline and 373 at endline. However, in this table, the figures are: Baseline: 89 + 151 + 133 = 373, and Endline: 90 + 152 + 140 = 382.}} \textcolor{blue}{Kodama: Now, it covers only panel }}
+** $p<0.05$, * $p<0.1$. Both survey rounds cover the same 373 panel households. \textcolor{red}{Mano: Table 1 lists 378 farmers at baseline and 373 at endline. However, in this table, the figures are: Baseline: 89 + 151 + 133 = 373, and Endline: 90 + 152 + 140 = 382.}} \textcolor{blue}{Kodama: Now, it covers only panel }
 \end{sidewaystable}
 
 
@@ -391,6 +391,21 @@ Panel A of figure \ref{tab:aeaimpact} presents the estimated impacts on AEA's mo
 \end{panels}
 \tnote{District-clustered standard errors (8 clusters) are reported in parentheses. "Ctrl mean (base)" and "Ctrl mean (end)" denote the control-group means at baseline and endline, respectively. Wild-boot and RI $p$-values are based on the wild cluster bootstrap and randomization inference, respectively, as described in Section~\ref{sec:performance}. Significance stars are based on conventional district-clustered standard erros.  *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{table}
+
+\begingroup
+\renewcommand{\thetable}{\arabic{table}b}
+\addtocounter{table}{-1}
+\begin{table}[H]
+\caption{Impacts on agricultural extension agents (with region FE)}
+\label{tab:aeaimpactfe}
+\begin{panels}
+\panel{Panel A. Motivation and locus of control}
+\input{tmp/ms_e_aea_attitude_fe}\\[18pt]
+\panel{Panel B. Knowledge, effort and job satisfaction}
+\input{tmp/ms_e_aea_effort_fe}
+\end{panels}
+\end{table}
+\endgroup
 
 Panel (B) shows the impacts on AEAs' knowlege, training attendance (any rice production training), self-reported visits and job satisfaction. 
 

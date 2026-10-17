@@ -206,7 +206,61 @@ di as txt "  total  T1 " %7.3f tot1 "   T2 " %7.3f tot2
 di as txt "  direct T1 " %7.3f dir1 "   T2 " %7.3f dir2
 di as txt "  indirect share T1 " %6.1f 100*(tot1-dir1)/tot1 "%   T2 " %6.1f 100*(tot2-dir2)/tot2 "%"
 
-di _n "=== AEA ANCOVA done (see e_aea_attitude.tex, e_aea_effort.tex) ==="
+*==============================================================================
+* Table 6b: the same two panels with REGION fixed effects (co-author request,
+* Oct 2026). Three of the four regions are missing at least one arm among the
+* 41 agents --
+*     Bono East     Control 4  T1 4  T2 0
+*     Eastern       Control 0  T1 4  T2 2
+*     Oti           Control 6  T1 0  T2 7
+*     Western North Control 0  T1 8  T2 6
+* -- so with region dummies T1 is identified off Bono East alone and T2 off Oti
+* alone. The main table therefore stays without them; this version is for the
+* co-authors to see.
+*==============================================================================
+capture confirm numeric variable province
+if _rc  encode province, gen(prov)
+else    clonevar prov = province
+
+global controls_extra "i.prov"
+
+eststo clear
+ancova a_intrinsic   a_intrinsic_bl
+ancova a_extrinsic2  a_extrinsic2_bl
+ancova a_prosocial   a_prosocial_bl
+ancova a_locus_gen   a_locus_gen_bl
+ancova a_locus_spec  a_locus_spec_bl
+esttab a_intrinsic a_extrinsic2 a_prosocial a_locus_gen a_locus_spec ///
+    using "$tmp/e_aea_attitude_fe.tex", replace ///
+    se nogap b(%9.3f) label booktabs nonotes ///
+    keep(1.treat_dis 2.treat_dis 1.gps) ///
+    order(1.treat_dis 2.treat_dis 1.gps) ///
+    coeflabels(1.treat_dis "T1: Feedback" 2.treat_dis "T2: Feedback+Training" 1.gps "Stamp (GPS)") ///
+    stats(t12p bmean cmean wb_t1 wb_t2 ri_t1 ri_t2 N, fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
+          labels("T1=T2 [p]" "Ctrl mean (base)" "Ctrl mean (end)" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
+    mtitles("Intrinsic" "Extrinsic" "Prosocial" "Locus: gen" "Locus: agri") ///
+    star(* 0.10 ** 0.05 *** 0.01)
+
+eststo clear
+ancova a_knowledge    a_knowledge_bl
+ancova a_knowledge8   a_knowledge8_bl
+ancova a_train        a_train_bl
+ancova a_avvisit      a_avvisit_bl
+ancova a_satisfaction a_satisfaction_bl
+esttab a_knowledge a_knowledge8 a_train a_avvisit a_satisfaction ///
+    using "$tmp/e_aea_effort_fe.tex", replace ///
+    se nogap b(%9.3f) label booktabs nonotes ///
+    keep(1.treat_dis 2.treat_dis 1.gps) ///
+    order(1.treat_dis 2.treat_dis 1.gps) ///
+    coeflabels(1.treat_dis "T1: Feedback" 2.treat_dis "T2: Feedback+Training" 1.gps "Stamp (GPS)") ///
+    stats(t12p bmean cmean wb_t1 wb_t2 ri_t1 ri_t2 N, fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
+          labels("T1=T2 [p]" "Ctrl mean (base)" "Ctrl mean (end)" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
+    mtitles("Knowledge (0--5)" "Knowledge (0--8)" "Training attend." "Self-rep.\ visits" "Job satisf.") ///
+    star(* 0.10 ** 0.05 *** 0.01)
+
+global controls_extra ""
+
+di _n "=== AEA ANCOVA done (e_aea_attitude.tex, e_aea_effort.tex, *_fe.tex) ==="
 
 *==============================================================================
 * APPENDIX (co-author request, Jul 2026): FB/TR reparameterization.
