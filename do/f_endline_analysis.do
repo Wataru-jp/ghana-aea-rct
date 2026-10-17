@@ -469,18 +469,18 @@ label var seeddev60 "Seed rate: distance from 60 kg/ha"
 ancova seeddev60    seeddev60_bl
 
 * main slide 1: production, income and profit
-esttab yield lnyield nonprod rincome_ha lnrincome finc_ha lfinc fincnb_ha lfincnb using "$tmp/e_farmer_prod.tex", replace ///
+esttab yield lnyield nonprod rincome_ha lnrincome finc_ha lfinc lfincnb using "$tmp/e_farmer_prod.tex", replace ///
     se nogap b(%9.3f) label booktabs nonotes ///
     keep(1.treat_dis 2.treat_dis 1.gps) ///
     coeflabels(1.treat_dis "T1: Feedback" 2.treat_dis "T2: Feedback+Training" 1.gps "Stamp (GPS)") ///
     stats(t12p bmean cmean wb_t1 wb_t2 ri_t1 ri_t2 N, ///
           fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
           labels("T1=T2 [p]" "Ctrl mean (base)" "Ctrl mean (end)" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
-    mtitles("Yield" "Log yield" "Crop fail" "Income/ha" "Log income" "Profit/ha" "Log profit" "Profit excl.\ bird" "Log profit excl.") ///
+    mtitles("Yield" "Log yield" "Crop fail" "Income/ha" "Log income" "Profit/ha" "Log profit" "Log profit, excl.\ bird") ///
     star(* 0.10 ** 0.05 *** 0.01)
 
-* NB: do not write a "$" immediately before a letter inside mtitles -- Stata
-* expands it as a global macro. Use $\vert$ rather than $|$qty.
+* NB: inside mtitles, a "$" immediately before a letter is expanded by Stata as
+* a global macro. Keep the whole label in one math group, as below.
 * main slide 2: input use and labor
 esttab squant_ha seeddev60 u_fert u_her u_machine hired_ha famd_ha famdnb_ha using "$tmp/e_farmer_inputs.tex", replace ///
     se nogap b(%9.3f) label booktabs nonotes ///
@@ -489,7 +489,7 @@ esttab squant_ha seeddev60 u_fert u_her u_machine hired_ha famd_ha famdnb_ha usi
     stats(t12p bmean cmean wb_t1 wb_t2 ri_t1 ri_t2 N, ///
           fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
           labels("T1=T2 [p]" "Ctrl mean (base)" "Ctrl mean (end)" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
-    mtitles("Seed qty" "$\vert$qty $-$ 60$\vert$" "Fert use" "Herb use" "Machine" "Hired lab" "Family lab" "Family excl.\ bird") ///
+    mtitles("Seed qty" "$\vert \mathrm{qty} - 60 \vert$" "Fert use" "Herb use" "Machine" "Hired lab" "Family lab" "Family excl.\ bird") ///
     star(* 0.10 ** 0.05 *** 0.01)
 
 * 5. Management-practice adoption
