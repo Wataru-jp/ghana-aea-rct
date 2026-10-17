@@ -234,7 +234,7 @@ The farmer questionnaire covered household demographics and assets; rice product
 \caption{Descriptive statistics: extension agents}
 \label{tab:descaea}
 \fittable{tmp/desc_ms_aea}
-\tnote{The table reports means by experimental group, with standard deviation in parentheses. The sample is restricted to the 41 AEAs observed in both the baseline and endline surveys. Asterisks indicate statistically significant differences between each treatment group (T1 or T2) and the control group within the same survey round: *** $p<0.01$, ** $p<0.05$, * $p<0.1$. Appendix Table~\ref{tab:scales} describes the construction of the motivation and locus-of-control scales.\textcolor{red}{Mano: I interpreted this analysis as being limited to the panel subsample of AEAs. Please correct the footnote if I'm wrong.}\textcolor{blue}{Kodama: Yes, it includes only panel AEAs that we use in regression analysis. I added one sentence to the nores}}
+\tnote{The table reports means \textcolor{blue}{of panel AEAs (41 observations)} by experimental group, with standard deviation in parentheses. The sample is restricted to the 41 AEAs observed in both the baseline and endline surveys. Asterisks indicate statistically significant differences between each treatment group (T1 or T2) and the control group within the same survey round: *** $p<0.01$, ** $p<0.05$, * $p<0.1$. Appendix Table~\ref{tab:scales} describes the construction of the motivation and locus-of-control scales.\textcolor{red}{Mano: I interpreted this analysis as being limited to the panel subsample of AEAs. Please correct the footnote if I'm wrong.}\textcolor{blue}{Kodama: Yes, it includes only panel AEAs that we use in regression analysis.}}
 
 \end{sidewaystable}
 
@@ -252,8 +252,8 @@ No statistically significant baseline differences are detected in previous train
 \caption{Descriptive statistics: farm households}
 \label{tab:descfarmer}
 \fittable{tmp/desc_ms_farmer}
-\tnote{The table reports means by experimental group, with standard deviations in parentheses. The sample includes differences between each treatment group and the control group within the same survey round, based on regressions with standard errors clustered a the district level: *** $p<0.01$,
-** $p<0.05$, * $p<0.1$. Both survey rounds cover the same 373 panel households. \textcolor{red}{Mano: Table 1 lists 378 farmers at baseline and 373 at endline. However, in this table, the figures are: Baseline: 89 + 151 + 133 = 373, and Endline: 90 + 152 + 140 = 382.} \textcolor{blue}{Kodama: Now, it includes only panel households that we use in regression analysis.}}
+\tnote{The table reports means \textcolor{blue}{of panel households (373 observations)} by experimental group, with standard deviations in parentheses. The sample includes differences between each treatment group and the control group within the same survey round, based on regressions with standard errors clustered a the district level: *** $p<0.01$,
+** $p<0.05$, * $p<0.1$. \textcolor{red}{Mano: Table 1 lists 378 farmers at baseline and 373 at endline. However, in this table, the figures are: Baseline: 89 + 151 + 133 = 373, and Endline: 90 + 152 + 140 = 382.} \textcolor{blue}{Kodama: It included newly added reserve housheolds form the endline... Now, it includes only panel households that we use in regression analysis.}}
 \end{sidewaystable}
 
 
@@ -363,7 +363,7 @@ To estimate the impacts of the interventions on AEAs and farmers, we use the bas
 \textcolor{red}{MANO: Equation (1) has a region fixed effect $\mu_r$, but equations (2) and (3) do not. Why?}
 For the AEA-level analysis, we estimate
 \begin{equation}
-A_{jd1} = \beta_0 + \beta_1 T1_d + \beta_2 T2_d + \beta_3 GPS_j + \zeta A_{jd0} + \varepsilon_{jd},
+A_{jd1} = \beta_0 + \beta_1 T1_d + \beta_2 T2_d + \beta_3 GPS_j + \zeta A_{jd0} + \mu_r + \varepsilon_{jd},
 \label{eq:ancova_aea}
 \end{equation}
 where $A_{jd1}$ and $A_{jd0}$ denote the outcome of AEA $j$ in district $d$ in the measured at endline and baseline, respectively.
@@ -382,12 +382,12 @@ Panel A of figure \ref{tab:aeaimpact} presents the estimated impacts on AEA's mo
 
 \begin{table}[H]
 \caption{Impacts on agricultural extension agents}
-\label{tab:aeaimpact}
+\label{tab:aeaimpactfe}
 \begin{panels}
 \panel{Panel A. Motivation and locus of control}
-\input{tmp/ms_e_aea_attitude}\\[18pt]
+\input{tmp/ms_e_aea_attitude_fe}\\[18pt]
 \panel{Panel B. Knowledge, effort and job satisfaction}
-\input{tmp/ms_e_aea_effort_ms}
+\input{tmp/ms_e_aea_effort_ms_fe}
 \end{panels}
 \tnote{District-clustered standard errors (8 clusters) are reported in parentheses. "Ctrl mean (base)" and "Ctrl mean (end)" denote the control-group means at baseline and endline, respectively. Wild-boot and RI $p$-values are based on the wild cluster bootstrap and randomization inference, respectively, as described in Section~\ref{sec:performance}. Significance stars are based on conventional district-clustered standard erros.  *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{table}
@@ -396,13 +396,13 @@ Panel A of figure \ref{tab:aeaimpact} presents the estimated impacts on AEA's mo
 \renewcommand{\thetable}{\arabic{table}b}
 \addtocounter{table}{-1}
 \begin{table}[H]
-\caption{Impacts on agricultural extension agents (with region FE)}
-\label{tab:aeaimpactfe}
+\caption{Impacts on agricultural extension agents (without region FE)}
+\label{tab:aeaimpact_fe}
 \begin{panels}
 \panel{Panel A. Motivation and locus of control}
-\input{tmp/ms_e_aea_attitude_fe}\\[18pt]
+\input{tmp/ms_e_aea_attitude}\\[18pt]
 \panel{Panel B. Knowledge, effort and job satisfaction}
-\input{tmp/ms_e_aea_effort_fe}
+\input{tmp/ms_e_aea_effort}
 \end{panels}
 \end{table}
 \endgroup
