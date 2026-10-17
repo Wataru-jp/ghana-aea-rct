@@ -181,7 +181,7 @@ esttab a_knowledge a_knowledge8 a_train med_a_knowledge a_avvisit a_satisfaction
 * treatment, and once it is gone no column carries a_train as a regressor, so
 * esttab drops the "Attended training" row with it. The deck keeps the full
 * version in e_aea_effort.tex.
-esttab a_knowledge a_knowledge8 a_train a_avvisit a_satisfaction ///
+esttab a_knowledge a_train a_avvisit a_satisfaction ///
     using "$tmp/e_aea_effort_ms.tex", replace ///
     se nogap b(%9.3f) label booktabs nonotes ///
     keep(1.treat_dis 2.treat_dis 1.gps) ///
@@ -189,7 +189,7 @@ esttab a_knowledge a_knowledge8 a_train a_avvisit a_satisfaction ///
     coeflabels(1.treat_dis "T1: Feedback" 2.treat_dis "T2: Feedback+Training" 1.gps "Stamp (GPS)") ///
     stats(t12p bmean cmean wb_t1 wb_t2 ri_t1 ri_t2 N, fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
           labels("T1=T2 [p]" "Ctrl mean (base)" "Ctrl mean (end)" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
-    mtitles("Knowledge (0--5)" "Knowledge (0--8)" "Training attend." "Self-rep. visits" "Job satisf.") ///
+    mtitles("Knowledge (0--5)" "Training attend." "Self-rep. visits" "Job satisf.") ///
     star(* 0.10 ** 0.05 *** 0.01)
 
 * indirect share of the knowledge effect that runs through training attendance
@@ -247,7 +247,7 @@ ancova a_knowledge8   a_knowledge8_bl
 ancova a_train        a_train_bl
 ancova a_avvisit      a_avvisit_bl
 ancova a_satisfaction a_satisfaction_bl
-esttab a_knowledge a_knowledge8 a_train a_avvisit a_satisfaction ///
+esttab a_knowledge a_train a_avvisit a_satisfaction ///
     using "$tmp/e_aea_effort_fe.tex", replace ///
     se nogap b(%9.3f) label booktabs nonotes ///
     keep(1.treat_dis 2.treat_dis 1.gps) ///
@@ -255,7 +255,7 @@ esttab a_knowledge a_knowledge8 a_train a_avvisit a_satisfaction ///
     coeflabels(1.treat_dis "T1: Feedback" 2.treat_dis "T2: Feedback+Training" 1.gps "Stamp (GPS)") ///
     stats(t12p bmean cmean wb_t1 wb_t2 ri_t1 ri_t2 N, fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
           labels("T1=T2 [p]" "Ctrl mean (base)" "Ctrl mean (end)" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
-    mtitles("Knowledge (0--5)" "Knowledge (0--8)" "Training attend." "Self-rep.\ visits" "Job satisf.") ///
+    mtitles("Knowledge (0--5)" "Training attend." "Self-rep.\ visits" "Job satisf.") ///
     star(* 0.10 ** 0.05 *** 0.01)
 
 global controls_extra ""

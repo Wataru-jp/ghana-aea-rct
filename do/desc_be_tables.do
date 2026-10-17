@@ -649,8 +649,10 @@ charrow6 c_salary   "Monthly gross salary (GHS)"
 
 use "$tmp/a_AEA_endline_analysis.dta", clear
 panlab "Panel B. Motivation, knowledge and performance"
+* a_knowledge8 is dropped from the manuscript version: it adds little over the
+* 0-5 index (co-author decision, Oct 2026). The deck tables still carry it.
 foreach v in a_prosocial a_intrinsic a_extrinsic2 a_locus_spec a_locus_gen ///
-             a_knowledge a_knowledge8 a_train a_train_jica a_avvisit a_satisfaction {
+             a_knowledge a_train a_train_jica a_avvisit a_satisfaction {
     armrow6 `v'
 }
 armobs6 a_prosocial
