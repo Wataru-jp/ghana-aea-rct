@@ -54,7 +54,7 @@ end
 fixcols e_aea_attitude    5
 fixcols e_aea_effort_ms   5
 fixcols e_farmer_prod     9
-fixcols e_farmer_inputs   7
+fixcols e_farmer_inputs   8
 fixcols e_farmer_practice 8
 fixcols e_labour_sex      8
 fixcols e_labour_ops     12
