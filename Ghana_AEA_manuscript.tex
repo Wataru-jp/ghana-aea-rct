@@ -360,7 +360,6 @@ Columns (5)--(7) further examine farmers' assessments of the advice received fro
 
 To estimate the impacts of the interventions on AEAs and farmers, we use the baseline and endline survey data. We employ an analysis of covariance (ANCOVA) specification rather than a difference-in-differences (DID) specification because ANCOVA is generally more efficient when outcomes are weakly correlated over time \citep{mckenzie_beyond_2012}, as is often the case for farm income and profit. Controlling for baseline outcomes also helps account for the baseline differences across experimental groups documented in Section ~\ref{sec:design}. 
 
-\textcolor{red}{MANO: Equation (1) has a region fixed effect $\mu_r$, but equations (2) and (3) do not. Why?}
 For the AEA-level analysis, we estimate
 \begin{equation}
 A_{jd1} = \beta_0 + \beta_1 T1_d + \beta_2 T2_d + \beta_3 GPS_j + \zeta A_{jd0} + \mu_r + \varepsilon_{jd},
@@ -378,11 +377,11 @@ where $F_{ijd1}$ and $F_{ijd0}$ denote the outcome of farmer $i$, served by AEA 
 In both equations, $T1_d$, $T2_d$ and $GPS_j$ are defined as in equation~(\ref{eq:bw}). As in Section~\ref{sec:performance}, standard errors are clustered at the district level, and we also report $p$-values from the wild cluster bootstrap and randomization inference. Because income and profit can take negative values, we use the inverse hyperbolic sine (IHS) transformation for these outcomes in specifications with transformed dependent variables.
 
 \subsection{AEA-level impacts}
-Panel A of figure \ref{tab:aeaimpact_fe} presents the estimated impacts on AEA's motivation and locus of control. We find no statistically significant effects on intrinsic, extrinsic, or prosocial motivation. In contrast, T1 has a positive and statistically significant effect on general locus of control (2.13 points), whereas the corresponding effect of T2 is small and insignificant. The difference between T1 and T2 is statistically significant ($p=0.008$). For agriculture-specific locus of control, both T1 and T2 have positive estimated effects (2.71 and 3.13 points, respectively), although only the T2 effect is statistically significant. The difference between the two treatment groups is not statistically significant ($p=0.780$). Feedback from farmers may have strengthened AEAs' belief that their own efforts can make a difference to farmers' outcomes. The sensitization training may have further reinforced this belief in the context of agricultural production, although the absence of a significant difference between T1 and T2 precludes a firm conclusion about its additional effects. 
+Panel A of figure \ref{tab:aeaimpact} presents the estimated impacts on AEA's motivation and locus of control. We find no statistically significant effects on intrinsic, extrinsic, or prosocial motivation. In contrast, T1 has a positive and statistically significant effect on general locus of control (1.83 points), whereas the corresponding effect of T2 is small and insignificant. The difference between T1 and T2 is statistically significant ($p=0.002$). For agriculture-specific locus of control, both T1 and T2 have positive and statistically significant estimated effects (2.36 and 3.00 points, respectively). The difference between the two treatment groups is not statistically significant ($p=0.255$). Feedback from farmers may have strengthened AEAs' belief that their own efforts can make a difference to farmers' outcomes. The sensitization training may have further reinforced this belief in the context of agricultural production, although the absence of a significant difference between T1 and T2 precludes a firm conclusion about its additional effects. 
 
 \begin{table}[H]
 \caption{Impacts on agricultural extension agents}
-\label{tab:aeaimpactfe}
+\label{tab:aeaimpact}
 \begin{panels}
 \panel{Panel A. Motivation and locus of control}
 \input{tmp/e_aea_attitude_fe}\\[18pt]
@@ -397,7 +396,7 @@ Panel A of figure \ref{tab:aeaimpact_fe} presents the estimated impacts on AEA's
 \addtocounter{table}{-1}
 \begin{table}[H]
 \caption{Impacts on agricultural extension agents (without region FE)}
-\label{tab:aeaimpact_fe}
+\label{tab:aeaimpact_nofe}
 \begin{panels}
 \panel{Panel A. Motivation and locus of control}
 \input{tmp/ms_e_aea_attitude}\\[18pt]
