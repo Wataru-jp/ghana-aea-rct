@@ -378,7 +378,7 @@ where $F_{ijd1}$ and $F_{ijd0}$ denote the outcome of farmer $i$, served by AEA 
 In both equations, $T1_d$, $T2_d$ and $GPS_j$ are defined as in equation~(\ref{eq:bw}). As in Section~\ref{sec:performance}, standard errors are clustered at the district level, and we also report $p$-values from the wild cluster bootstrap and randomization inference. Because income and profit can take negative values, we use the inverse hyperbolic sine (IHS) transformation for these outcomes in specifications with transformed dependent variables.
 
 \subsection{AEA-level impacts}
-Panel A of figure \ref{tab:aeaimpact} presents the estimated impacts on AEA's motivation and locus of control. We find no statistically significant effects on intrinsic, extrinsic, or prosocial motivation. In contrast, T1 has a positive and statistically significant effect on general locus of control (2.13 points), whereas the corresponding effect of T2 is small and insignificant. The difference between T1 and T2 is statistically significant ($p=0.008$). For agriculture-specific locus of control, both T1 and T2 have positive estimated effects (2.71 and 3.13 points, respectively), although only the T2 effect is statistically significant. The difference between the two treatment groups is not statistically significant ($p=0.780$). Feedback from farmers may have strengthened AEAs' belief that their own efforts can make a difference to farmers' outcomes. The sensitization training may have further reinforced this belief in the context of agricultural production, although the absence of a significant difference between T1 and T2 precludes a firm conclusion about its additional effects. 
+Panel A of figure \ref{tab:aeaimpact_fe} presents the estimated impacts on AEA's motivation and locus of control. We find no statistically significant effects on intrinsic, extrinsic, or prosocial motivation. In contrast, T1 has a positive and statistically significant effect on general locus of control (2.13 points), whereas the corresponding effect of T2 is small and insignificant. The difference between T1 and T2 is statistically significant ($p=0.008$). For agriculture-specific locus of control, both T1 and T2 have positive estimated effects (2.71 and 3.13 points, respectively), although only the T2 effect is statistically significant. The difference between the two treatment groups is not statistically significant ($p=0.780$). Feedback from farmers may have strengthened AEAs' belief that their own efforts can make a difference to farmers' outcomes. The sensitization training may have further reinforced this belief in the context of agricultural production, although the absence of a significant difference between T1 and T2 precludes a firm conclusion about its additional effects. 
 
 \begin{table}[H]
 \caption{Impacts on agricultural extension agents}
@@ -387,7 +387,7 @@ Panel A of figure \ref{tab:aeaimpact} presents the estimated impacts on AEA's mo
 \panel{Panel A. Motivation and locus of control}
 \input{tmp/ms_e_aea_attitude_fe}\\[18pt]
 \panel{Panel B. Knowledge, effort and job satisfaction}
-\input{tmp/ms_e_aea_effort_ms_fe}
+\input{tmp/ms_e_aea_effort_fe}
 \end{panels}
 \tnote{District-clustered standard errors (8 clusters) are reported in parentheses. "Ctrl mean (base)" and "Ctrl mean (end)" denote the control-group means at baseline and endline, respectively. Wild-boot and RI $p$-values are based on the wild cluster bootstrap and randomization inference, respectively, as described in Section~\ref{sec:performance}. Significance stars are based on conventional district-clustered standard erros.  *** $p<0.01$, ** $p<0.05$, * $p<0.1$.}
 \end{table}
@@ -402,7 +402,7 @@ Panel A of figure \ref{tab:aeaimpact} presents the estimated impacts on AEA's mo
 \panel{Panel A. Motivation and locus of control}
 \input{tmp/ms_e_aea_attitude}\\[18pt]
 \panel{Panel B. Knowledge, effort and job satisfaction}
-\input{tmp/ms_e_aea_effort}
+\input{tmp/ms_e_aea_effort_ms}
 \end{panels}
 \end{table}
 \endgroup
