@@ -27,6 +27,21 @@ label var f_visits "Farmer-reported visits, Apr--Sep (per farmer)"
 tempfile fvis
 save `fvis'
 
+* Same measure over the planting window only (rounds 06-1, 06-2 and 07-1, i.e.
+* t = 4..6), for the right-hand panel of Figure 2. A round covers two weeks, so
+* the mean number of visits per round times two is visits per month -- the same
+* arithmetic as f_visits/5.5 over the whole season.
+preserve
+    use "$tmp/bw_panel.dta", clear
+    keep if inrange(t,4,6)
+    collapse (mean) mq_pl=Q1, by(aid)
+    gen fv_plant = mq_pl*2
+    label var fv_plant "Farmer-reported visits per month, planting window"
+    keep aid fv_plant
+    tempfile fplant
+    save `fplant'
+restore
+
 * ---- farmer-reported contacts in the two household surveys ----
 use "$path/Baseline/QY1-6wet (Contact with extension worker 2024).dta", clear
 gen c_n = QY16_1a
@@ -69,6 +84,7 @@ rename aeaID aid
 merge 1:1 aid using `grp', keep(1 3) nogen
 merge 1:1 aid using `dist',  keep(1 3) nogen
 merge 1:1 aid using `fvis',  keep(1 3) nogen
+merge 1:1 aid using `fplant', keep(1 3) nogen
 merge 1:1 aid using `fcb',   keep(1 3) nogen
 merge 1:1 aid using `fce',   keep(1 3) nogen
 merge 1:1 aid using "$tmp/aea_stamp_xy.dta", keep(1 3) keepusing(st_wp st_days st_trips st_mon) nogen
@@ -192,31 +208,33 @@ display "   excl. the 2 corrected AEAs: b=" _b[lnd] "  p=" 2*ttail(e(df_r),abs(_
 * Full x range (0-50) with the y axis opened to 0-5 (co-author request, Sep 2026).
 local xmax = 50
 local ymax = 5
-slopestar fv_week sv_week_bl
-local lab3 = r(txt)
+* Both panels now put the ENDLINE self-report on the x axis; the panels differ
+* in the period the farmer-reported rate covers (co-author request, Oct 2026).
 slopestar fv_week sv_week_e
+local lab3 = r(txt)
+slopestar fv_plant sv_week_e
 local lab4 = r(txt)
-twoway (scatter fv_week sv_week_bl if treat_dis==0, msize(vtiny) mcolor(`cC') `opt') ///
-       (scatter fv_week sv_week_bl if treat_dis==1, msize(tiny) mcolor("`c1'") `opt') ///
-       (scatter fv_week sv_week_bl if treat_dis==2, msize(tiny) mcolor("`c2'") `opt') ///
-       (lfit fv_week sv_week_bl, range(0 50) lcolor(gs5) lpattern(dash)) ///
-       (function y=x, range(0 `ymax') lcolor(black)), ///
-    xscale(range(0 50)) yscale(range(0 `ymax')) ///
-    xlabel(0(10)50) ylabel(0(1)5) ///
-    xtitle("AEA self-reported visits per group per month", size(small)) ///
-    ytitle("Farmer-reported visits per month", size(small)) ///
-    title("Self-Reported in Baseline (slope = `lab3')", size(medium)) `leg' ///
-    graphregion(color(white)) name(h1, replace)
 twoway (scatter fv_week sv_week_e if treat_dis==0, msize(vtiny) mcolor(`cC') `opt') ///
-       (scatter fv_week sv_week_e if treat_dis==1, msize(vtiny) mcolor("`c1'") `opt') ///
-       (scatter fv_week sv_week_e if treat_dis==2, msize(vtiny) mcolor("`c2'") `opt') ///
-       (lfit fv_week sv_week_e, range(0 50) lcolor(gs5)  lpattern(dash)) ///
+       (scatter fv_week sv_week_e if treat_dis==1, msize(tiny) mcolor("`c1'") `opt') ///
+       (scatter fv_week sv_week_e if treat_dis==2, msize(tiny) mcolor("`c2'") `opt') ///
+       (lfit fv_week sv_week_e, range(0 50) lcolor(gs5) lpattern(dash)) ///
        (function y=x, range(0 `ymax') lcolor(black)), ///
     xscale(range(0 50)) yscale(range(0 `ymax')) ///
     xlabel(0(10)50) ylabel(0(1)5) ///
     xtitle("AEA self-reported visits per group per month", size(small)) ///
     ytitle("Farmer-reported visits per month", size(small)) ///
-    title("Self-Reported in Endline (slope = `lab4')", size(medium)) `leg' ///
+    title("Whole season (slope = `lab3')", size(medium)) `leg' ///
+    graphregion(color(white)) name(h1, replace)
+twoway (scatter fv_plant sv_week_e if treat_dis==0, msize(vtiny) mcolor(`cC') `opt') ///
+       (scatter fv_plant sv_week_e if treat_dis==1, msize(vtiny) mcolor("`c1'") `opt') ///
+       (scatter fv_plant sv_week_e if treat_dis==2, msize(vtiny) mcolor("`c2'") `opt') ///
+       (lfit fv_plant sv_week_e, range(0 50) lcolor(gs5)  lpattern(dash)) ///
+       (function y=x, range(0 `ymax') lcolor(black)), ///
+    xscale(range(0 50)) yscale(range(0 `ymax')) ///
+    xlabel(0(10)50) ylabel(0(1)5) ///
+    xtitle("AEA self-reported visits per group per month", size(small)) ///
+    ytitle("Farmer-reported visits per month, planting window", size(small)) ///
+    title("Planting window, 06-1--07-1 (slope = `lab4')", size(medium)) `leg' ///
     graphregion(color(white)) name(h2, replace) nodraw
 * NB grc1leg ignores xsize/ysize -- set the canvas on the combined graph.
 * Each panel is twice as wide as before so the 45-degree reference reads closer
@@ -225,8 +243,8 @@ grc1leg h1 h2, rows(1) graphregion(color(white)) legendfrom(h1) name(hcomb, repl
 graph display hcomb, xsize(11) ysize(4)
 graph export "$tmp/fig_selfrep_farmer.pdf", replace
 di _n "=== Fig 2: scales and correlations ==="
-tabstat sv_week_bl sv_week_e fv_week ngroup_bl ngroup_e, stat(mean p50 max n) col(stat) format(%8.2f)
-corr fv_week sv_week_bl sv_week_e
+tabstat sv_week_bl sv_week_e fv_week fv_plant ngroup_bl ngroup_e, stat(mean p50 max n) col(stat) format(%8.2f)
+corr fv_week fv_plant sv_week_bl sv_week_e
 count if sv_week_e>fv_week & sv_week_e<.
 
 *------------------------------------------------------------------------------
