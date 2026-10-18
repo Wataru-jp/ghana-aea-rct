@@ -409,7 +409,7 @@ $\rightarrow$ \quad endline Jan--Feb 2026}
 
 \begin{frame}{AEA Effort: Visits vs Distance to the Communities Served}
 	\centering
-	\includegraphics[width=0.92\textwidth,height=0.62\textheight,keepaspectratio]{tmp/fig_dist_visits.pdf}
+	\includegraphics[width=1\textwidth,height=0.62\textheight,keepaspectratio]{tmp/fig_dist_visits.pdf}
 	\begin{minipage}{1\textwidth}
 		\notefont
 		Note: one dot per AEA (N=41, rainfed sites only). Distance $=$ mean distance from the AEA's duty station to the communities served, log scale. Dashed line and the slope in each panel title: OLS on $\ln$(distance). 
@@ -473,16 +473,14 @@ $\rightarrow$ \quad endline Jan--Feb 2026}
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{AEA: Knowledge, Effort, Satisfaction}
+\begin{frame}{AEA: Knowledge, Self-reported Visits, Job Satisfaction}
 	\centering
-	\adjustbox{width=\textwidth,totalheight=0.52\textheight,keepaspectratio}{\input{tmp/ms_e_aea_effort_fe.tex}}
+    \adjustbox{width=1.8\textwidth,totalheight=0.65\textheight,keepaspectratio}{\input{tmp/ms_e_aea_effort_fe.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
-		Note: ANCOVA controlling for the baseline value, with region FE; SE clustered at district
-		($N=41$, 8 districts). Knowledge (0--5): one point for each of five questions; seed selection
-		(multiple response) scores 1 only if all four valid purposes are named. Training attendance
-		$=$ any agronomic training on rice production in the season. Self-reported visits are not a
-		reliable effort measure --- the bi-weekly farmer reports are preferred.
+		Note: ANCOVA controlling for the baseline value, with region FE; SE clustered at district ($N=41$, 8 districts). 
+        Knowledge (0--5): one point for each of five questions; seed selection (multiple response) scores 1 only if all four valid purposes are named. 
+        Training attendance $=$ any agronomic training on rice production in the season.
 		Wild-boot (Webb, 9{,}999) and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
@@ -493,18 +491,12 @@ $\rightarrow$ \quad endline Jan--Feb 2026}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
 		Note: ANCOVA with region FE and baseline-outcome control; SE clustered at district.
-		\textbf{Income} $=$ value of output at district-median prices $-$ paid-out costs (seed,
-		fertilizer, agro-chemicals, machinery services, hired labor, \emph{and what tenants pay for
-		the land} --- a share of gross output for share croppers, cash or in-kind rent otherwise;
-		about a third of the sample rents, and share croppers hand over a median 30\% of output);
-		\textbf{profit} $=$ income
-		$-$ the imputed value of own resources, here family labor valued at the district
-		\emph{median} hired wage ((cash $+$ in-kind payments) $/$ hired man-days, genders pooled,
-		per wave). Own machinery, recycled seed and manure are not imputed, so profit is an upper
-		bound on the full-cost measure. Columns (8)--(9) exclude the family days spent on bird
-		scaring, which absorb about half of all family labor. Crop failure $=0$ output, so income
-		and profit can be negative; logs use the inverse hyperbolic sine. Wild-boot (Webb,
-		9{,}999) and RI (1{,}000) $p$-values reported. ***, **, * : 1, 5, 10\%.
+		\textbf{Income} $=$ value of output at district-median prices $-$ paid-out costs (seed, fertilizer, agro-chemicals, machinery services, hired labor, and what tenants pay for the land;
+		\textbf{profit} $=$ income $-$ the imputed value of own resources, here family labor valued at the district \emph{median} hired wage. 
+        Column (8) exclude the family days spent on bird scaring, which absorb about half of all family labor. 
+        Logs use the inverse hyperbolic sine. 
+        Wild-boot (Webb,9{,}999) and RI (1{,}000) $p$-values reported. 
+        ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
 
@@ -513,11 +505,9 @@ $\rightarrow$ \quad endline Jan--Feb 2026}
 	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/ms_e_farmer_inputs.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
-		Note: same ANCOVA specification as the previous slide (region FE,
-		baseline-outcome control, SE clustered at district). Fertilizer, herbicide and machine
-		use are $0/1$ indicators; hired and family labor are man-days per ha, with the last
-		column netting out the family days spent on bird scaring. Wild-boot (Webb, 9{,}999)
-		and RI (1{,}000) $p$-values reported. \par Labour detail (Appendix): the hired-labour rise is mostly female harvest work; in T2 family labour falls in transplanting, land preparation and bird scaring. ***, **, * : 1, 5, 10\%.
+		Note: same ANCOVA specification as the previous slide (region FE, baseline-outcome control, SE clustered at district). Fertilizer, herbicide and machine use are $0/1$ indicators; hired and family labor are man-days per ha. Labour detail in Appendix.
+        Wild-boot (Webb, 9{,}999) and RI (1{,}000) $p$-values reported.
+        ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
 
@@ -527,12 +517,12 @@ $\rightarrow$ \quad endline Jan--Feb 2026}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
 		Note: ANCOVA with region FE and baseline-outcome control; SE clustered at district.
-		No.\ practices $=$ count of the seven practices adopted (0--7). Seed-variety and
-		certified-seed measures use the original endline export. ***, **, * : 1, 5, 10\%.
+		No.\ practices $=$ count of the seven practices adopted (0--7). 
+        ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{Putting It Together: A Suggestive Mechanism}
+\begin{frame}{A Suggestive Mechanism}
 	\centering
 	\begin{tikzpicture}[font=\footnotesize,
 	  st/.style={draw=myGreen, fill=myGreen!8, rounded corners=2pt, align=center, text width=2.9cm, minimum height=1.6cm},
