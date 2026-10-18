@@ -207,15 +207,14 @@
 
 \begin{frame}{Contributions}
 	\begin{itemize}\small
-		\item \textbf{Agricultural extension}: most experiments study training and targeting of farmers \citep{benyishay_social_2019, Beaman2021} or incentives for lead farmers \citep{shikuku_incentives_2019, balew_incentivizing_2023, okello_social_2023}.
-        The few on public extension agents use money or monitoring \citep{alam_incentives_2024, Genicot2022}. $\to$ Our feedback comes from the farmers served and involves no reward.
+		\item \textbf{Agricultural extension}: most experiments study training and targeting of farmers \citep{benyishay_social_2019, Beaman2021} or incentives for lead farmers \citep{shikuku_incentives_2019, balew_incentivizing_2023}.
+        The few on public extension agents use money or monitoring \citep{alam_incentives_2024, Genicot2022}.\\ $\to$ \textcolor{blue}{Our feedback comes from the farmers served and involves no reward.}
 		\vspace{0.2cm}
-		\item \textbf{Measuring agent effort}: studies rely on self-reports or administrative records
-		\citep[e.g.,][]{alam_incentives_2024}.
-        $\to$ Bi-weekly farmer surveys give an independent measure of visits, and they are uncorrelated with agents' self-reports.
+		\item \textbf{Measuring agent effort}: studies rely on self-reports or administrative records.\\
+        $\to$ \textcolor{blue}{Bi-weekly farmer surveys give an independent measure of visits, and they are uncorrelated with agents' self-reports.}
 		\vspace{0.2cm}
-		\item \textbf{Motivation of public service providers}: incentives and beliefs shape teachers' and health workers' effort \citep{duflo_incentives_2012, ashraf_awards_2014, banuri_pro-social_2016, Kaur2023, khan_mission_2025}, but few studies measure motivation and beliefs alongside behaviour and beneficiary outcomes.
-        $\to$ We measure changes in belief and motivation as well as behaviours and beneficiary outcomes.
+		\item \textbf{Motivation of public service providers}: incentives and beliefs shape teachers' and health workers' effort \citep{duflo_incentives_2012, ashraf_awards_2014, banuri_pro-social_2016, khan_mission_2025}, but few measure motivation and beliefs alongside behaviour and beneficiary outcomes. \\
+        $\to$ \textcolor{blue}{We measure changes in belief and motivation as well as behaviours and beneficiary outcomes.}
 	\end{itemize}
 \end{frame}
 
@@ -237,43 +236,44 @@
 		per agent against a benchmark of 500 \citep{MoFA2025Extension}; agents lack funds for
 		motorcycle fuel, so distant communities are rarely visited.
 		\vspace{0.3cm}
-		\item JICA and MoFA's GRIP (2022--2027) trains agents in improved rice practices
-		\citep{jica_grip_2022}; we ask whether non-monetary incentives add to this.
+		\item JICA and MoFA's Ghana Rice Production Improvement Project (GRIP) (2022--2027): trains agents in improved rice practices \citep{jica_grip_2022}. We ask whether non-monetary incentives add to this.
 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Study Areas and Sampling}
 \vspace{-0.15cm}
 \begin{columns}[T]
-\begin{column}{0.4\textwidth}
+\begin{column}{0.38\textwidth}
 	\centering
 	\includegraphics[height=0.84\textheight,keepaspectratio]{tmp/fig_map_study_areas.pdf}
 \end{column}
-\begin{column}{0.58\textwidth}
-	\scriptsize
+\begin{column}{0.6\textwidth}
+	\small
 	\begin{itemize}
-		\item \textbf{10 sites} targeted by JICA's Ghana Rice Production Improvement Project
-        (GRIP): 8 rainfed districts and 2 irrigation schemes.
+		\item \textbf{10 sites} targeted by GRIP in 2025: 8 rainfed districts and 2 irrigation schemes.
 		\vspace{0.04cm}
 		\item \textbf{Rainfed: 8 districts (analysis sample)}
-		\begin{scriptsize}
-		\begin{itemize}
+		\begin{small}
+		\begin{itemize}\scriptsize
 			\item Oti: Biakoye, Krachi West
 			\item Bono East: Pru West, Sene West
-			\item Western North: Bibiani-Anhwiaso-Bekwai, Sefwi Wiawso
+			\item Western North: Bibiani, Sefwi Wiawso
 			\item Eastern: Achiase, Lower Manya Krobo
 		\end{itemize}
-		\end{scriptsize}
+		\end{small}
 		\vspace{0.04cm}
 		\item \textbf{Irrigation schemes: 2 sites (excluded)}
-		\begin{scriptsize}
-		\begin{itemize}
+		\begin{small}
+		\begin{itemize}\scriptsize
 			\item Weta (Volta), Kpong (Eastern)
 			\item Excluded from the randomisation and from the analysis
 		\end{itemize}
-		\end{scriptsize}
+		\end{small}
 		\vspace{0.04cm}
-		\item \textbf{Sampling}: 2 communities $\times$ 5 farmers drawn per AEA from AEA-made lists (144 communities; target 396 farmers)
+        \small
+		\item \textbf{Sampling}: All 42 AEAs from 8 districts and target 396 farmers served by these AEAs \\
+        \scriptsize
+        – AEA-made lists of 144 rice producing communities and 8 farmers from each community $\to$ 2 communities $\times$ 5 farmers drawn per AEA.
 	\end{itemize}
 \end{column}
 \end{columns}
@@ -289,7 +289,7 @@
   line/.style={draw=myDarkGray, thick}]
 
 \node[box, fill=gray!10, text width=10.6cm] (pop) at (0,0)
-  {\textbf{Rainfed baseline sample}\\ 8 districts in 4 regions \ \textbullet\ \ 42 AEAs \ \textbullet\ \ 378 rice farmers};
+  {\textbf{Baseline sample}\\ 8 districts in 4 regions \ \textbullet\ \ 42 AEAs \ \textbullet\ \ 378 rice farmers};
 
 \node[arm] (c)  at (-4.2,-2.5) {\textbf{Control}\\[3pt] 2 districts\\ 11 AEAs\\ 92 farmers};
 \node[arm] (t1) at ( 0   ,-2.5) {\textbf{T1: Feedback}\\[3pt] 3 districts\\ 16 AEAs\\ 152 farmers};
@@ -299,7 +299,6 @@
 \draw[ar] (0,-1.25) -| (c.north);
 \draw[ar] (0,-1.25) -- (t1.north);
 \draw[ar] (0,-1.25) -| (t2.north);
-\node[font=\scriptsize\itshape, anchor=west] at (0.25,-0.95) {randomised at the \textbf{district} level};
 
 \node[box, draw=myOrange, dashed, fill=myOrange!6, text width=10.6cm] (st) at (0,-4.5)
   {\textbf{Cross-cutting: GPS stamp} --- within each arm, half of the AEAs (20 of 42) stamp their
@@ -310,30 +309,24 @@
 \end{tikzpicture}
 
 \vspace{0.25cm}
-{\footnotesize\textbf{Timeline}: baseline Feb--Mar 2025 \quad $\rightarrow$ \quad interventions and bi-weekly survey Apr--Sep 2025 \quad $\rightarrow$ \quad endline Jan--Feb 2026}
+{\footnotesize\textbf{Timeline}: baseline Feb--Mar 2025 \quad $\rightarrow$ \quad interventions and bi-weekly survey Apr--Sep 2025 \\
+$\rightarrow$ \quad endline Jan--Feb 2026}
 \end{frame}
 
 \begin{frame}{Interventions}
 	\begin{itemize}\footnotesize
-		\item \textbf{Feedback (T1 and T2)}: a bi-weekly phone survey of all sample farmers in all arms (visits,
-		contacts, satisfaction 1--5 and its reasons). Every two weeks, AEAs in T1 and T2 and their supervisors
-		received a one-page report: own visits per farmer against the previous round, the district average and
-		the best in the district; satisfaction ratings; farmers' reasons verbatim, without names.
+		\item \textbf{Feedback (T1 and T2)}: a bi-weekly phone survey of all sample farmers in all arms (visits, contacts, satisfaction 1--5 and its reasons). 
+        Every two weeks, AEAs in T1 and T2 and their supervisors received a one-page report: own visits per farmer, the district average and the best in the district; satisfaction ratings and their reasons, without names.
 		\vspace{0.15cm}
-		\item \textbf{Training (T2)}: overnight sensitization training, 29 April 2025, Koforidua; delivered by two
-		assistant directors of MoFA's DAES. No technical content --- the social value of extension and how agents'
-		own efforts improve farmers' livelihoods. All 15 invited AEAs attended.
+		\item \textbf{Training (T2)}: overnight sensitization training, 29 April 2025, Koforidua; delivered by two assistant directors of MoFA's DAES. No technical content --- the social value of extension and how agents' own efforts improve farmers' livelihoods. All 15 invited AEAs attended.
 		\vspace{0.15cm}
-		\item \textbf{GPS stamp (cross-cutting)}: 20 of 42 AEAs asked to record each farm visit with a KoboToolbox
-		form that captures GPS coordinates. Not shared with supervisors; no reward or penalty. 19 of 20 AEAs
-		submitted 357 records.
+		\item \textbf{GPS stamp (cross-cutting)}: 20 of 42 AEAs asked to record each farm visit with a KoboToolbox form that captures GPS coordinates. Not shared with supervisors; no reward or penalty. 19 of 20 AEAs submitted 357 records.
 		\vspace{0.15cm}
-		\item \textbf{Fuel support (all arms)}: 150 GHS per month by mobile money, Apr--Aug 2025, replacing a
-		phased-out project allowance; common to all arms.
+		\item \textbf{Fuel support (all arms)}: 150 GHS per month by mobile money, Apr--Aug 2025, replacing a phased-out project allowance; common to all arms.
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{The Feedback Report}
+\begin{frame}{Examples of Feedback Report}
 \vspace{-0.1cm}
 \begin{columns}[T]
 \begin{column}{0.49\textwidth}
@@ -406,54 +399,46 @@
 \begin{frame}{AEA Effort: Self-Reported vs Farmer-Reported Visits}
 	\centering
 	\includegraphics[width=\textwidth,keepaspectratio]{tmp/fig_selfrep_farmer.pdf}
-	\begin{minipage}{0.94\textwidth}
+	\begin{minipage}{1\textwidth}
 		\notefont
-		Note: one dot per AEA ($N=41$, rainfed sites only). Horizontal axis: visits per farmer group
-		per month, self-reported at endline. Vertical axis: visits per farmer per month reported in
-		the bi-weekly survey, for the whole season (left) and the planting window, 06-1--07-1
-		(right). Solid line: 45$^\circ$; dashed line and the slope in each panel title: OLS.
-		\par AEAs report about 9 (baseline) and 13 (endline) visits per group per month; farmers
-		report about 1.5 visits per month. The levels are not directly comparable (a group visit
-		need not reach every farmer), but the two measures are essentially uncorrelated.
+		Note: one dot per AEA ($N=41$, rainfed sites only). Horizontal axis: visits per farmer group per month, self-reported at endline. Vertical axis: visits per farmer per month reported in the bi-weekly survey, for the whole season (left) and the planting window, 06-1--07-1 (right). 
+        Dashed line and the slope in each panel title: OLS.
 		***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{AEA Effort: Distance to the Communities Served}
+\begin{frame}{AEA Effort: Visits vs Distance to the Communities Served}
 	\centering
 	\includegraphics[width=0.92\textwidth,height=0.62\textheight,keepaspectratio]{tmp/fig_dist_visits.pdf}
-	\begin{minipage}{0.94\textwidth}
+	\begin{minipage}{1\textwidth}
 		\notefont
-		Note: one dot per AEA (N=41, rainfed sites only). Distance $=$
-		mean distance from the AEA's duty station to the communities served, log scale. Dashed line
-		and the slope in each panel title: OLS on $\ln$(distance). ***, **, * : 1, 5, 10\%.
+		Note: one dot per AEA (N=41, rainfed sites only). Distance $=$ mean distance from the AEA's duty station to the communities served, log scale. Dashed line and the slope in each panel title: OLS on $\ln$(distance). 
+        ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{Bi-weekly (AEA): Effort Level Reported by Farmers}
+\begin{frame}{Regression: Effort Level Reported by Farmers}
 	\centering
-	{\footnotesize $Y_{ijdt} = \alpha + \alpha_1 T1_d + \alpha_2 T2_d + \alpha_3 GPS_j + \delta_t + \mu_r + \varepsilon_{ijdt}$ \quad (round and region FE; SE clustered by district)}\\[4pt]
+	{\footnotesize $Y_{ijdt} = \alpha + \alpha_1 T1_d + \alpha_2 T2_d + \alpha_3 GPS_j + \delta_t + \mu_r + \varepsilon_{ijdt}$ \\
+    (OLS with round and region FE; SE clustered by district)}\\[4pt]
 	\adjustbox{width=\textwidth,totalheight=0.56\textheight,keepaspectratio}{\input{tmp/bw_effort_v2.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
-		Note: farmer$\times$round panel, estimated by OLS; outcomes are the \emph{number} of AEA
-		visits and contacts the farmer reports in the two-week round. Three seasonal windows: all 11 rounds, the
-		planting window (06-1--07-1) and the growing season (07-2--08-2).
-		Round and province FE; SE clustered at district. Control mean measured in the first round
-		(all-rounds columns) or within the window. Wild-boot (Webb, 9{,}999) and RI (1{,}000)
-		$p$-values. ***, **, * : 1, 5, 10\%.
+		Note: farmer$\times$round panel, estimated by OLS; outcomes are the \emph{number} of AEA visits and contacts the farmer reports in the two-week round. Three seasonal windows: all 11 rounds, the planting window (06-1--07-1) and the growing season (07-2--08-2).
+		Round and province FE; SE clustered at district. Wild-boot (Webb, 9{,}999) and RI (1{,}000) $p$-values. 
+        ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
 
-\begin{frame}{Bi-weekly (farmer): Satisfaction and Helpful Advice}
+\begin{frame}{Regression: Satisfaction Reported by Farmers}
 	\centering
 	\adjustbox{width=\textwidth,totalheight=0.62\textheight,keepaspectratio}{\input{tmp/ms_bw_satcontent.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
 		Note: farmer$\times$round panel, all 11 rounds, OLS with round and region FE; SE clustered at district.
-		``Satisfied'' $=1$ if satisfied or very satisfied, on rounds with a visit or other contact; ``full'' sets it to 0
-		for rounds with neither. ``Add.\ ctrl'' adds the number of visits and contacts. Columns (5)--(7) are the three
-		answers to ``Did your extension agent give you helpful advice?'' on rounds with a visit or contact.
+		``Satisfied'' $=1$ if satisfied or very satisfied, on rounds with a visit or other contact; ``full'' sets it to 0 for rounds with neither visit nor contact. 
+        ``Add.\ ctrl'' adds the number of visits and contacts. 
+        Columns (5)--(7) are the three answers to ``Did your extension agent give you helpful advice?'' on rounds with a visit or contact.
 		Wild-boot (Webb, 9{,}999) and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
@@ -472,7 +457,7 @@
 		\[ A_{jd1} = \beta_0 + \beta_1 T1_d + \beta_2 T2_d + \beta_3 GPS_j + \zeta A_{jd0} + \mu_r + \varepsilon_{jd} \]
 		\item \textbf{Farm level} ($N=373$):
 		\[ F_{ijd1} = \gamma_0 + \gamma_1 T1_d + \gamma_2 T2_d + \gamma_3 GPS_j + \eta F_{ijd0} + \mu_r + \varepsilon_{ijd} \]
-		\item ANCOVA rather than DID: more precise when outcomes are weakly autocorrelated, as farm income and profit are \citep{mckenzie_beyond_2012}.
+		\item ANCOVA rather than DID: more precise when outcomes are weakly autocorrelated, as is the case for farm income and profit \citep{mckenzie_beyond_2012}.
 		\item SE clustered by district (8 clusters); \textbf{wild cluster bootstrap} (Webb, 9{,}999) and \textbf{randomization inference} (1{,}000) $p$-values.
 	\end{itemize}
 \end{frame}
