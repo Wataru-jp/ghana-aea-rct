@@ -525,13 +525,15 @@ $\rightarrow$ \quad endline Jan--Feb 2026}
 \begin{frame}{A Suggestive Mechanism}
 	\centering
 	\begin{tikzpicture}[font=\footnotesize,
-	  st/.style={draw=myGreen, fill=myGreen!8, rounded corners=2pt, align=center, text width=2.9cm, minimum height=1.6cm},
+	  st/.style={draw=myGreen, fill=myGreen!8, rounded corners=2pt, align=center, text width=3.5cm, minimum height=1.45cm, execute at begin node={\hyphenpenalty=10000}},
 	  ar/.style={-{Stealth[length=5pt]}, draw=myDarkGray, thick}]
-	\node[st] (a) at (0,0)    {\textbf{1. Locus of control}\\ agents believe their effort matters};
-	\node[st] (b) at (3.6,0)  {\textbf{2. Feedback}\\ shows what farmers need and why they are (dis)satisfied};
-	\node[st] (c) at (7.2,0)  {\textbf{3. Service}\\ more visits in planting season; more satisfied farmers; more helpful advice};
-	\node[st] (d) at (10.8,0) {\textbf{4. Farms}\\ less seed and herbicide, no yield loss};
-	\draw[ar] (a) -- (b); \draw[ar] (b) -- (c); \draw[ar] (c) -- (d);
+	\node[st] (a) at (0,0.95)  {\textbf{1. Locus of control}\\ agents believe their effort matters};
+	\node[st] (b) at (0,-0.95) {\textbf{2. Feedback}\\ shows what farmers need and why they are (dis)satisfied};
+	\node[st] (c) at (5.0,0)   {\textbf{3. Service}\\ more visits in planting season; more satisfied farmers; more helpful advice};
+	\node[st] (d) at (10.0,0)   {\textbf{4. Farms}\\ less seed and herbicide, no yield loss};
+	\draw[ar] (a.east) to[out=0,in=180] ([yshift=5pt]c.west);
+	\draw[ar] (b.east) to[out=0,in=180] ([yshift=-5pt]c.west);
+	\draw[ar] (c) -- (d);
 	\end{tikzpicture}
 	\vspace{0.5cm}
 	\begin{itemize}\small
