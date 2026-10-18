@@ -406,11 +406,17 @@ save "$tmp/farmer_e_analysis.dta", replace   // incl. labor vars + lags
 capture program drop ancova
 program define ancova
     args y ylag
-    qui sum `ylag' if treat_dis==0
-    scalar bm = r(mean)                 // control-group BASELINE mean of the outcome
-    qui sum `y' if treat_dis==0
-    scalar cm = r(mean)                 // control-group ENDLINE mean of the outcome
     qui reg `y' i.treat_dis i.gps `ylag' i.prov, cluster(district)
+    * Control means must describe the SAME observations the regression uses:
+    * households whose baseline value is missing are dropped by the ANCOVA, so
+    * summarising over everything in memory produced endline means that did not
+    * match the descriptive table (co-author, Oct 2026).
+    tempvar esamp
+    qui gen byte `esamp' = e(sample)
+    qui sum `ylag' if treat_dis==0 & `esamp'
+    scalar bm = r(mean)                 // control-group BASELINE mean of the outcome
+    qui sum `y' if treat_dis==0 & `esamp'
+    scalar cm = r(mean)                 // control-group ENDLINE mean of the outcome
     qui boottest 1.treat_dis, reps(9999) weight(webb) nograph
     scalar wbt1 = r(p)
     qui boottest 2.treat_dis, reps(9999) weight(webb) nograph
@@ -742,11 +748,17 @@ global techctl u_impany u_scertify u_seedtreat u_dib u_ptrans u_bunds u_level u_
 capture program drop ancova_tech
 program define ancova_tech
     args y ylag
-    qui sum `ylag' if treat_dis==0
-    scalar bm = r(mean)
-    qui sum `y' if treat_dis==0
-    scalar cm = r(mean)
     qui reg `y' i.treat_dis i.gps `ylag' i.prov $techctl, cluster(district)
+    * Control means must describe the SAME observations the regression uses:
+    * households whose baseline value is missing are dropped by the ANCOVA, so
+    * summarising over everything in memory produced endline means that did not
+    * match the descriptive table (co-author, Oct 2026).
+    tempvar esamp
+    qui gen byte `esamp' = e(sample)
+    qui sum `ylag' if treat_dis==0 & `esamp'
+    scalar bm = r(mean)
+    qui sum `y' if treat_dis==0 & `esamp'
+    scalar cm = r(mean)
     qui boottest 1.treat_dis, reps(9999) weight(webb) nograph
     scalar wbt1 = r(p)
     qui boottest 2.treat_dis, reps(9999) weight(webb) nograph
@@ -807,11 +819,17 @@ gen tr = (treat_dis==2)
 capture program drop ancova_fbtr
 program define ancova_fbtr
     args y ylag
-    qui sum `ylag' if treat_dis==0
-    scalar bm = r(mean)
-    qui sum `y' if treat_dis==0
-    scalar cm = r(mean)
     qui reg `y' fb tr i.gps `ylag' i.prov, cluster(district)
+    * Control means must describe the SAME observations the regression uses:
+    * households whose baseline value is missing are dropped by the ANCOVA, so
+    * summarising over everything in memory produced endline means that did not
+    * match the descriptive table (co-author, Oct 2026).
+    tempvar esamp
+    qui gen byte `esamp' = e(sample)
+    qui sum `ylag' if treat_dis==0 & `esamp'
+    scalar bm = r(mean)
+    qui sum `y' if treat_dis==0 & `esamp'
+    scalar cm = r(mean)
     qui boottest fb, reps(9999) weight(webb) nograph
     scalar wbf = r(p)
     qui boottest tr, reps(9999) weight(webb) nograph
@@ -921,7 +939,7 @@ else {
                 eststo iv_`y': ivreg2 `y' (`en' = t1m t2m) i.gps `y'_bl i.prov, cluster(district)
                 estadd scalar kpf = e(widstat)
                 estadd scalar hjp = `jp'
-                qui sum `y' if treat_dis==0
+                qui sum `y' if treat_dis==0 & e(sample)
                 estadd scalar cmean = r(mean)
                 local mods "`mods' iv_`y'"
             }
@@ -1022,7 +1040,7 @@ if !_rc {
             foreach y of local `oset' {
                 eststo pv_`y': ivreg2 `y' (`en' = fbp) i.gps `y'_bl i.prov, cluster(district)
                 estadd scalar kpf = e(widstat)
-                qui sum `y' if treat_dis==0
+                qui sum `y' if treat_dis==0 & e(sample)
                 estadd scalar cmean = r(mean)
                 local mods "`mods' pv_`y'"
             }
@@ -1041,7 +1059,7 @@ if !_rc {
         eststo np_`y': ivreg2 `y' (nprac = t1m t2m) i.gps nprac_bl i.prov, cluster(district)
         estadd scalar kpf = e(widstat)
         estadd scalar hjp = `jp'
-        qui sum `y' if treat_dis==0
+        qui sum `y' if treat_dis==0 & e(sample)
         estadd scalar cmean = r(mean)
         local mods "`mods' np_`y'"
     }
@@ -1056,7 +1074,7 @@ if !_rc {
     foreach y of local O1 {
         eststo pn_`y': ivreg2 `y' (nprac = fbp) i.gps nprac_bl i.prov, cluster(district)
         estadd scalar kpf = e(widstat)
-        qui sum `y' if treat_dis==0
+        qui sum `y' if treat_dis==0 & e(sample)
         estadd scalar cmean = r(mean)
         local mods "`mods' pn_`y'"
     }

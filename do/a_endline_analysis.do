@@ -57,11 +57,17 @@ save "$tmp/a_AEA_endline_analysis.dta", replace
 capture program drop ancova
 program define ancova
     args y ylag
-    qui sum `ylag' if treat_dis==0
-    scalar bm = r(mean)                 // control-group BASELINE mean
-    qui sum `y' if treat_dis==0
-    scalar cm = r(mean)                 // control-group ENDLINE mean
     qui reg `y' i.treat_dis i.gps $controls_extra `ylag', cluster(district)
+    * Control means must describe the SAME observations the regression uses:
+    * households whose baseline value is missing are dropped by the ANCOVA, so
+    * summarising over everything in memory produced endline means that did not
+    * match the descriptive table (co-author, Oct 2026).
+    tempvar esamp
+    qui gen byte `esamp' = e(sample)
+    qui sum `ylag' if treat_dis==0 & `esamp'
+    scalar bm = r(mean)                 // control-group BASELINE mean
+    qui sum `y' if treat_dis==0 & `esamp'
+    scalar cm = r(mean)                 // control-group ENDLINE mean
     * wild cluster bootstrap (Webb weights)
     qui boottest 1.treat_dis, reps(9999) weight(webb) nograph
     scalar wbt1 = r(p)
@@ -127,11 +133,17 @@ esttab a_intrinsic a_extrinsic2 a_prosocial a_locus_gen a_locus_spec ///
 capture program drop ancova_med
 program define ancova_med
     args y ylag
-    qui sum `ylag' if treat_dis==0
-    scalar bm = r(mean)
-    qui sum `y' if treat_dis==0
-    scalar cm = r(mean)
     qui reg `y' i.treat_dis i.gps $controls_extra `ylag' a_train, cluster(district)
+    * Control means must describe the SAME observations the regression uses:
+    * households whose baseline value is missing are dropped by the ANCOVA, so
+    * summarising over everything in memory produced endline means that did not
+    * match the descriptive table (co-author, Oct 2026).
+    tempvar esamp
+    qui gen byte `esamp' = e(sample)
+    qui sum `ylag' if treat_dis==0 & `esamp'
+    scalar bm = r(mean)
+    qui sum `y' if treat_dis==0 & `esamp'
+    scalar cm = r(mean)
     qui boottest 1.treat_dis, reps(9999) weight(webb) nograph
     scalar wbt1 = r(p)
     qui boottest 2.treat_dis, reps(9999) weight(webb) nograph
@@ -313,11 +325,17 @@ gen tr = (treat_dis==2)
 capture program drop ancova_fbtr
 program define ancova_fbtr
     args y ylag
-    qui sum `ylag' if treat_dis==0
-    scalar bm = r(mean)
-    qui sum `y' if treat_dis==0
-    scalar cm = r(mean)
     qui reg `y' fb tr i.gps $controls_extra `ylag', cluster(district)
+    * Control means must describe the SAME observations the regression uses:
+    * households whose baseline value is missing are dropped by the ANCOVA, so
+    * summarising over everything in memory produced endline means that did not
+    * match the descriptive table (co-author, Oct 2026).
+    tempvar esamp
+    qui gen byte `esamp' = e(sample)
+    qui sum `ylag' if treat_dis==0 & `esamp'
+    scalar bm = r(mean)
+    qui sum `y' if treat_dis==0 & `esamp'
+    scalar cm = r(mean)
     qui boottest fb, reps(9999) weight(webb) nograph
     scalar wbf = r(p)
     qui boottest tr, reps(9999) weight(webb) nograph
