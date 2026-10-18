@@ -265,10 +265,19 @@ keep hhID landsize2_bl hage_bl hedu_bl hgen_bl hhsize_bl o_total_bl o_equip_bl
 tempfile landbl
 save `landbl'
 
-* ---- Farmer (endline sample; rainfed sites only, as in every estimation) ----
+* ---- Farmer (panel households; rainfed sites only, as in every estimation) ----
 * farmer_e_analysis.dta already excludes the two irrigation schemes, so the
 * separate "all sites" version of this table was retired in Sep 2026.
+* Both waves are restricted to the 373 panel households (Oct 2026): the endline
+* file also holds 9 households first interviewed at endline, which made the
+* endline columns describe different farmers from the baseline columns. The
+* households surveyed at baseline are those in farmer.dta.
+use "$tmp/farmer.dta", clear
+keep hhID
+tempfile blhh
+save `blhh'
 use "$tmp/farmer_e_analysis.dta", clear
+merge 1:1 hhID using `blhh', keep(3) nogen
 merge 1:1 hhID using `landbl', keep(1 3) nogen
 label var landsize2 "Landsize (ha)"
 label var hage      "Head: age (years)"
@@ -562,6 +571,7 @@ save `cb'
 restore
 merge 1:1 hhID using `ce', keep(1 3) nogen
 merge 1:1 hhID using `cb', keep(1 3) nogen
+merge 1:1 hhID using `blhh', keep(3) nogen
 label var anyc      "Any contact with AEA (=1)"
 label var contact_n "Number of contacts with AEA"
 label var sat5      "Satisfaction with AEA service (1--5)"
@@ -659,18 +669,9 @@ armobs6 a_prosocial
 file close H
 
 * ---- Farmer ----
-* Both waves on the same 373 panel households (Oct 2026). Without this, the
-* endline columns also counted 9 households first interviewed at endline and
-* the baseline columns only the panel, so the two halves of the table described
-* different farmers. The households surveyed at baseline are those in farmer.dta.
-preserve
-use "$tmp/farmer.dta", clear
-keep hhID
-tempfile blhh
-save `blhh'
-restore
+* farmprep and contactprep are already restricted to the 373 panel households
+* (see the farmer block above), so both waves describe the same farmers.
 use `farmprep', clear
-merge 1:1 hhID using `blhh', keep(3) nogen
 file open H using "$tmp/desc_ms_farmer.tex", write replace
 armhead6
 file write H "\multicolumn{7}{l}{\textbf{Panel A. Household characteristics and inputs}} \\" _n
@@ -687,7 +688,6 @@ foreach v in nonprod yield yield_nf rev_ha rincome_ha finc_ha fincnb_ha ///
 obsrow6 yield
 
 use `contactprep', clear
-merge 1:1 hhID using `blhh', keep(3) nogen
 panlab "Panel C. Contact with the extension agent"
 foreach v in anyc contact_n sat5 satd {
     armrow6 `v'

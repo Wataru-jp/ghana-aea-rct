@@ -40,6 +40,9 @@
 \usepackage{multirow}
 \usepackage{multicol}
 \usepackage{comment}
+\usepackage{array}
+\newcolumntype{S}{>{\raggedright\arraybackslash}p{4.2cm}}
+\newcolumntype{P}{>{\centering\arraybackslash\hspace{0pt}}p{2.1cm}}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta}
 \setlength{\emergencystretch}{3em}
@@ -140,8 +143,9 @@
 			and nurses \citep{banerjee_putting_2008}.
 			\item \textbf{Social recognition} improved the performance of health workers
 			\citep{ashraf_awards_2014} and village leaders \citep{mansuri_money_2023}.
-			\item Strengthening \textbf{locus of control} increased community health workers'
-			delivery of both core and additional tasks \citep{khan_mission_2025}.
+			\item \textbf{Mission-motivation training} improved community health workers'
+			performance \citep{khan_mission_2025}; strengthening teachers' belief that their
+			effort matters raised their effort and student learning \citep{Kaur2023}.
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -173,7 +177,7 @@
 		\item \textbf{Can recognition come from below?} Farmers observe an agent's effort
 		directly, yet their voice is rarely fed back to the agent, even though agents
 		themselves rank the absence of appreciation
-		from farmers among the main reasons for their low motivation \citep{ragasa_assessment_2013}. Such a scheme also costs less than monitoring or pay.
+		from farmers among the main reasons for their low motivation \citep{Ragasa2013}. Such a scheme also costs less than monitoring or pay.
 
 		\vspace{0.18cm}
 		\item \textbf{Can the belief that one's effort matters be moved?} If agents doubt that
@@ -209,8 +213,8 @@
 \begin{frame}{What We Do}
 	\begin{itemize}\small
 		\item A \textbf{cluster-randomised controlled trial} with Ghana's public extension
-		service: 44 AEAs across 10 districts, serving about 390 rice farmers. Randomisation is
-		at the \textbf{district} level.
+		service: 42 AEAs across 8 rainfed districts, serving 378 sampled rice farmers.
+		Randomisation is at the \textbf{district} level.
         \begin{itemize}
             \item \textbf{T1 --- Feedback}: farmers' satisfaction with their AEA is collected and
 		reported back to the agent. Recognition from below, at essentially no cost.
@@ -233,7 +237,17 @@
 
 % TO BE ADDED
 \begin{frame}{Contributions}
-    
+	\begin{itemize}
+		\item \textbf{Incentives for public extension agents}: feedback comes from the farmers
+		served, not from supervisors, and involves neither money nor formal performance pay.
+		\vspace{0.3cm}
+		\item \textbf{Measuring agent effort}: bi-weekly farmer reports give a measure of
+		visits, satisfaction and advice that is independent of the agent's own report.
+		\vspace{0.3cm}
+		\item \textbf{Motivation of public service providers}: we measure motivation and locus
+		of control together with agents' behaviour and farmer outcomes --- the evidence points
+		to beliefs about whether effort matters, not to motivation.
+	\end{itemize}
 \end{frame}
 
 
@@ -266,7 +280,18 @@
 \section{Experimental design and data}
 % TO BE ADDED
 \begin{frame}{Agricultural extension in Ghana}
-    
+	\begin{itemize}
+		\item Agriculture accounts for 21.3\% of GDP and 34.6\% of employment
+		\citep{worldbank_wdi_2026}; domestic rice production meets only 55.1\% of demand
+		\citep{ndpc_progress_2025}.
+		\vspace{0.3cm}
+		\item Extension is delivered by MoFA district offices, with more than 1{,}500 farmers
+		per agent against a benchmark of 500 \citep{MoFA2025Extension}; agents lack funds for
+		motorcycle fuel, so distant communities are rarely visited.
+		\vspace{0.3cm}
+		\item JICA and MoFA's GRIP (2022--2027) trains agents in improved rice practices
+		\citep{jica_grip_2022}; we ask whether non-monetary incentives add to this.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}[plain]
@@ -285,16 +310,16 @@
 \begin{column}{0.58\textwidth}
 	\footnotesize
 	\begin{itemize}
-		\item \textbf{10 districts} covering the major rice-producing environments in Ghana,
-        target areas of JICA's Ghana Rice Production Improvement Project (GRIP).
+		\item \textbf{10 sites} targeted by JICA's Ghana Rice Production Improvement Project
+        (GRIP): 8 rainfed districts and 2 irrigation schemes.
 		\vspace{0.10cm}
 		\item \textbf{Rainfed: 8 districts (analysis sample)}
 		\begin{scriptsize}
 		\begin{itemize}
 			\item Oti: Biakoye, Krachi West
 			\item Bono East: Pru West, Sene West
-			\item Western North: Bibiani, Sefwi Wiaoso
-			\item Eastern: Achiase, Lower Manya
+			\item Western North: Bibiani-Anhwiaso-Bekwai, Sefwi Wiawso
+			\item Eastern: Achiase, Lower Manya Krobo
 		\end{itemize}
 		\end{scriptsize}
 		\vspace{0.14cm}
@@ -302,11 +327,11 @@
 		\begin{scriptsize}
 		\begin{itemize}
 			\item Weta (Volta), Kpong (Eastern)
-			\item Both fell in the control arm; dropped from every estimation
+			\item Excluded from the randomisation and from the analysis
 		\end{itemize}
 		\end{scriptsize}
 		\vspace{0.14cm}
-		\item 44 AEAs and 390 rice-growing farmers
+		\item 42 AEAs and 378 rice farmers at baseline
 	\end{itemize}
 \end{column}
 \end{columns}
@@ -314,22 +339,20 @@
 
 \begin{frame}{Sampling}
 	\footnotesize
-	\textbf{Rainfed sites: 8 districts}
+	\textbf{Rainfed sites: 8 districts (January--February 2025)}
 	\begin{enumerate}
-		\item Each district director listed \textbf{every rice-growing community} in the district --- 144 in total.
-		\item The responsible AEA contact all listed communities, and randomly listed \textbf{8 rice farmers}.
-		\item \textbf{Two communities per AEA} drawn at random. From each, \textbf{5 farmers} drawn at random into the sample and the remaining 3 kept in reserve. If only one community, use all 8 farmers.
+		\item District directors listed every AEA serving rice-producing communities --- \textbf{42 AEAs}.
+		\item Each AEA listed all the rice-producing communities they serve --- \textbf{144 communities}.
+		\item Each AEA listed \textbf{8 randomly selected rice farmers} in each community.
 	\end{enumerate}
-
 	\vspace{0.18cm}
-	\textbf{Irrigation schemes: sampled in the same round, excluded from the estimations}
-	\begin{enumerate}
-		\item Complete farmer lists for Kpong and Weta obtained from the district directors
-		      through GRIP.
-		\item \textbf{Kpong} ($\approx$2{,}800 farmers): randomly selected \textbf{10 sample farmers} and 5 reserves from SLLCA ($\approx$390 farmers), one of the 15 branch canals selected at random.
-		\item \textbf{Weta} ($\approx$1{,}200 farmers): randomly selected \textbf{10 sample farmers} and
-		      10 reserves.
-	\end{enumerate}
+	\textbf{Farmer sample, drawn separately for each AEA}
+	\begin{itemize}
+		\item \textbf{Two communities per AEA} drawn at random; \textbf{5 farmers} drawn at random from
+		each list, the other 3 kept as replacements (10 farmers per AEA).
+		\item AEAs with a single rice community: all 8 listed farmers; all farmers where fewer were available.
+		\item Target sample: \textbf{42 AEAs and 396 farmers}.
+	\end{itemize}
 \end{frame}
 
 \begin{frame}{Random Assignment}
@@ -342,9 +365,9 @@
   line/.style={draw=myDarkGray, thick}]
 
 \node[box, fill=gray!10, text width=10.6cm] (pop) at (0,0)
-  {\textbf{All sample}\\ 10 districts in 5 regions \ \textbullet\ \ 44 AEAs \ \textbullet\ \ 390 rice farmers};
+  {\textbf{Rainfed baseline sample}\\ 8 districts in 4 regions \ \textbullet\ \ 42 AEAs \ \textbullet\ \ 378 rice farmers};
 
-\node[arm] (c)  at (-4.2,-2.5) {\textbf{Control}\\[3pt] 4 districts\\ 13 AEAs\\ 104 farmers};
+\node[arm] (c)  at (-4.2,-2.5) {\textbf{Control}\\[3pt] 2 districts\\ 11 AEAs\\ 92 farmers};
 \node[arm] (t1) at ( 0   ,-2.5) {\textbf{T1: Feedback}\\[3pt] 3 districts\\ 16 AEAs\\ 152 farmers};
 \node[arm] (t2) at ( 4.2 ,-2.5) {\textbf{T2: Feedback}\\ \textbf{+ Training}\\[3pt] 3 districts\\ 15 AEAs\\ 134 farmers};
 
@@ -355,7 +378,7 @@
 \node[font=\scriptsize\itshape, anchor=west] at (0.25,-0.95) {randomised at the \textbf{district} level};
 
 \node[box, draw=myOrange, dashed, fill=myOrange!6, text width=10.6cm] (st) at (0,-4.5)
-  {\textbf{Cross-cutting: GPS stamp} --- within each arm, half of the AEAs (20 of 44) stamp their
+  {\textbf{Cross-cutting: GPS stamp} --- within each arm, half of the AEAs (20 of 42) stamp their
    location when they visit a field};
 \draw[line, draw=myOrange] (c.south)  -- (c.south  |- st.north);
 \draw[line, draw=myOrange] (t1.south) -- (t1.south |- st.north);
@@ -405,24 +428,16 @@
 \end{frame}
 
 \begin{frame}{Sample Size by District}
-\begin{table}[hbtp]
-	\centering
-	\begin{threeparttable}
-		\scalebox{0.72}{%
-		\begin{tabular}{llccccccc}
-			\hline
-			\input{tmp/obs_data2.tex}
-		\end{tabular}}
-	\end{threeparttable}
-\end{table}
-\vspace{-4pt}
+\centering
+\adjustbox{width=\textwidth,totalheight=0.62\textheight,keepaspectratio}{%
+\begin{tabular}{llccccccc}
+\hline
+\input{tmp/ms_obs.tex}
+\end{tabular}}
+\vspace{4pt}
 \begin{itemize}\notefont
-	\item \textbf{385 matched panel households} ($\approx$99\% of baseline); 1 AEA retired (Worawora).
-	      Attrition concentrated in Kpong irrigation and Achiase, largely non-random
-	\item \textbf{Analysis} $=$ the sample the estimation tables actually use: the two irrigation
-	      schemes (\textbf{Kpong} and \textbf{Ketu North / Weta}) are dropped everywhere, and the
-	      farmer columns additionally require a matched baseline value --- leaving
-	      \textbf{8 districts} (2 control, 3 T1, 3 T2)
+	\item Rainfed districts only; the two irrigation schemes are excluded from the randomisation and the analysis.
+	\item One AEA retired before the endline survey; 373 of the 378 baseline farmers were re-interviewed (attrition 1.3\%).
 \end{itemize}
 \end{frame}
 
@@ -465,7 +480,7 @@
 		\item Note: baseline means by assigned arm (panel AEAs, $N=41$; rainfed sites only);
 		SD in parentheses. These attributes are recorded once, at baseline. Stars on T1/T2:
 		difference vs Control (district-clustered); ***, **, * : 1, 5, 10\%.
-		\item Education \emph{level} is omitted: all 44 AEAs answered college or university,
+		\item Education \emph{level} is omitted: all AEAs answered college or university,
 		so the row carries no information. Grade is the civil service ladder, which tracks
 		qualification --- technical class (certificate), sub-professional (HND, diploma),
 		professional (degree), expert (master's) --- and is separate from whether the post
@@ -480,8 +495,8 @@
 		\item Note: baseline and endline means by assigned arm (panel AEAs, N=41; rainfed sites only); SD in
 		parentheses. Stars on T1/T2: difference vs Control \emph{within the wave}
 		(district-clustered); ***, **, * : 1, 5, 10\%. Job satisfaction on a 1--5 scale.
-		\item The two knowledge indices score the same five questions --- seed selection, levelling, planting spacing, water management and drying --- but differ in the first.
-		The \textbf{0--5} index scores seed selection as a single 0/1 item although it is a multiple-response question. The \textbf{0--8} index replaces the dummy with a count of how many of the four defensible purposes of seed selection the AEA names (0--4), keeping the other four items.
+		\item Knowledge: five questions --- what seed selection by salt or urea water is good for, how poor levelling affects rice growth, the recommended planting method, the best water level at the reproductive stage, and when to drain the field before harvest.
+		The \textbf{0--5} index gives one point per correct answer; seed selection (a multiple-response question) scores 1 only if all four valid purposes are named. The \textbf{0--8} index instead counts the purposes named (0--4) and adds the other four items.
 	\end{itemize}
 \end{frame}
 
@@ -490,8 +505,8 @@
 	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/desc_arm_farmer_noirr.tex}}
 	\begin{itemize}\notefont
 		\item Note: baseline and endline means by assigned arm; SD in parentheses. Rainfed sites
-		only ($N=382$): the two irrigation schemes (Kpong and Weta; 12 endline households, all
-		in the control arm) are excluded here and from every estimation in the deck.
+		only; both waves cover the same 373 panel households (89 / 151 / 133), the sample used
+		in the regressions.
 		Stars on T1/T2: difference vs Control
 		\emph{within the wave} (district-clustered); ***, **, * : 1, 5, 10\%.
 	\end{itemize}
@@ -526,14 +541,14 @@
     \begin{itemize}
     \item AEA's performance (biweekly round x farmer panel)
     \begin{itemize}
-        \item OLS estimates; round FE; SEs clustered at district.
+        \item OLS estimates; round and region FE; SEs clustered at district.
     \end{itemize}
 			\vspace{0.3cm}
     \item AEA and farm-level impact (baseline-endline panel)
     \begin{itemize}
     	\item \textbf{ANCOVA}: regress endline outcome on treatment status, controlling for the baseline value of the outcome
 	    \item Arms: T1 (Feedback), T2 (Feedback + Training); plus the cross-cutting Stamp (GPS)
-	   \item Farmer models add region (province) FE; SEs clustered at district
+	   \item Region (province) FE in all models; SEs clustered at district
        \item Few clusters: \textbf{wild cluster bootstrap} (Webb, 9{,}999) and \textbf{randomization-inference} $p$-values alongside clustered SEs.
     \end{itemize}
 \end{itemize}
@@ -567,14 +582,13 @@
 	\includegraphics[width=\textwidth,keepaspectratio]{tmp/fig_selfrep_farmer.pdf}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
-		Note: one dot per AEA (N=41, rainfed sites only). Both axes are visits \emph{per month}. The AEA question asks
-		``How often do you visit farmer group on average \ldots\ times per month'', so the
-		self-report is already a per-group monthly rate and is used as answered; farmer reports are
-		the mean cumulative visits over the 11 bi-weekly rounds divided by 5.5 months.
-		Solid line: 45$^\circ$; dashed line and the slope in each panel title: OLS. All 41 AEAs
-		are plotted.
-		\par AEAs report 9.4 (baseline) and 13.0 (endline) visits per group per month against 1.6
-		reported by farmers, and 42 of 43 lie below the 45$^\circ$ line.
+		Note: one dot per AEA ($N=41$, rainfed sites only). Horizontal axis: visits per farmer group
+		per month, self-reported at endline. Vertical axis: visits per farmer per month reported in
+		the bi-weekly survey, for the whole season (left) and the planting window, 06-1--07-1
+		(right). Solid line: 45$^\circ$; dashed line and the slope in each panel title: OLS.
+		\par AEAs report about 9 (baseline) and 13 (endline) visits per group per month; farmers
+		report about 1.5 visits per month. The levels are not directly comparable (a group visit
+		need not reach every farmer), but the two measures are essentially uncorrelated.
 		***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
@@ -597,7 +611,7 @@
 		\notefont
 		Note: farmer$\times$round panel, estimated by OLS; outcomes are the \emph{number} of AEA
 		visits and contacts the farmer reports in the two-week round. Three seasonal windows: all 11 rounds, the
-		planting/establishment window (05-1--06-2) and the growing/harvest window (07-1--09-2).
+		planting window (06-1--07-1) and the growing season (07-2--08-2).
 		Round and province FE; SE clustered at district. Control mean measured in the first round
 		(all-rounds columns) or within the window. Wild-boot (Webb, 9{,}999) and RI (1{,}000)
 		$p$-values. ***, **, * : 1, 5, 10\%.
@@ -615,8 +629,8 @@
 		satisfaction question was actually asked; ``full'' additionally codes a round with no
 		contact at all as 0 (all 4{,}120 rounds). ``Add.\ ctrl'' adds the number of visits and
 		contacts in the round. Three seasonal
-		windows: all 11 rounds, planting/establishment (05-1--06-2) and growing/harvest
-		(07-1--09-2). Round and province FE; SE clustered at district. Wild-boot (Webb, 9{,}999)
+		windows: all 11 rounds, the planting window (06-1--07-1) and the growing season
+		(07-2--08-2). Round and province FE; SE clustered at district. Wild-boot (Webb, 9{,}999)
 		and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
@@ -662,10 +676,10 @@
 \end{frame}
 \begin{frame}{AEA: Motivation and Locus of Control}
 	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_aea_attitude.tex}}
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_aea_attitude_fe.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
-		Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=41$ AEAs, 8 districts).
+		Note: ANCOVA controlling for the baseline value, with region FE; SE clustered at district ($N=41$ AEAs, 8 districts).
 		Wild-boot = Webb wild cluster bootstrap (9{,}999); RI = randomization inference (1{,}000).
 		***, **, * : 1, 5, 10\%.
 	\end{minipage}
@@ -673,28 +687,21 @@
 
 \begin{frame}{AEA: Knowledge, Effort, Satisfaction}
 	\centering
-	\adjustbox{width=\textwidth,totalheight=0.52\textheight,keepaspectratio}{\input{tmp/e_aea_effort.tex}}
+	\adjustbox{width=\textwidth,totalheight=0.52\textheight,keepaspectratio}{\input{tmp/ms_e_aea_effort_fe.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
-		Note: ANCOVA controlling for the baseline value; SE clustered at district ($N=41$, 8 districts).
-		Knowledge (0--8) replaces the earlier 0--5 index: item A (``seed selection by salt or urea
-		water is good for what?'') is a \emph{multiple}-response question and the old 0/1 coding
-		scored 1 for every AEA in both waves, so it carried no information; the new score counts how
-		many of the four defensible purposes are named and adds the four single-choice items.
-		Self-reported visits remain noisy --- the bi-weekly farmer reports are the preferred effort
-		measure.
-		\par \textbf{Mediation analysis:} The indirect share is $-3.2\%$ (T1) and $5.2\%$ (T2). 
-		Restricting the mediator to
-		JICA-provided courses gives the same picture ($-2.3\%$ and $1.9\%$).
-		\emph{Caveat}: a post-treatment mediator is a bad control, so this split is descriptive,
-		not a causal mediation estimate.
-		***, **, * : 1, 5, 10\%.
+		Note: ANCOVA controlling for the baseline value, with region FE; SE clustered at district
+		($N=41$, 8 districts). Knowledge (0--5): one point for each of five questions; seed selection
+		(multiple response) scores 1 only if all four valid purposes are named. Training attendance
+		$=$ any agronomic training on rice production in the season. Self-reported visits are not a
+		reliable effort measure --- the bi-weekly farmer reports are preferred.
+		Wild-boot (Webb, 9{,}999) and RI (1{,}000) $p$-values. ***, **, * : 1, 5, 10\%.
 	\end{minipage}
 \end{frame}
 
 \begin{frame}{Farmer: Production and Income}
 	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_prod.tex}}
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/ms_e_farmer_prod.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
 		Note: ANCOVA with region FE and baseline-outcome control; SE clustered at district.
@@ -731,7 +738,7 @@
 
 \begin{frame}{Farmer: Inputs}
 	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_inputs.tex}}
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/ms_e_farmer_inputs.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
 		Note: same ANCOVA specification as the previous slide (region FE,
@@ -744,7 +751,7 @@
 
 \begin{frame}{Farmer: Management-Practice Adoption}
 	\centering
-	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/e_farmer_practice.tex}}
+	\adjustbox{width=\textwidth,totalheight=0.70\textheight,keepaspectratio}{\input{tmp/ms_e_farmer_practice.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
 		Note: ANCOVA with region FE and baseline-outcome control; SE clustered at district.
@@ -756,9 +763,9 @@
 \begin{frame}{Farmer: Labour by Who Does the Work and by Operation}
 	\centering
 	{\notefont\textbf{Man-days per hectare, male vs female}}\\[1pt]
-	\adjustbox{width=\textwidth,totalheight=0.30\textheight,keepaspectratio}{\input{tmp/e_labour_sex.tex}}\\[4pt]
+	\adjustbox{width=\textwidth,totalheight=0.30\textheight,keepaspectratio}{\input{tmp/ms_e_labour_sex.tex}}\\[4pt]
 	{\notefont\textbf{Man-days per hectare, by farm operation}}\\[1pt]
-	\adjustbox{width=\textwidth,totalheight=0.30\textheight,keepaspectratio}{\input{tmp/e_labour_ops.tex}}
+	\adjustbox{width=\textwidth,totalheight=0.30\textheight,keepaspectratio}{\input{tmp/ms_e_labour_ops.tex}}
 	\begin{minipage}{0.94\textwidth}
 		\notefont
 		Note: man-days per hectare. Same ANCOVA and same sample as the main tables (arms, stamp,
@@ -784,10 +791,17 @@
 \end{frame}
 \begin{frame}{Conclusion}
 \begin{itemize}
-	\item \textbf{What we find}:
-	\item \textbf{Mechanism}:
-	\item \textbf{Policy implication}:
-	\item \textbf{Caveats}: 8 district clusters, only 2 of them control
+	\item \textbf{What we find}: feedback, alone or with training, raised visits in the planting
+	season, farmers' satisfaction and the share of helpful advice, and strengthened agents' locus
+	of control but not their motivation. Farms: no change in yield or income, but less seed and
+	herbicide and a shift to hired labour. The GPS stamp had no effect.
+	\vspace{0.3cm}
+	\item \textbf{Policy implications}: agents' self-reported visits are uncorrelated with
+	farmers' reports, so effort needs independent verification --- farmer phone surveys are one
+	low-cost option; non-monetary measures can improve service delivery.
+	\vspace{0.3cm}
+	\item \textbf{Caveats}: 8 district clusters (2 control), so several results hold under
+	randomization inference but not the wild bootstrap; one season only; the mechanism is suggestive.
 \end{itemize}
 \end{frame}
 
