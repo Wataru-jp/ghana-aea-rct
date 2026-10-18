@@ -482,7 +482,9 @@ esttab yield lnyield nonprod rincome_ha lnrincome finc_ha lfinc lfincnb using "$
     stats(t12p bmean cmean wb_t1 wb_t2 ri_t1 ri_t2 N, ///
           fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
           labels("T1=T2 [p]" "Ctrl mean (base)" "Ctrl mean (end)" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
-    mtitles("Yield" "Log yield" "Crop fail" "Income/ha" "Log income" "Profit/ha" "Log profit" "Log profit, excl.\ bird") ///
+    * Column titles as the co-authors re-worded them on Overleaf (Oct 2026):
+    * the asinh outcomes are called IHS, not log, and units are spelled out.
+    mtitles("Yield (t/ha)" "Log yield" "Crop fail (0/1)" "Income (GHS/Ha)" "IHS income" "Profit (GHS/Ha)" "IHS profit" "IHS profit, excl.\ bird") ///
     star(* 0.10 ** 0.05 *** 0.01)
 
 * NB: inside mtitles, a "$" immediately before a letter is expanded by Stata as
@@ -800,7 +802,7 @@ esttab yield lnyield nonprod rincome_ha lnrincome finc_ha lfinc fincnb_ha lfincn
     stats(t12p bmean cmean wb_t1 wb_t2 ri_t1 ri_t2 N, ///
           fmt(%9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.3f %9.0g) ///
           labels("T1=T2 [p]" "Ctrl mean (base)" "Ctrl mean (end)" "Wild-boot p (T1)" "Wild-boot p (T2)" "RI p (T1)" "RI p (T2)" "Obs")) ///
-    mtitles("Yield" "Log yield" "Crop fail" "Income/ha" "Log income" "Profit/ha" "Log profit" "Profit excl.\ bird" "Log profit excl.") ///
+    mtitles("Yield" "Log yield" "Crop fail" "Income/ha" "IHS income" "Profit/ha" "IHS profit" "Profit excl.\ bird" "IHS profit excl.") ///
     star(* 0.10 ** 0.05 *** 0.01)
 
 di _n "=== farmer ANCOVA + robustness done ==="
