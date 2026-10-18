@@ -168,23 +168,39 @@ save "$tmp/map_labels.dta", replace
 *------------------------------------------------------------------------------
 * 6. Draw. The region overlay carries no legend entry; the irrigation triangles
 *    carry one shared entry.
+*
+*    Two versions, identical apart from the legend. The original keeps it under
+*    the map (clock position 5). The _v2 file puts it centre right, outside the
+*    plot region (pos 3, ring 1); that needs a wider canvas, so the graph is
+*    redisplayed at 6 x 5.2in before export, otherwise the map shrinks to make
+*    room for the legend column.
 *------------------------------------------------------------------------------
 use "$tmp/gadm2.dta", clear
-grmap arm, ///
-    clmethod(unique) ///
-    fcolor("130 130 130" "230 120 0" "0 130 60") ///
-    ocolor(black black black) osize(0.28 0.28 0.28) ///
-    ndfcolor(gs15) ndocolor(gs13) ndsize(0.04) ///
-    polygon(data("$tmp/gadm1_shp.dta") fcolor(none) ocolor(gs7) osize(0.40) legenda(off)) ///
-    point(data("$tmp/map_points.dta") x(longitude) y(latitude) ///
-          fcolor("205 205 205") ocolor(black) osize(0.35) size(3.0) shape(triangle) ///
-          legenda(on) leglabel("Irrigation scheme")) ///
-    label(data("$tmp/map_labels.dta") x(_X) y(_Y) label(nm) ///
-          size(2.7) position(12) gap(0.5) length(40)) ///
-    legenda(on) legend(order(2 3 4 6) pos(5) size(2.9) symy(3.4) symx(3.4) ///
-            region(lstyle(none))) ///
-    plotregion(margin(zero))
-
-graph export "$tmp/fig_map_study_areas.pdf", replace
+foreach spec in "5 0 fig_map_study_areas" "3 1 fig_map_study_areas_v2" {
+    local legpos : word 1 of `spec'
+    local legring: word 2 of `spec'
+    local out    : word 3 of `spec'
+    grmap arm, ///
+        clmethod(unique) ///
+        fcolor("130 130 130" "230 120 0" "0 130 60") ///
+        ocolor(black black black) osize(0.28 0.28 0.28) ///
+        ndfcolor(gs15) ndocolor(gs13) ndsize(0.04) ///
+        polygon(data("$tmp/gadm1_shp.dta") fcolor(none) ocolor(gs7) osize(0.40) legenda(off)) ///
+        point(data("$tmp/map_points.dta") x(longitude) y(latitude) ///
+              fcolor("205 205 205") ocolor(black) osize(0.35) size(3.0) shape(triangle) ///
+              legenda(on) leglabel("Irrigation scheme")) ///
+        label(data("$tmp/map_labels.dta") x(_X) y(_Y) label(nm) ///
+              size(2.7) position(12) gap(0.5) length(40)) ///
+        legenda(on) legend(order(2 3 4 6) pos(`legpos') ring(`legring') ///
+                size(2.9) symy(3.4) symx(3.4) region(lstyle(none))) ///
+        plotregion(margin(zero)) name(gmap, replace)
+    if `legring' == 1 graph display gmap, xsize(6) ysize(5.2)
+    graph export "$tmp/`out'.pdf", replace
+    graph drop gmap
+    di as txt "  `out'.pdf written (legend at clock position `legpos', ring `legring')"
+    capture erase "$tmp/__POL.dta"
+    capture erase "$tmp/__POI.dta"
+    capture erase "$tmp/__LAB.dta"
+}
 cd "$path"
-di _n "=== fig_map_study_areas.pdf written ==="
+di _n "=== both map versions written ==="
