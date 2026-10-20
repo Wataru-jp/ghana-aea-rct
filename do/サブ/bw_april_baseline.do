@@ -199,11 +199,9 @@ foreach y in Q1 Q2 satisfy2 adv_any {
           graphregion(color(white)) plotregion(margin(small)) ///
           name(g`i', replace) nodraw
 }
-grc1leg2 g1 g2 g3 g4, rows(2) graphregion(color(white)) name(gall, replace) ///
-    note("ANCOVA by round: the outcome on T1, T2, the GPS stamp, the April (04-2) value of the same outcome and region fixed effects." ///
-         "Bars are 95% CIs from district-clustered standard errors (8 clusters, t(7)). The T2 training was held on 29 April 2025. The" ///
-         "first feedback report covered the first half of May and was delivered after that round, so at 05-1 T1 is not yet exposed" ///
-         "and the first fully exposed round is 06-1.", size(1.9))
-graph display gall, xsize(7.2) ysize(5.4)
+* No note inside the graph: the deck and the manuscript carry their own, and a
+* Stata-rendered note does not scale with \adjustbox.
+grc1leg2 g1 g2 g3 g4, rows(2) graphregion(color(white)) name(gall, replace)
+graph display gall, xsize(9.5) ysize(5.2)
 graph export "$tmp/fig_bw_dynamic.pdf", replace
 di _n "=== fig_bw_dynamic.pdf written ==="

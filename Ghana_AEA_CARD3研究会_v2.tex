@@ -443,6 +443,19 @@ $\rightarrow$ \quad endline Jan--Feb 2026}
 	\end{minipage}
 \end{frame}
 
+\begin{frame}{Dynamics: Effects by Round, with April as the Baseline}
+	\centering
+	{\footnotesize \textbf{ANCOVA}, run separately for each round, with the pre-intervention April round (04-2) as the lag:\\[1pt]
+	$Y_{ijdt} = \alpha + \alpha_1 T1_d + \alpha_2 T2_d + \alpha_3 GPS_j + \gamma Y_{ijd,\text{04-2}} + \mu_r + \varepsilon_{ijdt}$\, (region FE; SE clustered by district)}\\[2pt]
+	\includegraphics[width=\textwidth,height=0.66\textheight,keepaspectratio]{tmp/fig_bw_dynamic.pdf}\\[1pt]
+	\begin{minipage}{1\textwidth}
+		\notefont
+		Note: one ANCOVA per round and outcome ($\approx 360$ farmers, 8 districts); dots are $\hat\alpha_1,\hat\alpha_2$, bars 95\% CIs from district-clustered SE ($t(7)$). April was fielded 25 Apr--1 May and asks about the preceding two weeks, so it precedes both interventions. ``Satisfied'' and ``helpful advice'' are 0 in rounds with neither a visit nor a contact. The T2 training was held 29 Apr and the first feedback report, covering the first half of May, was delivered after that round: T1 is unexposed at 05-1 and 06-1 is the first fully exposed round.
+	\end{minipage}
+\end{frame}
+
+
+
 \renewcommand{\footsec}{4.~AEA- and farm-level impacts}
 \begin{frame}[plain,noframenumbering]
 	\vfill
